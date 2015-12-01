@@ -1,0 +1,57 @@
+@import "mixins";
+
+* {
+    @include proxima();
+}
+body {
+    overflow: auto;
+}
+h1, h2, h3, h4, h5, h6 {
+    @include proxima-thin();
+    color: $green;
+}
+
+h1 {
+    @include proxima-thin();
+    font-size: 3em;
+}
+h2 {
+    @include proxima-thin();
+    color: $dark-gray;
+    font-size: 2em;
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-size: .8em;
+    color: $dark-gray;
+}
+.naked_link {
+    @include naked_link()
+}
+#page-wrapper, .wrapper {
+    padding-bottom: 80px;
+}
+#content__section {
+    margin-left: 220px;
+}
+.main_content {
+    min-height: 300px;
+    padding-top: 36px;
+    z-index: 2;
+}
+.fullframe {
+    width: 100%;
+}
+.mainframe {
+    width: 80%;
+    margin: 0 auto;
+}
+.hidden {
+    display: none;
+}
+.form-control {
+    color: $dark-green;
+    font-weight: bold;
+}

@@ -1,0 +1,32 @@
+@import "colors";
+@import "mixins";
+
+.footer {
+    width: 100%;
+    min-height: 70px;
+    background-color: $dark-gray;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+
+    .copyright {
+        color: $white;
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .conditions {
+        color: $white;
+        width: 80%;
+        margin: 0 auto;
+        font-size: .7em;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+
+    a {
+        @include naked_link()
+    }
+}

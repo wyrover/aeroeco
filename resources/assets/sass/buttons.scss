@@ -1,0 +1,97 @@
+@import "mixins";
+
+.btn-uam {
+    background-color: $green;
+    border-color: $green;
+    color: $white;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+    background-color: #36a717;
+    background-image: -moz-linear-gradient(top,$green,$dark-green);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from($green),to($dark-green));
+    background-image: -webkit-linear-gradient(top,$green,$dark-green);
+    background-image: -o-linear-gradient(top,$green,$dark-green);
+    background-image: linear-gradient(to bottom,$green,$dark-green);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3cb91a', endColorstr='#ff2d8c13', GradientType=0);
+    border-color: $dark-green $dark-green #18490a;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+}
+.btn-uam:hover,
+.btn-uam:focus {
+    text-decoration: none;
+    background-position: 0 -15px;
+    -webkit-transition: background-position .1s linear;
+    -moz-transition: background-position .1s linear;
+    -o-transition: background-position .1s linear;
+    transition: background-position .1s linear;
+}
+.btn-uam:hover,
+.btn-uam:focus {
+    background-color: $dark-green;
+}
+.btn-uam:active,
+.btn-uam.active,
+.btn-uam.active:hover {
+    background-color: #35a317;
+    border-color: #048204;
+}
+.btn-uam.disabled:hover,
+.btn-uam.disabled:focus,
+.btn-uam.disabled:active,
+.btn-uam.disabled.active,
+.btn-uam[disabled] .btn-uam:hover,
+.btn-uam[disabled] .btn-uam:focus,
+.btn-uam[disabled] .btn-uam:active,
+.btn-uam[disabled] .btn-uam.active {
+    background-color: $green;
+    border-color: $green;
+}
+
+.btn-dark {
+    background-color: $dark-gray;
+    border-color: $dark-gray;
+    color: $white;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+    background-color: $dark-gray;
+    background-image: -moz-linear-gradient(top,$dark-gray,$dark-gray);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from($dark-gray),to($dark-gray));
+    background-image: -webkit-linear-gradient(top,$dark-gray,$dark-gray);
+    background-image: -o-linear-gradient(top,$dark-gray,$dark-gray);
+    background-image: linear-gradient(to bottom,$dark-gray,$dark-gray);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3cb91a', endColorstr='#ff2d8c13', GradientType=0);
+    border-color: $dark-gray $dark-gray #333;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+}
+.btn-dark:hover,
+.btn-dark:focus {
+    text-decoration: none;
+    background-position: 0 -15px;
+    -webkit-transition: background-position .1s linear;
+    -moz-transition: background-position .1s linear;
+    -o-transition: background-position .1s linear;
+    transition: background-position .1s linear;
+}
+.btn-dark:hover,
+.btn-dark:focus {
+    color: $green;
+    background-color: $dark-gray;
+}
+.btn-dark:active,
+.btn-dark.active,
+.btn-dark.active:hover {
+    color: $green;
+    background-color: $dark-gray;
+    border-color: $dark-gray;
+}
+.btn-dark.disabled:hover,
+.btn-dark.disabled:focus,
+.btn-dark.disabled:active,
+.btn-dark.disabled.active,
+.btn-dark[disabled] .btn-dark:hover,
+.btn-dark[disabled] .btn-dark:focus,
+.btn-dark[disabled] .btn-dark:active,
+.btn-dark[disabled] .btn-dark.active {
+    background-color: $dark-gray;
+    border-color: $dark-gray;
+}

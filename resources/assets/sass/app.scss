@@ -1,1 +1,9 @@
-@import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "colors";
+@import "buttons";
+@import "mixins";
+@import "../vendor/bootstrap-sass/assets/stylesheets/_bootstrap";
+@import "font-awesome";
+@import "header";
+@import "footer";
+@import "sidebar";
+@import "shared";

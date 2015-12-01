@@ -1,0 +1,20 @@
+$black: rgb(0,0,0);
+$white: rgb(255,255,255);
+$light-gray: rgb(235,235,235);
+$gray: rgb(194,194,194);
+$medium-gray: rgb(194,194,194);
+$dark-gray: rgb(59,59,59);
+$green: rgb(141,198,63);
+$dark-green: rgb(117,166,81);
+$red: #e84e40;
+$primary-color: rgb(141,198,63);
+
+.black { color: $black; }
+.white { color: $white; }
+.lightGray { color: $light-gray; }
+.gray { color: $gray; }
+.mediumGray { color: $medium-gray; }
+.darkGray { color: $dark-gray; }
+.green { color: $dark-gray; }
+.darkGreen { color: $dark-green; }
+.red { color: $red; }

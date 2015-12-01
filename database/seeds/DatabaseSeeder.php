@@ -5,17 +5,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         Model::unguard();
 
-        // $this->call(UserTableSeeder::class);
+	$seeders = [
+		'AddressesTableSeeder',
+		'AircraftsTableSeeder',
+		'AtasTableSeeder',
+		'CompaniesTableSeeder',
+		'ConditionsTableSeeder',
+		'CountriesTableSeeder',
+		'LocationsTableSeeder',
+		'PhonesTableSeeder',
+		'ProjectTypesTableSeeder',
+		'RolesTableSeeder',
+		'UsersTableSeeder',
+	];
 
-        Model::reguard();
+	foreach($seeders as $seeder){
+		$this->call($seeder);
+	}
+
+	Model::reguard();
     }
 }
