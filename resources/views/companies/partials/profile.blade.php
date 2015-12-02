@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-6">
         <label>Company DBA</label>
-        <input type="text" class="form-control" name="dba" placeholder="Company DBA Address">
+        <input type="text" class="form-control" name="dba" placeholder="Company DBA">
     </div>
 </div>
 <div class="row">

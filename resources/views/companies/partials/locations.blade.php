@@ -44,7 +44,7 @@
         <p><i class="fa fa-plus"></i>&nbsp;
             Add another location</p>
     </div>
-    <div class="col-md-6 pull-right">
-        <button class="btn btn-uam">Save Changes</button>
+    <div class="col-md-6">
+        <button class="btn btn-uam pull-right">Save Changes</button>
     </div>
 </div>

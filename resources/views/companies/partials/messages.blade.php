@@ -13,7 +13,7 @@
 </div>
 <div class="row">
     <div class="col-md-6">&nbsp;</div>
-    <div class="col-md-6 pull-right">
-        <button class="btn btn-uam">Save Changes</button>
+    <div class="col-md-6">
+        <button class="btn btn-uam pull-right">Save Changes</button>
     </div>
 </div>

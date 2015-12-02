@@ -16,6 +16,7 @@ class CreatePhonesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('company_id')->unsigned()->nullable();
+            $table->integer('location_id')->unsigned()->nullable();
             $table->string('phone');
             $table->enum('type', ['fax', 'home', 'mobile', 'work'])->default('work');
             $table->timestamps();
