@@ -4,38 +4,8 @@
         <input type="text" class="form-control" name="company" placeholder="Company Legal Name">
     </div>
     <div class="col-md-6">
-        <label>Company DBA Address</label>
+        <label>Company DBA</label>
         <input type="text" class="form-control" name="dba" placeholder="Company DBA Address">
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <label>Address</label>
-        <input type="text" class="form-control" name="address" placeholder="Address">
-    </div>
-    <div class="col-md-6">
-        <label>Address 2</label>
-        <input type="text" class="form-control" name="address2" placeholder="Address 2">
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <label>City / Town</label>
-        <input type="text" class="form-control" name="city" placeholder="City / Town">
-    </div>
-    <div class="col-md-6">
-        <label>State / Province / County</label>
-        <input type="text" class="form-control" name="state" placeholder="State / Province / County">
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <label>Postal Code</label>
-        <input type="text" class="form-control" name="zip" placeholder="Postal Code">
-    </div>
-    <div class="col-md-6">
-        <label>Country</label>
-        <input type="text" class="form-control" name="country" placeholder="Country">
     </div>
 </div>
 <div class="row">
@@ -54,8 +24,90 @@
         <input type="file" class="form-control" name="logo">
     </div>
     <div class="col-md-6">
-        <span class="pull-right" style="margin-top: 32px;">
-        <input type="submit" class="btn btn-uam" value="Save Changes">
-        </span>
+        &nbsp;
     </div>
+</div>
+<br><br>
+<div class="row">
+    <table class="table table-striped rowed table-condensed disp-sm" style="width:90%; margin: 0 auto;">
+        <tr class="text-center success">
+            <td colspan="5">
+                <strong>COMPANY CONTACTS</strong>
+            </td>
+        </tr>
+        <tr>
+            <th>Contact Type</th>
+            <th>Contact Name</th>
+            <th>Title</th>
+            <th>Phone</th>
+            <th>Fax</th>
+        </tr>
+        <tr>
+            <td>RFQ Recipient</td>
+            <td>
+                <input type="text" class=form-control>
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td>MRO RFQ Recipient</td>
+            <td>
+                <input type="text" class=form-control>
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td>Sales</td>
+            <td>
+                <input type="text" class=form-control>
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td>Accounting</td>
+            <td>
+                <input type="text" class=form-control>
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                <input type="text" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <span class="pull-right">
+                    <input type="submit" class="btn btn-uam" value="Save Changes">
+                </span>
+            </td>
+        </tr>
+    </table>
 </div>

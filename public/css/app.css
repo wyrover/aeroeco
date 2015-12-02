@@ -11870,6 +11870,12 @@ button.close {
   }
 }
 
+th {
+  text-align: center;
+  font-weight: bold;
+  font-size: 11px;
+}
+
 .black {
   color: black;
 }
