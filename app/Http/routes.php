@@ -4,7 +4,7 @@ Route::get('/',['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 Route::get('/home',['as' => 'home', 'uses' => 'DashboardController@index']);
 
 // COMPANIES
-Route::get('/newco', 'CompaniesController@newco');
+Route::get('/companies/newco', 'CompaniesController@newco');
 Route::resource('companies', 'CompaniesController');
 
 // PROJECTS
@@ -34,8 +34,7 @@ Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
-//Route::get('auth/register/{tier}', 'Auth\AuthController@getRegister');
-Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::get('auth/register/{tier}', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 // Password reset link request routes...

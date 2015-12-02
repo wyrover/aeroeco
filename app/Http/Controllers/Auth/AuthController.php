@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Http\Requests\Request;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -10,36 +11,12 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
-
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+   protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
@@ -48,12 +25,7 @@ class AuthController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
+    /* Create a new user instance after a valid registration. */
     protected function create(array $data)
     {
         return User::create([
@@ -62,4 +34,33 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-}
+
+    /* Show the application login form. */
+    public function getLogin()
+    {
+        return view('auth.login');
+    }
+
+    /* Show the tiered registration form. */
+    public function getRegister($param)
+    {
+        $tier = $param;
+        return view('auth.register', compact('tier'));
+    }
+
+    /** Handle a registration request for the application. */
+    public function postRegister(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        Auth::login($this->create($request->all()));
+
+        return redirect($this->redirectPath());
+    }
+} // end controller

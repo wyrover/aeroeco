@@ -12,6 +12,7 @@
               @endif
 
              {!! Form::open(['url' => '/auth/register']) !!}
+                 <input type="hidden" name="tier" value="{{ $tier }}">
                  <div>
                      First Name
                      <input type="email" class="form-control" name="email" value="{{ old('email') }}">

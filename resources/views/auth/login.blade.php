@@ -7,10 +7,12 @@
         <h1>Welcome to the Aerospace Disassembly Consortium (ADC)</h1>
         <br><br>
         <div class="well" style="width: 20%; margin: 0 auto;">
+
             @if ($errors->any())
                 @include('errors.errors')
             @endif
-            {!! Form::open(['url' => '/auth/login']) !!}
+
+                {!! Form::open(['url' => '/auth/login']) !!}
                 <label>Email Address</label>
                 <input type="email" class="form-control" placeholder="Email Address" name="email" value="{{ old('email') }}">
                 <br>
@@ -25,7 +27,9 @@
                     </div>
                     <div class="login-submit">
                         <p class="text-right" style="margin-top: -18px;">
-                            <button type="submit" class="btn btn-uam">Log In</button>
+                            <button type="submit" class="btn btn-uam">
+                                Log In
+                            </button>
                         </p>
                     </div>
                 </div>
@@ -37,7 +41,7 @@
                 </div>
                 <div>
                     <p style="font-size: 0.75em;">
-                        <a href="/auth/register" class="naked_link">Register for a free preview</a>
+                        <a href="/auth/register/5" class="naked_link">Register for a free preview</a>
                     </p>
                 </div>
             {!! Form::close() !!}

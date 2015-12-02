@@ -4,7 +4,10 @@
 @import "../vendor/bootstrap-sass/assets/stylesheets/_bootstrap";
 @import "font-awesome";
 @import "companies";
+
+// THESE FOUR ARE ALWAYS LAST
 @import "header";
 @import "footer";
 @import "sidebar";
 @import "shared";
+// DON'T PUT ANY RULES BELOW -- THIS FILE FOR IMPORTS ONLY
