@@ -39,6 +39,10 @@ class CompaniesController extends ApiController
         return $record;
     }
 
+    public function create() {
+        return view('companies.create');
+    }
+
     public function store()
     {
         // insert new
@@ -58,5 +62,9 @@ class CompaniesController extends ApiController
 
         $record->fill(Input::all())->save();
         return $this->respond($record);
+    }
+
+    public function newco() {
+        return view('companies.tabs');
     }
 }

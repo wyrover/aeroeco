@@ -10,8 +10,8 @@ Hi {{ $name }},
 <br>
 A man walks into a bar with a cheese sandwich under his arm. "A pint of Guinness for me and the cheese sandwich," he says to the barman.
 "I'm sorry, sir," replies the barman, "we don't serve food in here."
-<br>
-Best Regards,
-Laravel Test
+<br><br>
+Best Regards,<br>
+Laravel Testing Service
 </body>
 </html>

@@ -11211,6 +11211,84 @@ button.close {
   visibility: visible;
 }
 
+.companies {
+  /* tab color */
+  /* active tab color */
+  /* hover tab color */
+}
+
+.companies label {
+  margin-top: 6px;
+}
+
+.companies .row {
+  line-height: 1.6em;
+}
+
+.companies .nav-tabs > li > a {
+  background-color: #333333;
+  border-color: #777777;
+  color: #fff;
+}
+
+.companies .nav-tabs > li.active > a,
+.companies .nav-tabs > li.active > a:hover,
+.companies .nav-tabs > li.active > a:focus {
+  color: #fff;
+  background-color: #666;
+  border: 1px solid #888888;
+}
+
+.companies .nav-tabs > li > a:hover {
+  border-color: #000000;
+  background-color: #111111;
+}
+
+.black {
+  color: black;
+}
+
+.white {
+  color: white;
+}
+
+.lightGray {
+  color: #ebebeb;
+}
+
+.gray {
+  color: #c2c2c2;
+}
+
+.mediumGray {
+  color: #c2c2c2;
+}
+
+.darkGray {
+  color: #3b3b3b;
+}
+
+.green {
+  color: #3b3b3b;
+}
+
+.darkGreen {
+  color: #75a651;
+}
+
+.red {
+  color: #e84e40;
+}
+
+.wf-loading {
+  visibility: hidden;
+}
+
+.wf-active,
+.wf-inactive {
+  visibility: visible;
+}
+
 .navbar-default {
   position: relative;
   width: 100%;

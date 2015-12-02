@@ -47,6 +47,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
     ],
     'aliases' => [
         'App'       => Illuminate\Support\Facades\App::class,
@@ -85,6 +86,7 @@ return [
         'Form'      => Illuminate\Html\FormFacade::class,
         'HTML'      => Illuminate\Html\HtmlFacade::class,
         'Debugger'  => Barryvdh\Debugbar\Facade::class,
+        'Gravatar'  => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
     ],
 
 ];
