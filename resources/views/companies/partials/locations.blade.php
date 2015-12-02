@@ -40,6 +40,11 @@
 </div>
 <br><br>
 <div class="row">
-    <p><i class="fa fa-plus"></i>&nbsp;
-        Add another location</p>
+    <div class="col-md-6">
+        <p><i class="fa fa-plus"></i>&nbsp;
+            Add another location</p>
+    </div>
+    <div class="col-md-6 pull-right">
+        <button class="btn btn-uam">Save Changes</button>
+    </div>
 </div>

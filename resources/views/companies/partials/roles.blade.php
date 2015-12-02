@@ -1,8 +1,7 @@
 <div class="row" style="margin-top: 20px;">
-    <p class="into-text">
+    <p class="intro__text">
         All users in AeroEco have one of the following roles. You can configure permissions for each role.
     </p>
-    <br>
     <table class="table table-striped rowed table-condensed">
         <tr class="success">
             <th>PERMISSIONS</th>

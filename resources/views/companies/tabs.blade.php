@@ -15,11 +15,6 @@
                 </a>
             </li>
             <li role="presentation">
-                <a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab">
-                    NOTIFICATIONS
-                </a>
-            </li>
-            <li role="presentation">
                 <a href="#locations" aria-controls="locations" role="tab" data-toggle="tab">
                     LOCATIONS
                 </a>
@@ -27,6 +22,11 @@
             <li role="presentation">
                 <a href="#roles" aria-controls="roles" role="tab" data-toggle="tab">
                     ROLES
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab">
+                    NOTIFICATIONS
                 </a>
             </li>
             <li role="presentation">
@@ -51,14 +51,14 @@
             <div role="tabpanel" class="tab-pane fade in active" id="profile">
                 @include('companies.partials.profile')
             </div>
-            <div role="tabpanel" class="tab-pane fade in" id="notifications">
-                @include('companies.partials.notifications')
-            </div>
             <div role="tabpanel" class="tab-pane fade in" id="locations">
                 @include('companies.partials.locations')
             </div>
             <div role="tabpanel" class="tab-pane fade in" id="roles">
                 @include('companies.partials.roles')
+            </div>
+            <div role="tabpanel" class="tab-pane fade in" id="notifications">
+                @include('companies.partials.notifications')
             </div>
             <div role="tabpanel" class="tab-pane fade in" id="users">
                 @include('companies.partials.users')

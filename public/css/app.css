@@ -25,7 +25,7 @@
 }
 
 .green {
-  color: #3b3b3b;
+  color: #75a651;
 }
 
 .darkGreen {
@@ -61,7 +61,7 @@
 }
 
 .green {
-  color: #3b3b3b;
+  color: #75a651;
 }
 
 .darkGreen {
@@ -196,7 +196,7 @@
 }
 
 .green {
-  color: #3b3b3b;
+  color: #75a651;
 }
 
 .darkGreen {
@@ -11191,7 +11191,7 @@ button.close {
 }
 
 .green {
-  color: #3b3b3b;
+  color: #75a651;
 }
 
 .darkGreen {
@@ -11269,7 +11269,7 @@ button.close {
 }
 
 .green {
-  color: #3b3b3b;
+  color: #75a651;
 }
 
 .darkGreen {
@@ -11565,7 +11565,7 @@ button.close {
 }
 
 .green {
-  color: #3b3b3b;
+  color: #75a651;
 }
 
 .darkGreen {
@@ -11601,7 +11601,7 @@ button.close {
 }
 
 .green {
-  color: #3b3b3b;
+  color: #75a651;
 }
 
 .darkGreen {
@@ -11688,7 +11688,7 @@ button.close {
 }
 
 .green {
-  color: #3b3b3b;
+  color: #75a651;
 }
 
 .darkGreen {
@@ -11901,7 +11901,7 @@ th {
 }
 
 .green {
-  color: #3b3b3b;
+  color: #75a651;
 }
 
 .darkGreen {
@@ -12012,4 +12012,10 @@ label {
 .form-control {
   color: #75a651;
   font-weight: bold;
+}
+
+.intro__text {
+  font-size: .8em;
+  font-weight: bold;
+  font-style: italic;
 }
