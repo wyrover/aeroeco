@@ -13,8 +13,21 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\Inspire::class,
-    ];
+		\App\Console\Commands\Comments::class,
+		\App\Console\Commands\Controller::class,
+		\App\Console\Commands\DatabaseSeeder::class,
+		\App\Console\Commands\Inspire::class,
+		\App\Console\Commands\MigrateMysqlSchemaCommand::class,
+		\App\Console\Commands\Migrations::class,
+		\App\Console\Commands\Model::class,
+		\App\Console\Commands\PhpInfo::class,
+		\App\Console\Commands\PhpUnits::class,
+		\App\Console\Commands\RegisterCommands::class,
+		\App\Console\Commands\Schema::class,
+		\App\Console\Commands\Seeder::class,
+		\App\Console\Commands\UpdateModel::class,
+		\App\Console\Commands\Versions::class,
+	];
 
     /**
      * Define the application's command schedule.
@@ -25,6 +38,6 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('inspire')
-                 ->hourly();
+            ->hourly();
     }
 }
