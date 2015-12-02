@@ -1,17 +1,17 @@
 <?php
 namespace App\Http\Controllers;
 
-use {{use_path}}{{model_singular}};
+use App\Models\CompanyContact;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 
-class {{model_plural}}Controller extends ApiController
+class CompanyContactsController extends ApiController
 {
     protected $records;
 
-    public function __construct({{model_singular}} $records)
+    public function __construct(CompanyContact $records)
     {
         $this->records = $records;
         $this->related = [];
@@ -20,7 +20,7 @@ class {{model_plural}}Controller extends ApiController
     public function index()
     {
         // show all
-        $records = {{model_singular}}::with($this->related)->get();
+        $records = CompanyContact::with($this->related)->get();
         return $records;
     }
 
@@ -29,20 +29,20 @@ class {{model_plural}}Controller extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('{{model_singular}} was deleted');
+        return $this->respondOK('CompanyContact was deleted');
     }
 
     public function show($id)
     {
         //show single
-        $record = {{model_singular}}::with($this->related)->findOrFail($id);
+        $record = CompanyContact::with($this->related)->findOrFail($id);
         return $record;
     }
 
     public function store()
     {
         // insert new
-        $record = {{model_singular}}::create(Input::all());
+        $record = CompanyContact::create(Input::all());
         return $this->respond($record->id);
     }
 
@@ -52,7 +52,7 @@ class {{model_plural}}Controller extends ApiController
         $record = $this->records->find($id);
 
         if(! $record){
-            {{model_singular}}::create(Input::all());
+            CompanyContact::create(Input::all());
             return $this->respond($record);
         }
 
