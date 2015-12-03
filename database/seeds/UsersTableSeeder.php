@@ -13,6 +13,16 @@ class UsersTableSeeder extends Seeder
 
         $collection = [
             [
+                'firstname' => 'AeroEco',
+                'lastname' => 'Software',
+                'email' => 'groundcontrol@eco.local',
+                'password' => Hash::make('password'),
+                'company_id' => 5,
+                'is_admin' => true,
+                'can_sell' => true,
+                'role_id' => 1,
+                'tier' => 1
+            ],[
                 'firstname' => 'Jon',
                 'lastname' => 'Gravois',
                 'email' => 'jongravois@gmail.com',

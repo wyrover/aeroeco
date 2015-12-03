@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
 		'PhonesTableSeeder',
 		'ProjectTypesTableSeeder',
 		'RolesTableSeeder',
+		'SystemicsTableSeeder',
 		'UsersTableSeeder',
 	];
 

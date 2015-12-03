@@ -6,8 +6,7 @@
     <br><br>
     <div class="row">
         <div class="col-md-12 text-center">
-            <br><h2>Thanks for coming aboard!<br>You're the company administration ... waaay to go!<br>Click to create your company now!</h2>
-            <a href="/companies/newco" class="btn btn-default">Begin</a>
+            <br><h2>Thanks for coming aboard!<br><br>You're the company administration ... waaay to go!<br><br>Click to create your company profile now!</h2><br><br><a href="/companies/newco" class="btn btn-default">Begin</a>
         </div>
     </div>
 @stop
