@@ -40,3 +40,21 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // Password reset link request routes...
 Route::get('password/email', 'Auth\PasswordController@getEmail');
 Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+// API
+Route::group(['prefix' => 'api/'], function () {
+    Route::resource('addresses', 'AddressesController');
+    Route::resource('aircrafts', 'AircraftsController');
+    Route::resource('atas', 'AtasController');
+    Route::resource('companycontacts', 'CompanyContactsController');
+    Route::resource('companies', 'CompaniesController');
+    Route::resource('countries', 'CountriesController');
+    Route::resource('systemics', 'SystemicsController');
+    Route::resource('locations', 'LocationsController');
+    Route::resource('phones', 'PhonesController');
+    Route::resource('projects', 'ProjectsController');
+    Route::resource('projecttypes', 'ProjectTypesController');
+    Route::resource('roles', 'RolesController');
+    Route::resource('systemics', 'SystemicsController');
+    Route::resource('users', 'UsersController');
+});
