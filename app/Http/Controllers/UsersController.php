@@ -15,12 +15,13 @@ class UsersController extends ApiController
     public function __construct(User $records)
     {
         $this->records = $records;
+        $this->related = ['company'];
     }
 
     public function index()
     {
         // show all
-        $records = User::all();
+        $records = User::with($this->related)->get();
         return $records;
     }
 
@@ -35,7 +36,7 @@ class UsersController extends ApiController
     public function show($id)
     {
         //show single
-        $record = $this->records->findOrFail($id);
+        $record = User::with($this->related)->findOrFail($id);
         return $record;
     }
 

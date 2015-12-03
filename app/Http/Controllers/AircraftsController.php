@@ -15,12 +15,13 @@ class AircraftsController extends ApiController
     public function __construct(Aircraft $records)
     {
         $this->records = $records;
+        $this->related = [];
     }
 
     public function index()
     {
         // show all
-        $records = Aircraft::all();
+        $records = Aircraft::with($this->related)->get();
         return $records;
     }
 
@@ -35,7 +36,7 @@ class AircraftsController extends ApiController
     public function show($id)
     {
         //show single
-        $record = $this->records->findOrFail($id);
+        $record = Aircraft::with($this->related)->findOrFail($id);
         return $record;
     }
 

@@ -48,6 +48,7 @@ return [
         Illuminate\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
+        App\Providers\ViewComposerServiceProvider::class,
     ],
     'aliases' => [
         'App'       => Illuminate\Support\Facades\App::class,
