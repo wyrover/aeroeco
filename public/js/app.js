@@ -2369,7 +2369,6 @@ if (typeof jQuery === 'undefined') {
 
 $("#menu-toggle").click(function(e) {
     e.preventDefault();
-    alert('Topper');
     $("#wrapper").toggleClass("toggled");
 });
  $("#menu-toggle-2").click(function(e) {
