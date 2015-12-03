@@ -24,6 +24,9 @@ Route::get('/emailer', function() {
 
     return 'Email Sent!';
 });
+Route::get('/event', function() {
+    logit('created a test event');
+});
 Route::get('/welcome_page', function () {
     return view('pages.welcome');
 });
