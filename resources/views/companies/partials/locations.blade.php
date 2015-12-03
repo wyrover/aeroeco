@@ -36,6 +36,16 @@
                 <input type="text" class="form-control" name="country" placeholder="Country">
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Telephone</label>
+                <input type="text" class="form-control" name="telephone" placeholder="Telephone">
+            </div>
+            <div class="col-md-6">
+                <label>Fax</label>
+                <input type="text" class="form-control" name="fax" placeholder="Fax">
+            </div>
+        </div>
     </div>
 </div>
 <br><br>
