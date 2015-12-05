@@ -12,7 +12,7 @@ class AddressesTableSeeder extends Seeder
 
         $collection = [
             [
-                'company_id' => 1,
+                'company_id' => 5,
                 'country_id' => 1,
                 'type' => 'physical',
                 'address1' => '5350 Poplar Ave',

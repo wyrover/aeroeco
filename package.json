@@ -1,11 +1,14 @@
 {
   "private": true,
   "devDependencies": {
+    "babel-runtime": "^6.3.13",
     "gulp": "^3.8.8"
   },
   "dependencies": {
     "gulp-shell": "^0.5.1",
     "gulp-sourcemaps": "^1.6.0",
-    "laravel-elixir": "*"
+    "laravel-elixir": "*",
+    "laravel-elixir-vueify": "^1.0.0",
+    "stylus": "^0.52.4"
   }
 }

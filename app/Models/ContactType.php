@@ -15,6 +15,7 @@ class ContactType extends Model
     /* CASTING */
 
     /* RELATIONSHIPS */
+
     /* RELATIONSHIPS */
 
     /* METHODS */

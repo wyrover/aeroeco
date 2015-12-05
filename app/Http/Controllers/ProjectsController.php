@@ -65,4 +65,8 @@ class ProjectsController extends ApiController
         $record->fill(Input::all())->save();
         return $this->respond($record);
     }
+
+    public function contract() {
+        return view('contracts.contract');
+    }
 }

@@ -10,6 +10,7 @@ Route::resource('companies', 'CompaniesController');
 // PROJECTS
 Route::resource('projects', 'ProjectsController');
 //Route::get('/projects/create', ['as' => 'projects.create', 'uses' => 'ProjectsController@create']);
+Route::get('projects/{id}/contract', 'ProjectsController@contract');
 
 // TEST ROUTES
 Route::get('/emailer', function() {
@@ -26,6 +27,9 @@ Route::get('/emailer', function() {
 });
 Route::get('/event', function() {
     logit('created a test event');
+});
+Route::get('/tester', function () {
+    return view('pages.tester');
 });
 Route::get('/welcome_page', function () {
     return view('pages.welcome');

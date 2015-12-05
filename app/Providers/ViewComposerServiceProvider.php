@@ -30,8 +30,9 @@ class ViewComposerServiceProvider extends ServiceProvider
     private function composeSidebar()
     {
         view()->composer('layouts.partials.sidebar', function ($view) {
+            $user = Auth::user();
             $company = Auth::user()->company;
-            $view->with('company', $company);
+            $view->with(['user' => $user, 'company' => $company]);
         });
     }
 }

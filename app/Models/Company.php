@@ -19,6 +19,10 @@ class Company extends Model
     {
         return $this->hasMany('App\Models\Address');
     }
+    public function contacts()
+    {
+        return $this->hasMany('App\Models\CompanyContact');
+    }
     public function phones()
     {
         return $this->hasMany('App\Models\Phone');

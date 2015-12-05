@@ -39,7 +39,9 @@ class CompaniesTableSeeder extends Seeder
                 'company' => 'Robert Half Technology',
                 'dba' => 'RHT',
                 'domain' => 'rht.com',
-                'tier' => '4'
+                'tier' => '4',
+                'reply_to' => 'jon.gravois@rhsps.com',
+                'website' => 'http://www.rhtmemphis.com'
             ]
         ];
 

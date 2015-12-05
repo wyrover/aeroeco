@@ -12,7 +12,7 @@ class PhonesTableSeeder extends Seeder
 
         $collection = [
             [
-                'company_id' => 1,
+                'company_id' => 5,
                 'phone' => '9016824064',
                 'type' => 'work'
             ],

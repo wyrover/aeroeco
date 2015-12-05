@@ -35,6 +35,7 @@
     </div>
 </div>
 </body>
+<!-- Bootstrap and Bootcards JS -->
 {!! HTML::script('js/app.js') !!}
 <!-- App scripts -->
 @stack('scripts')

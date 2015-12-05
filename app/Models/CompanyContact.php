@@ -15,6 +15,11 @@ class CompanyContact extends Model
     /* CASTING */
 
     /* RELATIONSHIPS */
+    public function type()
+    {
+        return $this->hasOne('App\Models\ContactType', 'id');
+    }
+
     /* RELATIONSHIPS */
 
     /* METHODS */

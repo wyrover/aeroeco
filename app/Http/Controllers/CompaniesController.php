@@ -15,12 +15,13 @@ class CompaniesController extends ApiController
     public function __construct(Company $records)
     {
         $this->records = $records;
+        $this->related = ['contacts.type'];
     }
 
     public function index()
     {
         // show all
-        $records = Company::all();
+        $records = Company::with($this->related)->get();
         return $records;
     }
 
@@ -35,7 +36,7 @@ class CompaniesController extends ApiController
     public function show($id)
     {
         //show single
-        $record = $this->records->findOrFail($id);
+        $record = $this->records->with($this->related)->findOrFail($id);
         return $record;
     }
 

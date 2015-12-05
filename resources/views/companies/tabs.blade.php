@@ -70,7 +70,6 @@
                 @include('companies.partials.emails')
             </div>
         </div>
-
     </div>
 @stop
 

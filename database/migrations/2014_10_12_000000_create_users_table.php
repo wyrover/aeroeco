@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->integer('company_id')->default(1);
+            $table->boolean('all_companies')->default(false);
             $table->boolean('is_admin')->default(false);
             $table->boolean('can_sell')->default(false);
             $table->integer('role_id')->nullable();

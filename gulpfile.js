@@ -1,6 +1,7 @@
 var elixir = require('laravel-elixir');
 var gulp = require('gulp');
 var shell = require('gulp-shell');
+require('laravel-elixir-vueify');
 
 var Task = elixir.Task;
 
@@ -31,6 +32,7 @@ elixir(function(mix) {
             paths.vendor + 'bootstrap/dist/js/bootstrap.js',
             paths.scripts + 'sidebar_menu.js'
         ], 'public/js/app.js')
+        .browserify('main.js')
         //.phpUnit()
         .speak('Compilation complete!');
 });
