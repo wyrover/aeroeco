@@ -1,6 +1,6 @@
 @extends('layouts.logged')
 
-@section('title', 'AeroEco')
+@section('title', 'AeroEco::Home')
 
 @section('header')
     @include('layouts.partials.userbar')

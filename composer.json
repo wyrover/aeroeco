@@ -9,7 +9,8 @@
         "laravel/framework": "5.1.*",
         "Illuminate/html": "^5.0",
         "guzzlehttp/guzzle": "~5.3|~6.0",
-        "thomaswelton/laravel-gravatar": "~1.0"
+        "thomaswelton/laravel-gravatar": "~1.0",
+        "genealabs/laravel-caffeine": "~0.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
