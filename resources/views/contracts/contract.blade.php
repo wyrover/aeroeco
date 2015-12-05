@@ -14,7 +14,7 @@
             <div class="col-lg-12">
                 <h1 class="page-header">
                     General Terms Agreement:
-                    <small>Aircraft Disassembly &amp; Engine Solutions</small>
+                    <small>Robert Half Technology</small>
                 </h1>
                 <input type="text" class="form-control" style="width: 300px;" placeholder="Search Contract ....">
                 <div id="myTabContent" class="tab-content">
@@ -30,10 +30,10 @@
                                     <div id="essay" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <p>
-                                                This Agreement, dated as of <span class="legal">project_start_date</span> (“Commencement Date”) between ADC (Aircraft Disassembly Consortium), Inc., a Tennessee Corporation having its principal place of business at <span class="legal">ADC_Address</span>, Memphis TN 38119, hereinafter referred to as “ADC”, and <span class="legal">project_company_name</span>, a <span class="legal">companies_company_corp_type</span> Corporation headquartered at <span class="legal">companies_company_address</span>, hereinafter referred to as "Customer".
+                                                This Agreement, dated as of <span class="legal">December 3, 2015</span> (“Commencement Date”) between ADC (Aircraft Disassembly Consortium), Inc., a Tennessee Corporation having its principal place of business at <span class="legal">5350 Poplar Avenue, Suite 100</span>, Memphis TN 38119, hereinafter referred to as “ADC”, and <span class="legal">Robert Half Technology</span>, a(n) <span class="legal">S</span> Corporation headquartered at <span class="legal">6750 Poplar Avenue, Suite 500, Memphis, TN 38138</span>, hereinafter referred to as "Customer".
                                             </p>
                                             <p>
-                                                Whereas, ADC provides commercial aerospace end of life services at various locations including but not limited to <span class="legal">disassembly_location</span> or other location as set forth in Appendix A (hereinafter referred to as "Facility") to be utilized in this Agreement; and
+                                                Whereas, ADC provides commercial aerospace end of life services at various locations including but not limited to <span class="legal">Tupelo, Mississippi</span> or other location as set forth in Appendix A (hereinafter referred to as "Facility") to be utilized in this Agreement; and
                                             </p>
                                             <p>
                                                 Whereas, Customer desires to enter into an agreement with ADC for End of Life Services for certain commercial aircraft bearing manufacturer’s serial number and tail number outlined in Appendix A herein referred to as the "Equipment"; and
