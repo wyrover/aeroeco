@@ -4,10 +4,13 @@
 @import "../vendor/bootstrap-sass/assets/stylesheets/_bootstrap";
 @import "font-awesome";
 @import "companies";
+@import "contracts";
 
 // THESE ARE ALWAYS LAST
 @import "header";
 @import "footer";
+@import "sweet_alert";
+@import "panels";
 @import "sidebar";
 @import "tables";
 @import "shared";

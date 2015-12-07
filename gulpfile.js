@@ -30,7 +30,8 @@ elixir(function(mix) {
         .scripts([
             paths.vendor + 'jquery/dist/jquery.min.js',
             paths.vendor + 'bootstrap/dist/js/bootstrap.js',
-            paths.scripts + 'sidebar_menu.js'
+            paths.scripts + 'sidebar_menu.js',
+            paths.vendor + 'sweetalert/dist/sweetalert-dev.js'
         ], 'public/js/app.js')
         .browserify('main.js')
         //.phpUnit()

@@ -26,6 +26,7 @@
 </div>
 </body>
 {!! HTML::script('js/app.js') !!}
+@include('layouts.flash')
 <!-- App scripts -->
 @stack('scripts')
     <!-- App scripts -->

@@ -20,6 +20,11 @@
                 </a>
             </li>
             <li role="presentation">
+                <a href="#contacts" aria-controls="contacts" role="tab" data-toggle="tab">
+                    CONTACTS
+                </a>
+            </li>
+            <li role="presentation">
                 <a href="#roles" aria-controls="roles" role="tab" data-toggle="tab">
                     ROLES
                 </a>
@@ -53,6 +58,9 @@
             </div>
             <div role="tabpanel" class="tab-pane fade in" id="locations">
                 @include('companies.partials.locations')
+            </div>
+            <div role="tabpanel" class="tab-pane fade in" id="contacts">
+                @include('companies.partials.contacts')
             </div>
             <div role="tabpanel" class="tab-pane fade in" id="roles">
                 @include('companies.partials.roles')

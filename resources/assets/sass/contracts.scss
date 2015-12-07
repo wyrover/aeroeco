@@ -1,0 +1,14 @@
+@import "mixins";
+
+.contract {
+    p {
+        font-size: 1.2em;
+        line-height: 2em;
+    }
+    .content_accordion{
+        margin: 20px;
+    }
+    .panel {
+        margin: 0 0 5px -20px;
+    }
+}

@@ -46,6 +46,7 @@ class CompaniesController extends ApiController
 
     public function store()
     {
+        dd(Input::all());
         // insert new
         $record = Company::create(Input::all());
         return $this->respond($record->id);

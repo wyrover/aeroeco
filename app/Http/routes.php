@@ -10,7 +10,7 @@ Route::resource('companies', 'CompaniesController');
 // PROJECTS
 Route::resource('projects', 'ProjectsController');
 //Route::get('/projects/create', ['as' => 'projects.create', 'uses' => 'ProjectsController@create']);
-Route::get('projects/{id}/contract', 'ProjectsController@contract');
+Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
 
 // TEST ROUTES
 Route::get('/emailer', function() {
@@ -32,6 +32,7 @@ Route::get('/tester', function () {
     return view('pages.tester');
 });
 Route::get('/welcome_page', function () {
+    flash()->overlay('Hello, World!', 'This is the message');
     return view('pages.welcome');
 });
 
@@ -55,6 +56,7 @@ Route::group(['prefix' => 'api/'], function () {
     Route::resource('atas', 'AtasController');
     Route::resource('companycontacts', 'CompanyContactsController');
     Route::resource('companies', 'CompaniesController');
+    Route::resource('contracttypes', 'ContracttypesController');
     Route::resource('countries', 'CountriesController');
     Route::resource('systemics', 'SystemicsController');
     Route::resource('locations', 'LocationsController');

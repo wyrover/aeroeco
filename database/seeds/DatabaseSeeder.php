@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
 		'ConditionsTableSeeder',
 		'ContactTypesTableSeeder',
 		'CountriesTableSeeder',
+		'ContracttopicsTableSeeder',
+		'ContracttypesTableSeeder',
 		'LocationsTableSeeder',
 		'PhonesTableSeeder',
 		'ProjectTypesTableSeeder',

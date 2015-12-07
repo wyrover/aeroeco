@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contracttopic;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -66,7 +67,10 @@ class ProjectsController extends ApiController
         return $this->respond($record);
     }
 
-    public function contract() {
-        return view('contracts.contract');
+    public function contract_gta() {
+        $topics = Contracttopic::where('contract_type_id', 1)
+            ->orderBy('sort_order')
+            ->get();
+        return view('contracts.contract', compact('topics'));
     }
 }
