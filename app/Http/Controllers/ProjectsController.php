@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\ConsortiumGlobal;
 use App\Models\Contracttopic;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -78,10 +79,7 @@ class ProjectsController extends ApiController
         $project = Project::with('company.addresses')->where('id', $id)->first();
         $company = $project->company;
 
-        $adc = [
-            'address' => '5350 Poplar Avenue, Suite 100',
-            'address2' => 'Memphis TN 38119'
-        ];
+        $adc = ConsortiumGlobal::where('id', '1')->first();
 
         //dd($project);
         return view('contracts.contract', compact('conType', 'topics', 'project', 'company', 'adc'));

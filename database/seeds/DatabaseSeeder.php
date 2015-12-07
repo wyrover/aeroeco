@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
 		'CompaniesTableSeeder',
 		'CompanyContactsTableSeeder',
 		'ConditionsTableSeeder',
+		'ConsortiumGlobalsTableSeeder',
 		'ContactTypesTableSeeder',
 		'CountriesTableSeeder',
 		'ContracttopicsTableSeeder',

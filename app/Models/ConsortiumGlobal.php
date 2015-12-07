@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Location extends Model
+class ConsortiumGlobal extends Model
 {
     public $timestamps = false;
-    protected $table = 'locations';
-    protected $fillable = ['location', 'address', 'address2', 'phone', 'fax'];
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $table = 'consortium_globals';
+    protected $fillable = ['address', 'address2', 'phone', 'fax', 'corporation_type'];
+    /*protected $hidden = ['created_at', 'updated_at'];*/
 
     /* CASTING */
     protected $casts = [];
