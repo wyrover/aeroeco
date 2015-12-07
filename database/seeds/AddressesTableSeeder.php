@@ -14,9 +14,9 @@ class AddressesTableSeeder extends Seeder
             [
                 'company_id' => 5,
                 'country_id' => 1,
-                'type' => 'physical',
-                'address1' => '5350 Poplar Ave',
-                'address2' => 'Suite 150',
+                'type' => 'business',
+                'address1' => '5350 Poplar Ave Suite 150',
+                'address2' => '',
                 'city' => 'Memphis',
                 'state' => 'TN',
                 'postal_code' => '38119'
@@ -25,8 +25,8 @@ class AddressesTableSeeder extends Seeder
                 'company_id' => 2,
                 'country_id' => 1,
                 'type' => 'business',
-                'address1' => '6750 Poplar Ave',
-                'address2' => 'Suite 500',
+                'address1' => '6750 Poplar Ave Suite 500',
+                'address2' => '',
                 'city' => 'Memphis',
                 'state' => 'TN',
                 'postal_code' => '38138'

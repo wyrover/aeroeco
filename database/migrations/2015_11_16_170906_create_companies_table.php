@@ -16,6 +16,7 @@ class CreateCompaniesTable extends Migration
             $table->increments('id');
             $table->string('company');
             $table->string('dba')->nullable();
+            $table->string('corporation_type')->nullable();
             $table->integer('location_id')->unsigned()->default(1);
             $table->string('domain')->nullable();
             $table->string('reply_to')->nullable();

@@ -1,0 +1,3 @@
+<p>
+    Receiving Report
+</p>

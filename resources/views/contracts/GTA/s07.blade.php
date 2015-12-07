@@ -1,0 +1,2 @@
+<p>Prior to Equipment arrival, and no later than the date of the Delivery Acceptance, Customer shall furnish all aircraft maintenance manuals, IPC and other technical data required to perform the Services.  Failure to provide these documents may delay commencement of work and may result in an Excusable Delay.</p>
+<p>(b)	In order for ADC to comply with FAR 43.10, upon receipt of the Work Scope in Appendix C, Customer will provide ADC with a current life status report for all life-limited parts, in accordance with FAR 91.417.</p>

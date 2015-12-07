@@ -1,14 +1,48 @@
 @import "mixins";
 
 .contract {
-    p {
-        font-size: 1.2em;
-        line-height: 2em;
+    #accordion1 {
+        p, li {
+            font-size: 1.2em;
+            line-height: 2em;
+        }
     }
-    .content_accordion{
-        margin: 20px;
+    .page-header {
+        margin: inherit;
+    }
+    .panel-group{
+        margin: 10px 20px;
+    }
+    h4 {
+        font-weight: bold;
+        font-size: 16px;
     }
     .panel {
         margin: 0 0 5px -20px;
+    }
+
+    .panel-heading.accordion-toggle:after {
+        font-family:'Glyphicons Halflings';
+        content:"\e114";
+        float: right;
+        position: relative;
+        bottom: 16px;
+        font-size: 10px;
+        color: $gray;
+    }
+    .panel-heading.accordion-toggle.collapsed:after {
+        content:"\e080";
+    }
+    .panel-heading:hover {
+        cursor: pointer;
+    }
+    .panel-heading:hover h4 {
+        text-decoration: underline;
+    }
+    ol.decimal {
+        list-style-type:decimal;
+    }
+    ol.lower-alpha {
+        list-style-type:lower-alpha;
     }
 }

@@ -1,0 +1,2 @@
+<p>(b)	ADC and Customer each represent to the other that there are and will be no third parties involved as Brokers or Finders with respect to this Agreement other than Customer.  Each party agrees to indemnify and hold harmless the other from liability for fees, commissions or other claims of any intermediary arising as a result of actions of the indemnifying party.</p>
+<p>(c) Any changes, amendments or other modifications to the Agreement shall be in writing and executed by both parties hereto.</p>

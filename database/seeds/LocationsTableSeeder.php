@@ -12,19 +12,19 @@ class LocationsTableSeeder extends Seeder
 
         $collection = [
             [
-                'location' => 'Corporate'
+                'location' => 'Global Headquarters'
             ],
             [
-                'location' => 'OnSite'
+                'location' => 'On-site'
             ],
             [
-                'location' => 'Tupelo'
+                'location' => 'Tupelo Regional Airport, Tupelo, MS, (KTUP)'
             ],
             [
                 'location' => 'Singapore'
             ],
             [
-                'location' => 'United Kingdom'
+                'location' => 'Hove, East Sussex, UK'
             ]
         ];
 

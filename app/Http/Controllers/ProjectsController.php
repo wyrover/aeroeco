@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Contracttopic;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -17,12 +18,13 @@ class ProjectsController extends ApiController
     {
         $this->middleware('auth');
         $this->records = $records;
+        $this->related = ['company.addresses'];
     }
 
     public function index()
     {
         // show all
-        $records = Project::all();
+        $records = Project::with($this->related)->get();
         return $records;
     }
 
@@ -37,7 +39,7 @@ class ProjectsController extends ApiController
     public function show($id)
     {
         //show single
-        $record = $this->records->findOrFail($id);
+        $record = Project::with($this->related)->findOrFail($id);
         return $record;
     }
 
@@ -67,10 +69,21 @@ class ProjectsController extends ApiController
         return $this->respond($record);
     }
 
-    public function contract_gta() {
+    public function contract_gta($id) {
+        $conType = "General Terms Agreement";
         $topics = Contracttopic::where('contract_type_id', 1)
             ->orderBy('sort_order')
             ->get();
-        return view('contracts.contract', compact('topics'));
+
+        $project = Project::with('company.addresses')->where('id', $id)->first();
+        $company = $project->company;
+
+        $adc = [
+            'address' => '5350 Poplar Avenue, Suite 100',
+            'address2' => 'Memphis TN 38119'
+        ];
+
+        //dd($project);
+        return view('contracts.contract', compact('conType', 'topics', 'project', 'company', 'adc'));
     }
 }

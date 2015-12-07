@@ -15,25 +15,29 @@ class CompaniesTableSeeder extends Seeder
                 'company' => 'Dagobah Charters',
                 'dba' => 'DCY',
                 'domain' => 'dagobah.com',
-                'tier' => '2'
+                'tier' => '2',
+                'corporation_type' => 'Limited Liability Corporation'
             ],
             [
                 'company' => 'Aerospace Disassembly Consortium',
                 'dba' => 'ADC',
                 'domain' => 'aero-eco.com',
-                'tier' => '1'
+                'tier' => '1',
+                'corporation_type' => 'Tennessee'
             ],
             [
                 'company' => 'Universal Asset Management',
                 'dba' => 'UAM',
                 'domain' => 'uaminc.com',
-                'tier' => '2'
+                'tier' => '2',
+                'corporation_type' => 'Tennessee'
             ],
             [
                 'company' => 'Braniff Airlines',
                 'dba' => 'Braniff',
                 'domain' => 'braniff.com',
-                'tier' => '3'
+                'tier' => '3',
+                'corporation_type' => 'Limited Liability Corporation'
             ],
             [
                 'company' => 'Robert Half Technology',
@@ -41,7 +45,8 @@ class CompaniesTableSeeder extends Seeder
                 'domain' => 'rht.com',
                 'tier' => '4',
                 'reply_to' => 'jon.gravois@rhsps.com',
-                'website' => 'http://www.rhtmemphis.com'
+                'website' => 'http://www.rhtmemphis.com',
+                'corporation_type' => 'New Jersey'
             ]
         ];
 

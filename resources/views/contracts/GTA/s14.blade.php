@@ -1,0 +1,1 @@
+<p>Should any part of this Agreement be found invalid or unenforceable by competent authority, the balance of this Agreement to the extent that it is not held invalid and unenforceable shall continue in full force and effect to the fullest extent permitted by law.</p>

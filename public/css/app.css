@@ -8038,15 +8038,46 @@ button.close {
 .wf-active, .wf-inactive {
   visibility: visible; }
 
-.contract p {
+.contract #accordion1 p, .contract #accordion1 li {
   font-size: 1.2em;
   line-height: 2em; }
 
-.contract .content_accordion {
-  margin: 20px; }
+.contract .page-header {
+  margin: inherit; }
+
+.contract .panel-group {
+  margin: 10px 20px; }
+
+.contract h4 {
+  font-weight: bold;
+  font-size: 16px; }
 
 .contract .panel {
   margin: 0 0 5px -20px; }
+
+.contract .panel-heading.accordion-toggle:after {
+  font-family: 'Glyphicons Halflings';
+  content: "\e114";
+  float: right;
+  position: relative;
+  bottom: 16px;
+  font-size: 10px;
+  color: #c2c2c2; }
+
+.contract .panel-heading.accordion-toggle.collapsed:after {
+  content: "\e080"; }
+
+.contract .panel-heading:hover {
+  cursor: pointer; }
+
+.contract .panel-heading:hover h4 {
+  text-decoration: underline; }
+
+.contract ol.decimal {
+  list-style-type: decimal; }
+
+.contract ol.lower-alpha {
+  list-style-type: lower-alpha; }
 
 .black {
   color: black; }

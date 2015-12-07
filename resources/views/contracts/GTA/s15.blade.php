@@ -1,0 +1,3 @@
+<p>(a)	In the event of termination of this Agreement by either party, other than for breach of this Agreement by or default of ADC, Customer shall pay ADC for any reasonable expenses ADC may have incurred on behalf of Customer for work in process and items ordered from vendors.</p>
+<p>(b)	In the event of termination by ADC prior to completion of the disassembly, ADC shall cooperate in making the Equipment and all Components available to Customer or Customer’s designated representative and provide for an orderly transfer to Customer or to Customer’s designated representative.</p>
+<p>(c) Customer must provide at least thirty (30) days written notice of intent to terminate Agreement.</p>

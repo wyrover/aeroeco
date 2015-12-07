@@ -9,7 +9,6 @@ Route::resource('companies', 'CompaniesController');
 
 // PROJECTS
 Route::resource('projects', 'ProjectsController');
-//Route::get('/projects/create', ['as' => 'projects.create', 'uses' => 'ProjectsController@create']);
 Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
 
 // TEST ROUTES
