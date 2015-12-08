@@ -8070,6 +8070,9 @@ button.close {
 .contract .panel-heading.accordion-toggle.collapsed:after {
   content: "\e080"; }
 
+.contract .panel-heading {
+  z-index: 1; }
+
 .contract .panel-heading.collapsed .btnEdit {
   color: #c2c2c2;
   z-index: 1000; }
@@ -8181,18 +8184,26 @@ button.close {
       line-height: 40px;
       text-align: center; }
     .navbar-default ul.navbar-nav .notifications-list .item {
+      position: relative;
       border-top: 1px solid #f6f6f6;
       line-height: 1.4;
       padding-bottom: 0;
       padding-top: 0;
       clear: both; }
       .navbar-default ul.navbar-nav .notifications-list .item > a > i {
-        color: #e84e40; }
+        color: #e84e40;
+        margin-right: 1em; }
       .navbar-default ul.navbar-nav .notifications-list .item a {
         clear: both;
         white-space: normal;
         padding-bottom: 8px;
         padding-top: 8px; }
+      .navbar-default ul.navbar-nav .notifications-list .item > .btnNotificator {
+        position: absolute;
+        color: #ebebeb;
+        top: 0.8em;
+        right: 1em;
+        cursor: pointer; }
     .navbar-default ul.navbar-nav .notifications-list .item-footer {
       background: #8dc63f;
       padding-bottom: 0;
@@ -8258,7 +8269,10 @@ button.close {
           font-weight: 600; }
         .navbar-default ul.navbar-nav .messages-list .item > a > .content .content-text {
           display: block;
-          line-height: 1.4; }
+          line-height: 1.4;
+          max-width: 30ex;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
   .navbar-default .profile-dropdown {
     margin: 7px 0 0 0; }
     .navbar-default .profile-dropdown > a {

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Notification extends Model
 {
     protected $table = 'notifications';
-    protected $fillable = ['type_id', 'recipient_id', 'message', 'status'];
+    protected $fillable = ['type_id', 'user_id', 'message', 'status'];
     protected $hidden = ['created_at', 'updated_at'];
 
     /* CASTING */

@@ -39,6 +39,14 @@
 {!! HTML::script('js/app.js') !!}
 @include('layouts.flash')
 <!-- App scripts -->
+<script>
+    $( document ).ready(function() {
+        $('.btnNotificator').on('click', function(e) {
+            alert('Ouch!');
+            e.preventDefault();
+        });
+    });
+</script>
 @stack('scripts')
     <!-- App scripts -->
 </html>

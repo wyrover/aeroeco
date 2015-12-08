@@ -67,6 +67,7 @@
                 text-align: center;
             }
             .item {
+                position: relative;
                 border-top: 1px solid #f6f6f6;
                 line-height: 1.4;
                 padding-bottom: 0;
@@ -75,12 +76,20 @@
 
                 > a > i {
                     color: $red;
+                    margin-right: 1em;
                 }
                 a {
                     clear: both;
                     white-space: normal;
                     padding-bottom: 8px;
                     padding-top: 8px;
+                }
+                > .btnNotificator {
+                    position: absolute;
+                    color: $light-gray;
+                    top: 0.8em;
+                    right: 1em;
+                    cursor: pointer;
                 }
             }
             .item-footer {
@@ -165,6 +174,9 @@
                     .content-text {
                         display: block;
                         line-height: 1.4;
+                        max-width: 30ex;
+                        text-overflow:ellipsis;
+                        white-space: nowrap;
                     }
                 }
             }

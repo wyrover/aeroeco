@@ -15,12 +15,12 @@
                  <input type="hidden" name="tier" value="{{ $tier }}">
                  <div>
                      First Name
-                     <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                     <input type="text" class="form-control" name="firstname" value="{{ old('firstname') }}">
                  </div>
 
                  <div>
                      Last Name
-                     <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                     <input type="text" class="form-control" name="lastname" value="{{ old('lastname') }}">
                  </div>
 
                  <div>

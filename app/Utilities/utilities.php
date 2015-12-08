@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Notification;
 use App\Models\Systemic;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,14 +17,20 @@ function logIt($msg) {
     if( !Auth::check() ) {
         //TODO: Handle Exception
     }
-
     $user = Auth::user();
-
     $ins = [
         'user_id' => $user->id,
         'event' => 'User ' . $user->email . ' ' . $msg
     ];
     Systemic::create($ins);
-
+    return true;
+}
+function notify($userId, $typeId, $message) {
+    $ins = [
+        'type_id' => $typeId,
+        'user_id' => $userId,
+        'message' => $message
+    ];
+    Notification::create($ins);
     return true;
 }

@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
             $table->integer('company_id')->default(1);
             $table->boolean('all_companies')->default(false);
             $table->boolean('is_admin')->default(false);
-            $table->boolean('can_sell')->default(false);
-            $table->integer('role_id')->nullable();
+            $table->boolean('can_sell')->default(true);
+            $table->integer('role_id')->default(4);
             $table->integer('tier')->default(4);
             $table->integer('location_id')->unsigned()->default(1);
             $table->rememberToken();

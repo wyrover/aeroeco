@@ -42,6 +42,7 @@
                                 <i class="fa fa-{{$nts->type->icon}}"></i>
                                 <span class="content">{{$nts->message}}</span>
                             </a>
+                            <i class="btnNotificator fa fa-sticky-note"></i>
                         </li>
                     @endforeach
                     <li class="item-footer">

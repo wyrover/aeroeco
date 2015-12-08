@@ -33,12 +33,8 @@ Route::get('/tester', function () {
     return view('pages.tester');
 });
 Route::get('/testq', function () {
-    $user = Auth::user();
-    $notifications = Notification::with('type')
-        ->where('user_id', $user->id)
-        ->where('status', 'pending')
-        ->get();
-    dd($notifications);
+    notify('2', '2', 'Angelina Jole just friended you.');
+    return 'Notification Saved!';
 });
 Route::get('/welcome_page', function () {
     flash()->overlay('Hello, World!', 'This is the message');
