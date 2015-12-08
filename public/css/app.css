@@ -8038,6 +8038,62 @@ button.close {
 .wf-active, .wf-inactive {
   visibility: visible; }
 
+.project_page {
+  /* tab color */
+  /* active tab color */
+  /* hover tab color */ }
+  .project_page label {
+    margin-top: 6px; }
+  .project_page .row {
+    line-height: 1.6em; }
+  .project_page .nav-tabs > li > a {
+    background-color: #333333;
+    border-color: #777777;
+    color: #fff; }
+  .project_page .nav-tabs > li.active > a, .project_page .nav-tabs > li.active > a:hover, .project_page .nav-tabs > li.active > a:focus {
+    color: #fff;
+    background-color: #666;
+    border: 1px solid #888888; }
+  .project_page .nav-tabs > li > a:hover {
+    border-color: #000000;
+    background-color: #111111; }
+
+.black {
+  color: black; }
+
+.white {
+  color: white; }
+
+.lightGray {
+  color: #ebebeb; }
+
+.gray {
+  color: #c2c2c2; }
+
+.mediumGray {
+  color: #c2c2c2; }
+
+.darkGray {
+  color: #3b3b3b; }
+
+.green {
+  color: #75a651; }
+
+.darkGreen {
+  color: #75a651; }
+
+.red {
+  color: #e84e40; }
+
+.legal {
+  color: #009; }
+
+.wf-loading {
+  visibility: hidden; }
+
+.wf-active, .wf-inactive {
+  visibility: visible; }
+
 .contract #accordion1 p, .contract #accordion1 li {
   font-size: 1.2em;
   line-height: 2em; }
@@ -8271,8 +8327,7 @@ button.close {
           display: block;
           line-height: 1.4;
           max-width: 30ex;
-          text-overflow: ellipsis;
-          white-space: nowrap; }
+          text-overflow: ellipsis; }
   .navbar-default .profile-dropdown {
     margin: 7px 0 0 0; }
     .navbar-default .profile-dropdown > a {

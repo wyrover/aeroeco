@@ -63,7 +63,7 @@ Route::group(['prefix' => 'api/'], function () {
     Route::resource('companies', 'CompaniesController');
     Route::resource('contracttypes', 'ContracttypesController');
     Route::resource('countries', 'CountriesController');
-    Route::resource('systemics', 'SystemicsController');
+    Route::resource('disassemblers', 'DisassemblersController');
     Route::resource('locations', 'LocationsController');
     Route::resource('notifications', 'NotificationsController');
     Route::resource('phones', 'PhonesController');

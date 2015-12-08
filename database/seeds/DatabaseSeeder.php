@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
 		'CountriesTableSeeder',
 		'ContracttopicsTableSeeder',
 		'ContracttypesTableSeeder',
+        'DisassemblersTableSeeder',
 		'LocationsTableSeeder',
 		'NotificationsTableSeeder',
         'NotificationtypesTableSeeder',

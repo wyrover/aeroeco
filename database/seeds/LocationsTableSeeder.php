@@ -11,21 +11,7 @@ class LocationsTableSeeder extends Seeder
         DB::table('locations')->delete();
 
         $collection = [
-            [
-                'location' => 'Global Headquarters'
-            ],
-            [
-                'location' => 'On-site'
-            ],
-            [
-                'location' => 'Tupelo Regional Airport, Tupelo, MS, (KTUP)'
-            ],
-            [
-                'location' => 'Singapore'
-            ],
-            [
-                'location' => 'Hove, East Sussex, UK'
-            ]
+
         ];
 
         foreach ($collection as $record) {

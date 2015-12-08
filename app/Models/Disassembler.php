@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Location extends Model
+class Disassembler extends Model
 {
-    public $timestamps = false;
-    protected $table = 'locations';
-    protected $fillable = ['company_id', 'location', 'address', 'address2', 'phone', 'fax'];
+    protected $table = 'disassemblers';
+    protected $fillable = ['name', 'address', 'address2', 'city', 'state', 'postal_code', 'contact', 'phone', 'email'];
     protected $hidden = ['created_at', 'updated_at'];
 
     /* CASTING */

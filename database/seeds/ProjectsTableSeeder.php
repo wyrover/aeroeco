@@ -13,7 +13,7 @@ class ProjectsTableSeeder extends Seeder
         $collection = [
             [
                 'project_types_id' => 1,
-                'location_id' => 3,
+                'disassemblers_id' => 1,
                 'creator_id' => 2,
                 'company_id' => 5,
                 'sales_id' => 7,

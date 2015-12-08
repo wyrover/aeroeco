@@ -16,6 +16,10 @@ class Projects extends Model
     /* CASTING */
     
     /* RELATIONSHIPS */
+    public function type()
+    {
+        return $this->hasOne('App\ProjectType');
+    }
     /* RELATIONSHIPS */
     
     /* METHODS */

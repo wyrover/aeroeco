@@ -15,7 +15,7 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('project_types_id')->unsigned()->default(1);
-            $table->integer('location_id')->unsigned()->default(3);
+            $table->integer('disassemblers_id')->unsigned()->default(3);
             $table->integer('creator_id')->unsigned()->default(1);
             $table->integer('company_id')->unsigned()->default(1);
             $table->integer('sales_id')->unsigned()->default(6);
