@@ -29,36 +29,11 @@
                     @foreach($notifications as $nts)
                         <li class="item">
                             <a href="#">
-                                <i class="fa fa-comment"></i>
+                                <i class="fa fa-{{$nts->type->icon}}"></i>
                                 <span class="content">{{$nts->message}}</span>
                             </a>
                         </li>
                     @endforeach
-
-                    <li class="item">
-                        <a href="#">
-                            <i class="fa fa-plus"></i>
-                            <span class="content">New user registration</span>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#">
-                            <i class="fa fa-envelope"></i>
-                            <span class="content">New Message from George</span>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span class="content">Watched auction closed.</span>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#">
-                            <i class="fa fa-eye"></i>
-                            <span class="content">Watchlist inventory received.</span>
-                        </a>
-                    </li>
                     <li class="item-footer">
                         <a href="#">
                             View all notifications

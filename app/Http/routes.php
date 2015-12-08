@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Notification;
+
 Route::get('/',['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 Route::get('/home',['as' => 'home', 'uses' => 'DashboardController@index']);
 
@@ -29,6 +31,14 @@ Route::get('/event', function() {
 });
 Route::get('/tester', function () {
     return view('pages.tester');
+});
+Route::get('/testq', function () {
+    $user = Auth::user();
+    $notifications = Notification::with('type')
+        ->where('user_id', $user->id)
+        ->where('status', 'pending')
+        ->get();
+    dd($notifications);
 });
 Route::get('/welcome_page', function () {
     flash()->overlay('Hello, World!', 'This is the message');

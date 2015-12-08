@@ -42,7 +42,8 @@ class ViewComposerServiceProvider extends ServiceProvider
     {
         view()->composer('layouts.partials.userbar', function ($view) {
             $user = Auth::user();
-            $notifications = Notification::where('user_id', $user->id)
+            $notifications = Notification::with('type')
+                ->where('user_id', $user->id)
                 ->where('status', 'pending')
                 ->get();
             $view->with(['user' => $user, 'notifications' => $notifications]);
