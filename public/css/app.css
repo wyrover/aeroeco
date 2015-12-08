@@ -8055,10 +8055,13 @@ button.close {
 .contract .panel {
   margin: 0 0 5px -20px; }
 
+.contract .panel-title {
+  margin-left: 20px; }
+
 .contract .panel-heading.accordion-toggle:after {
   font-family: 'Glyphicons Halflings';
   content: "\e114";
-  float: right;
+  float: left;
   position: relative;
   bottom: 16px;
   font-size: 10px;
@@ -8066,6 +8069,14 @@ button.close {
 
 .contract .panel-heading.accordion-toggle.collapsed:after {
   content: "\e080"; }
+
+.contract .panel-heading.collapsed .btnEdit {
+  color: #c2c2c2;
+  z-index: 1000; }
+
+.contract .panel-heading .btnEdit {
+  color: #900;
+  z-index: 1000; }
 
 .contract .panel-heading:hover {
   cursor: pointer; }

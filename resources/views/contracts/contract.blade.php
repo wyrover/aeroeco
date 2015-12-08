@@ -20,6 +20,9 @@
                         <div class="panel panel-default">
                         <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" data-target="#{{$topic->slug}}">
                             <h4 class="panel-title">{{$topic->topic}} </h4>
+                            <span class="pull-right" style="margin-top:-16px;">
+                                <i class="btnEdit fa fa-pencil"></i>
+                            </span>
                         </div>
                         <div id="{{$topic->slug}}" class="panel-collapse collapse">
                             <div class="panel-body">
@@ -43,7 +46,19 @@
 @push('scripts')
 <script>
     $(function() {
-        //alert('jQuery');
+        $('#accordion1').on('shown.bs.collapse', function () {
+            var myEl = $(this).find('.collapse.in').prev('.panel-heading');
+
+            $('html, body').animate({
+                scrollTop: $(myEl).offset().top
+            }, 100);
+        });
+
+        /*$('#accordion1 .btnEdit')
+            .off('click')
+            .on('click', function() {
+                alert('clicked');
+            });​*/
     });
 </script>
 @endpush

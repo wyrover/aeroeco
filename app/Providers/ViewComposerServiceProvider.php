@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,6 +16,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->composeSidebar();
+        $this->composeUserbar();
     }
 
     /**
@@ -33,6 +35,17 @@ class ViewComposerServiceProvider extends ServiceProvider
             $user = Auth::user();
             $company = Auth::user()->company;
             $view->with(['user' => $user, 'company' => $company]);
+        });
+    }
+
+    private function composeUserbar()
+    {
+        view()->composer('layouts.partials.userbar', function ($view) {
+            $user = Auth::user();
+            $notifications = Notification::where('user_id', $user->id)
+                ->where('status', 'pending')
+                ->get();
+            $view->with(['user' => $user, 'notifications' => $notifications]);
         });
     }
 }

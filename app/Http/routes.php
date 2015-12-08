@@ -59,6 +59,7 @@ Route::group(['prefix' => 'api/'], function () {
     Route::resource('countries', 'CountriesController');
     Route::resource('systemics', 'SystemicsController');
     Route::resource('locations', 'LocationsController');
+    Route::resource('notifications', 'NotificationsController');
     Route::resource('phones', 'PhonesController');
     Route::resource('projects', 'ProjectsController');
     Route::resource('projecttypes', 'ProjectTypesController');

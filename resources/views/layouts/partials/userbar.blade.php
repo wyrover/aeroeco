@@ -15,7 +15,7 @@
             <li class="dropdown hidden-xs">
                 <a class="btn dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-bell"></i>
-                    <span class="count">5</span>
+                    <span class="count">{{count($notifications)}}</span>
                 </a>
                 <ul class="dropdown-menu notifications-list">
                     <li class="pointer">
@@ -23,13 +23,18 @@
                             <div class="arrow"></div>
                         </div>
                     </li>
-                    <li class="item-header">You have 5 new notifications</li>
-                    <li class="item">
-                        <a href="#">
-                            <i class="fa fa-comment"></i>
-                            <span class="content">New comment on selling with ADC</span>
-                        </a>
+                    <li class="item-header">
+                        You have {{count($notifications)}} new notifications
                     </li>
+                    @foreach($notifications as $nts)
+                        <li class="item">
+                            <a href="#">
+                                <i class="fa fa-comment"></i>
+                                <span class="content">{{$nts->message}}</span>
+                            </a>
+                        </li>
+                    @endforeach
+
                     <li class="item">
                         <a href="#">
                             <i class="fa fa-plus"></i>
