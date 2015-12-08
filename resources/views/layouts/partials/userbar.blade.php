@@ -11,11 +11,21 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li class="active" ><button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="fa fa-bars"></span></button></li>
+            {{--COLLAPSER--}}
+            <li class="active" >
+                <button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2">
+                    &nbsp;<span class="fa fa-bars"></span>
+                </button>
+            </li>
+            {{--NOTIFICATOR--}}
             <li class="dropdown hidden-xs">
                 <a class="btn dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-bell"></i>
-                    <span class="count">{{count($notifications)}}</span>
+                    @if(count($notifications) > 0)
+                        <span class="count">
+                            {{count($notifications)}}
+                        </span>
+                    @endif
                 </a>
                 <ul class="dropdown-menu notifications-list">
                     <li class="pointer">
@@ -41,6 +51,7 @@
                     </li>
                 </ul>
             </li>
+            {{--MESSENGER--}}
             <li class="dropdown hidden-xs">
                 <a class="btn dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-envelope"></i>
@@ -99,7 +110,7 @@
                 </ul>
             </li>
         </ul>
-        <!-- PROFILE BLOCK -->
+        {{--PROFILE BLOCK--}}
         <div class="nav-no-collapse pull-right" id="header-nav">
             <ul class="nav navbar-nav pull-right">
                 <li class="dropdown profile-dropdown">

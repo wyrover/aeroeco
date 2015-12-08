@@ -45,11 +45,16 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Illuminate\Html\HtmlServiceProvider::class,
+
+        /*
+         * User Added Service Providers...
+         */
+        App\Providers\ViewComposerServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         GeneaLabs\LaravelCaffeine\LaravelCaffeineServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
-        App\Providers\ViewComposerServiceProvider::class,
     ],
     'aliases' => [
         'App'       => Illuminate\Support\Facades\App::class,
@@ -85,10 +90,14 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-        'Form'      => Illuminate\Html\FormFacade::class,
-        'HTML'      => Illuminate\Html\HtmlFacade::class,
+        /*
+         * User Added Facades...
+         */
         'Debugger'  => Barryvdh\Debugbar\Facade::class,
+        'Form'      => Illuminate\Html\FormFacade::class,
         'Gravatar'  => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
+        'HTML'      => Illuminate\Html\HtmlFacade::class,
+        'Image'     => Intervention\Image\Facades\Image::class,
     ],
 
 ];
