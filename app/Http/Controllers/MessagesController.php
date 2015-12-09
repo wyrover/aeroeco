@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Notification;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 
-class NotificationsController extends ApiController
+class MessagesController extends ApiController
 {
     protected $records;
 
-    public function __construct(Notification $records)
+    public function __construct(Message $records)
     {
         $this->records = $records;
-        $this->related = ['type'];
+        $this->related = [];
     }
 
     public function index()
     {
         // show all
-        $records = Notification::with($this->related)->get();
+        $records = Message::with($this->related)->get();
         return $records;
     }
 
@@ -30,20 +30,20 @@ class NotificationsController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('Notification was deleted');
+        return $this->respondOK('Message was deleted');
     }
 
     public function show($id)
     {
         //show single
-        $record = Notification::with($this->related)->findOrFail($id);
+        $record = Message::with($this->related)->findOrFail($id);
         return $record;
     }
 
     public function store()
     {
         // insert new
-        $record = Notification::create(Input::all());
+        $record = Message::create(Input::all());
         return $this->respond($record->id);
     }
 
@@ -53,7 +53,7 @@ class NotificationsController extends ApiController
         $record = $this->records->find($id);
 
         if(! $record){
-            Notification::create(Input::all());
+            Message::create(Input::all());
             return $this->respond($record);
         }
 
@@ -61,8 +61,8 @@ class NotificationsController extends ApiController
         return $this->respond($record);
     }
 
-    public function allNotifications()
+    public function myMessages()
     {
-        return view('pages.allnotifications');
+        return view('pages.allmessages');
     }
 }

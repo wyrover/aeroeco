@@ -14,7 +14,7 @@
     {!! HTML::style('css/app.css') !!}
 </head>
 
-<body class="@yield('body_class')">
+<body id="app" class="@yield('body_class')">
 @include('layouts.partials.userbar')
 
 <div id="wrapper">
@@ -37,16 +37,9 @@
 </body>
 <!-- Bootstrap and Bootcards JS -->
 {!! HTML::script('js/app.js') !!}
+{!! HTML::script('js/main.js') !!}
 @include('layouts.flash')
 <!-- App scripts -->
-<script>
-    $( document ).ready(function() {
-        $('.btnNotificator').on('click', function(e) {
-            alert('Ouch!');
-            e.preventDefault();
-        });
-    });
-</script>
 @stack('scripts')
     <!-- App scripts -->
 </html>

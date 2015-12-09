@@ -46,9 +46,7 @@
                         </li>
                     @endforeach
                     <li class="item-footer">
-                        <a href="#">
-                            View all notifications
-                        </a>
+                        {!! link_to_route('all_notifications', $title='View all notifications') !!}
                     </li>
                 </ul>
             </li>
@@ -56,7 +54,11 @@
             <li class="dropdown hidden-xs">
                 <a class="btn dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-envelope"></i>
-                    <span class="count">8</span>
+                    @if(count($messages) > 0)
+                        <span class="count">
+                            {{count($messages)}}
+                        </span>
+                    @endif
                 </a>
                 <ul class="dropdown-menu notifications-list messages-list">
                     <li class="pointer">
@@ -64,49 +66,26 @@
                             <div class="arrow"></div>
                         </div>
                     </li>
-                    <li class="item first-item">
-                        <a href="#">
-                            {!! HTML::image('img/samples/messages-photo-1.png') !!}
-										<span class="content">
-											<span class="content-headline">
-												George Clooney
-											</span>
-											<span class="content-text">
-												I am not sure where the trace documentation has gone. Do you know of a source where I can...
-											</span>
-										</span>
-                        </a>
+                    <li class="item-header">
+                        You have {{count($messages)}} new messages
                     </li>
-                    <li class="item">
-                        <a href="#">
-                            {!! HTML::image('img/samples/messages-photo-2.png') !!}
-										<span class="content">
-											<span class="content-headline">
-												Emma Watson
-											</span>
-											<span class="content-text">
-												Although I have better offers, I will accept your proposal given that you will be...
-											</span>
-										</span>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#">
-                            {!! HTML::image('img/samples/messages-photo-3.png') !!}
-										<span class="content">
-											<span class="content-headline">
-												Robert Downey Jr.
-											</span>
-											<span class="content-text">
-												I am no longer interested. I have another source for my needs that is much more economic but I hope...
-											</span>
-										</span>
-                        </a>
-                    </li>
+                    @foreach($messages as $msg)
+                        <li class="item">
+                            <a href="#">
+                                <img src="{{ Gravatar::src($msg->email) }}" alt="Gravatar" style="height: 40px; width: auto;"/>
+                                <span class="content">
+                                    <span class="content-headline">
+                                        {{$msg->sender}}
+                                    </span>
+                                    <span class="content-text">
+                                        {!! str_limit($msg->message, 80) !!}
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                    @endforeach
                     <li class="item-footer">
-                        <a href="#">
-                            View all messages
-                        </a>
+                        {!! link_to_route('my_messages', $title='View all messages') !!}
                     </li>
                 </ul>
             </li>

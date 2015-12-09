@@ -5,6 +5,10 @@ use App\Models\Notification;
 Route::get('/',['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 Route::get('/home',['as' => 'home', 'uses' => 'DashboardController@index']);
 
+// USER INFO
+Route::get('/notifications', ['as' => 'all_notifications', 'uses' => 'NotificationsController@allNotifications']);
+Route::get('/messages', ['as' => 'my_messages', 'uses' => 'MessagesController@myMessages']);
+
 // COMPANIES
 Route::get('/companies/newco', 'CompaniesController@newco');
 Route::resource('companies', 'CompaniesController');
@@ -33,9 +37,13 @@ Route::get('/event', function() {
 Route::get('/tester', function () {
     return view('pages.tester');
 });
-Route::get('/testq', function () {
+Route::get('/notifier', function () {
     notify('2', '2', 'Angelina Jole just friended you.');
     return 'Notification Saved!';
+});
+Route::get('/messenger', function () {
+    tweet('2', 'Dude, why are you sending yourself a message? Are you some kind of freak? Oh, you are just testing.');
+    return 'Message Saved!';
 });
 Route::get('/welcome_page', function () {
     flash()->overlay('Hello, World!', 'This is the message');

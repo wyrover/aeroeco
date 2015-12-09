@@ -9715,7 +9715,9 @@ var Vue = require('vue');
 new Vue({
     el: '#app',
     components: { Alert: _Alert2.default },
-    ready: function ready() {}
+    ready: function ready() {
+        //alert('Ready to go');
+    }
 });
 
 },{"./components/Alert.vue":5,"vue":3}]},{},[6]);

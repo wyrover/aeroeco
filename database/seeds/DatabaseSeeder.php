@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
 		'ContracttypesTableSeeder',
         'DisassemblersTableSeeder',
 		'LocationsTableSeeder',
+		'MessagesTableSeeder',
 		'NotificationsTableSeeder',
         'NotificationtypesTableSeeder',
 		'PhonesTableSeeder',

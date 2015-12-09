@@ -8325,9 +8325,7 @@ button.close {
           font-weight: 600; }
         .navbar-default ul.navbar-nav .messages-list .item > a > .content .content-text {
           display: block;
-          line-height: 1.4;
-          max-width: 30ex;
-          text-overflow: ellipsis; }
+          line-height: 1.4; }
   .navbar-default .profile-dropdown {
     margin: 7px 0 0 0; }
     .navbar-default .profile-dropdown > a {

@@ -5,6 +5,8 @@ import Alert from './components/Alert.vue';
 new Vue({
     el: '#app',
     components: { Alert },
-    ready() {}
+    ready() {
+        //alert('Ready to go');
+    }
 });
 

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Message;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
@@ -47,7 +48,11 @@ class ViewComposerServiceProvider extends ServiceProvider
                 ->where('status', 'pending')
                 ->latest()
                 ->get();
-            $view->with(['user' => $user, 'notifications' => $notifications]);
+            $messages = Message::where('user_id', $user->id)
+                ->where('status', 'pending')
+                ->latest()
+                ->get();
+            $view->with(['user' => $user, 'notifications' => $notifications, 'messages' => $messages]);
         });
     }
 }
