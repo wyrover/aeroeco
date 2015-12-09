@@ -12,6 +12,7 @@ Route::resource('companies', 'CompaniesController');
 // PROJECTS
 Route::resource('projects', 'ProjectsController');
 Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
+Route::post('project', ['as' => 'project_store', 'uses' => 'ProjectsController@store']);
 
 // TEST ROUTES
 Route::get('/emailer', function() {

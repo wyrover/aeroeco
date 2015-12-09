@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\ConsortiumGlobal;
 use App\Models\Contracttopic;
+use App\Models\Disassembler;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 
 class ProjectsController extends ApiController
@@ -46,11 +48,14 @@ class ProjectsController extends ApiController
 
     public function create()
     {
-        return view('projects.create');
+        $user = Auth::user();
+        $disassemblers = Disassembler::lists('name', 'id');
+        return view('projects.create', compact('disassemblers', 'user'));
     }
 
     public function store()
     {
+        //dd(Input::all());
         // insert new
         $record = Project::create(Input::all());
         return $this->respond($record->id);

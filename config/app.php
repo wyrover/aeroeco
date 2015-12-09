@@ -51,8 +51,8 @@ return [
          */
         App\Providers\ViewComposerServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
         GeneaLabs\LaravelCaffeine\LaravelCaffeineServiceProvider::class,
-        Illuminate\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
     ],
@@ -94,9 +94,9 @@ return [
          * User Added Facades...
          */
         'Debugger'  => Barryvdh\Debugbar\Facade::class,
-        'Form'      => Illuminate\Html\FormFacade::class,
+        'Form'      => Collective\Html\FormFacade::class,
         'Gravatar'  => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
-        'HTML'      => Illuminate\Html\HtmlFacade::class,
+        'HTML'      => Collective\Html\HtmlFacade::class,
         'Image'     => Intervention\Image\Facades\Image::class,
     ],
 

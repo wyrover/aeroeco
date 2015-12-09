@@ -8,7 +8,7 @@ class Ata extends Model
 {
     public $timestamps = false;
     protected $table = 'atas';
-    protected $fillable = ['chapter', 'section', 'title', 'description'];
+    protected $fillable = ['chapter', 'title', 'active'];
 
     /* CASTING */
     protected $casts = [];

@@ -45,7 +45,7 @@ class ViewComposerServiceProvider extends ServiceProvider
             $notifications = Notification::with('type')
                 ->where('user_id', $user->id)
                 ->where('status', 'pending')
-                ->orderBy('created_at', 'desc')
+                ->latest()
                 ->get();
             $view->with(['user' => $user, 'notifications' => $notifications]);
         });
