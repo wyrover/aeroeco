@@ -8,7 +8,7 @@ class Project extends Model
 {
     /*public $timestamps = false;*/
     protected $table = 'projects';
-    protected $fillable = ['project_types_id', 'location_id', 'creator_id', 'company_id', 'sales_id', 'project_start_date', 'asset_arrival_date', 'projected_completion_date', 'completion_date'];
+    protected $fillable = ['project_types_id', 'project_statuses_id', 'disassemblers_id', 'creator_id', 'company_id', 'sales_id', 'project_start_date', 'asset_arrival_date', 'projected_completion_date', 'completion_date'];
     protected $dates = ['project_start_date', 'asset_arrival_date', 'projected_completion_date', 'completion_date'];
     /*protected $hidden = ['created_at', 'updated_at'];*/
 

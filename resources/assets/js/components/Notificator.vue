@@ -1,31 +1,77 @@
 <template id="notes-template">
-    <h3>All Notifications</h3>
-    <ul class="list-group">
+    <a class="btn dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-bell"></i>
+        <span class="count" v-show="list.length > 0">
+            {{list.length}}
+        </span>
+    </a>
+    <ul class="dropdown-menu notifications-list">
+        <li class="pointer">
+            <div class="pointer-inner">
+                <div class="arrow"></div>
+            </div>
+        </li>
+        <ul class="list-group">
         <li class="list-group-item" v-for="note in list">
+            <i class="typeicon fa fa-{{ note.type.icon}}"></i>
             {{ note.message }}
             <span class='btnClose'>
-                <strong @click="deleteNote(note)">X</strong>
+                <i class="delicon fa fa-trash" @click="deleteNote(note)"></i>
             </span>
+        </li>
+        <li id="notif" class="item-footer">
+            <a href="#">Delete All</a>
+        </li>
+        </ul>
         </li>
     </ul>
 </template>
 <style lang="stylus">
     .list-group{
-        width: 500px;
+        width: 320px;
 
         .list-group-item {
-              position: relative;
-              .btnClose {
-                  position: absolute;
-                  right: 0;
-                  width: 20px;
-                  color: #900;
-                  cursor: pointer;
-              }
+            position: relative;
+
+            .typeicon {
+        color: #e84e40;
+        margin-right: 3px;
+    }
+
+            .delicon {
+        color: #e84e40;
+        margin-left: 3px;
+    }
+
+            .btnClose {
+        position: absolute;
+        right: 0;
+        width: 20px;
+        color: #900;
+        cursor: pointer;
+    }
+        }
+    }
+    #notif {
+        padding: 8px 0;
+        text-align: center;
+        list-style: none;
+        background-color: #8dc63f;
+        border-radius: 0 0 4px 4px;
+    }
+    #notif a {
+        color: #ffffff;
+        text-decoration: none;
+
+        &:hover {
+            padding: 11px;
+            color: #8dc63f;
+            background-color: #ffffff;
         }
     }
 </style>
 <script type="text/babel">
+
     export default {
         props: [],
         data() {
@@ -39,21 +85,17 @@
         },
         methods: {
             fetchNotesList: function() {
-                var resource = this.$resource('api/notifications/:id');
-
-                resource.get(function(notes) {
+                this.$http.get('api/notifications', function(notes) {
                     this.list = notes;
                 }.bind(this));
             },
             deleteNote: function(note) {
-                var resource = this.$resource('api/notifications/:id');
-
                 if(confirm("Are you sure you want to delete this event?")) {
-                    resource.delete({id: note.id}, function (data, status, request) {
+                    this.$http.delete('api/notifications/' + note.id, function (data, status, request) {
                         console.log('Success');
                     }).error(function (data, status, request) {
                         console.log(data);
-                    });
+                    }.bind(this));
                     this.list.$remove(note);
                 }
             }

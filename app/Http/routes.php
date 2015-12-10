@@ -4,7 +4,6 @@ Route::get('/',['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 Route::get('/home',['as' => 'home', 'uses' => 'DashboardController@index']);
 
 // USER INFO
-Route::get('/notifications', ['as' => 'all_notifications', 'uses' => 'NotificationsController@allNotifications']);
 Route::get('/messages', ['as' => 'my_messages', 'uses' => 'MessagesController@myMessages']);
 
 // COMPANIES

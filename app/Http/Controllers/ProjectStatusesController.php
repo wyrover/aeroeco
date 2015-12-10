@@ -2,48 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Notification;
+use App\Models\ProjectStatus;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 
-class NotificationsController extends ApiController
+class ProjectStatusesController extends ApiController
 {
     protected $records;
 
-    public function __construct(Notification $records)
+    public function __construct(ProjectStatus $records)
     {
         $this->records = $records;
-        $this->related = ['type'];
+        $this->related = [];
     }
 
     public function index()
     {
         // show all
-        $records = Notification::with($this->related)->get();
+        $records = ProjectStatus::with($this->related)->get();
         return $records;
     }
 
     public function destroy($id)
     {
         // delete single
-        $record = Notification::findOrFail($id);
+        $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('Notification was deleted');
+        return $this->respondOK('ProjectStatus was deleted');
     }
 
     public function show($id)
     {
         //show single
-        $record = Notification::with($this->related)->findOrFail($id);
+        $record = ProjectStatus::with($this->related)->findOrFail($id);
         return $record;
     }
 
     public function store()
     {
         // insert new
-        $record = Notification::create(Input::all());
+        $record = ProjectStatus::create(Input::all());
         return $this->respond($record->id);
     }
 
@@ -53,12 +53,11 @@ class NotificationsController extends ApiController
         $record = $this->records->find($id);
 
         if(! $record){
-            Notification::create(Input::all());
+            ProjectStatus::create(Input::all());
             return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
         return $this->respond($record);
     }
-
 }

@@ -10576,7 +10576,7 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],14:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert(".list-group {\n  width: 500px;\n}\n.list-group .list-group-item {\n  position: relative;\n}\n.list-group .list-group-item .btnClose {\n  position: absolute;\n  right: 0;\n  width: 20px;\n  color: #900;\n  cursor: pointer;\n}\n")
+var __vueify_style__ = require("vueify-insert-css").insert(".list-group {\n  width: 320px;\n}\n.list-group .list-group-item {\n  position: relative;\n}\n.list-group .list-group-item .typeicon {\n  color: #e84e40;\n  margin-right: 3px;\n}\n.list-group .list-group-item .delicon {\n  color: #e84e40;\n  margin-left: 3px;\n}\n.list-group .list-group-item .btnClose {\n  position: absolute;\n  right: 0;\n  width: 20px;\n  color: #900;\n  cursor: pointer;\n}\n#notif {\n  padding: 8px 0;\n  text-align: center;\n  list-style: none;\n  background-color: #8dc63f;\n  border-radius: 0 0 4px 4px;\n}\n#notif a {\n  color: #fff;\n  text-decoration: none;\n}\n#notif a:hover {\n  padding: 11px;\n  color: #8dc63f;\n  background-color: #fff;\n}\n")
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10596,35 +10596,31 @@ exports.default = {
     },
     methods: {
         fetchNotesList: function fetchNotesList() {
-            var resource = this.$resource('api/notifications/:id');
-
-            resource.get((function (notes) {
+            this.$http.get('api/notifications', (function (notes) {
                 this.list = notes;
             }).bind(this));
         },
         deleteNote: function deleteNote(note) {
-            var resource = this.$resource('api/notifications/:id');
-
             if (confirm("Are you sure you want to delete this event?")) {
-                resource.delete({ id: note.id }, function (data, status, request) {
+                this.$http.delete('api/notifications/' + note.id, function (data, status, request) {
                     console.log('Success');
-                }).error(function (data, status, request) {
+                }).error((function (data, status, request) {
                     console.log(data);
-                });
+                }).bind(this));
                 this.list.$remove(note);
             }
         }
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <h3>All Notifications</h3>\n    <ul class=\"list-group\">\n        <li class=\"list-group-item\" v-for=\"note in list\">\n            {{ note.message }}\n            <span class=\"btnClose\">\n                <strong @click=\"deleteNote(note)\">X</strong>\n            </span>\n        </li>\n    </ul>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n        <i class=\"fa fa-bell\"></i>\n        <span class=\"count\" v-show=\"list.length > 0\">\n            {{list.length}}\n        </span>\n    </a>\n    <ul class=\"dropdown-menu notifications-list\">\n        <li class=\"pointer\">\n            <div class=\"pointer-inner\">\n                <div class=\"arrow\"></div>\n            </div>\n        </li>\n        <ul class=\"list-group\">\n        <li class=\"list-group-item\" v-for=\"note in list\">\n            <i class=\"typeicon fa fa-{{ note.type.icon}}\"></i>\n            {{ note.message }}\n            <span class=\"btnClose\">\n                <i class=\"delicon fa fa-trash\" @click=\"deleteNote(note)\"></i>\n            </span>\n        </li>\n        <li id=\"notif\" class=\"item-footer\">\n            <a href=\"#\">Delete All</a>\n        </li>\n        </ul>\n        \n    </ul>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Notificator.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache[".list-group {\n  width: 500px;\n}\n.list-group .list-group-item {\n  position: relative;\n}\n.list-group .list-group-item .btnClose {\n  position: absolute;\n  right: 0;\n  width: 20px;\n  color: #900;\n  cursor: pointer;\n}\n"] = false
+    require("vueify-insert-css").cache[".list-group {\n  width: 320px;\n}\n.list-group .list-group-item {\n  position: relative;\n}\n.list-group .list-group-item .typeicon {\n  color: #e84e40;\n  margin-right: 3px;\n}\n.list-group .list-group-item .delicon {\n  color: #e84e40;\n  margin-left: 3px;\n}\n.list-group .list-group-item .btnClose {\n  position: absolute;\n  right: 0;\n  width: 20px;\n  color: #900;\n  cursor: pointer;\n}\n#notif {\n  padding: 8px 0;\n  text-align: center;\n  list-style: none;\n  background-color: #8dc63f;\n  border-radius: 0 0 4px 4px;\n}\n#notif a {\n  color: #fff;\n  text-decoration: none;\n}\n#notif a:hover {\n  padding: 11px;\n  color: #8dc63f;\n  background-color: #fff;\n}\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -10634,6 +10630,38 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],15:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert(".progress {\n  margin-bottom: 0;\n  background-color: #aaa;\n}\n.progress-bar-adc {\n  background-color: #f35958;\n  color: #fff;\n}\n")
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    props: [],
+    data: function data() {
+        return {};
+    },
+
+    computed: {}
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"panel panel-info\" style=\"margin-left:-10px;\">\n        <header class=\"panel-heading\">\n            <h3 class=\"panel-title\">\n                <i class=\"fa fa-plane\"></i>\n                Projects\n            </h3>\n        </header>\n        <div class=\"panel-body\">\n            <table class=\"table table-striped table-condensed\">\n                <tbody><tr>\n                    <th style=\"width:20%\">Project</th>\n                    <th style=\"width:20%\">Status</th>\n                    <th style=\"width:20%\">Parts Currently in Market</th>\n                    <th style=\"width:25%\">Work Progress</th>\n                    <th style=\"width:15%\">Income Potential</th>\n                </tr>\n                <tr>\n                    <td>\n                        <a href=\"#\" class=\"naked_link\">B777-123</a>\n                    </td>\n                    <td>Disassembly In Progress</td>\n                    <td class=\"text-center\">144 of 200</td>\n                    <td>\n                        <div class=\"progress\">\n                            <div class=\"progress-bar progress-bar-adc\" role=\"progressbar\" aria-valuenow=\"72\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em; width: 72%;\">\n                                72%\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">$15,000,000</td>\n                </tr>\n                <tr>\n                    <td>\n                        <a href=\"#\" class=\"naked_link\">B777-234</a>\n                    </td>\n                    <td>Disassembly In Progress</td>\n                    <td class=\"text-center\">120 of 300</td>\n                    <td>\n                        <div class=\"progress\">\n                            <div class=\"progress-bar progress-bar-adc\" role=\"progressbar\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em; width: 40%;\">\n                                40%\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">$600,000</td>\n                </tr>\n                <tr>\n                    <td>\n                        <a href=\"#\" class=\"naked_link\">B747-345</a>\n                    </td>\n                    <td>Pending Disassembly</td>\n                    <td class=\"text-center\"> - </td>\n                    <td>\n                        <div class=\"progress\">\n                            <div class=\"progress-bar progress-bar-adc\" role=\"progressbar\" aria-valuenow=\"0\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em; width: 0%;\">\n                                0%\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">$0</td>\n                </tr>\n                <tr>\n                    <td>\n                        <a href=\"#\" class=\"naked_link\">B747-456</a>\n                    </td>\n                    <td>Awaiting Arrival</td>\n                    <td class=\"text-center\"> - </td>\n                    <td>\n                        <div class=\"progress\">\n                            <div class=\"progress-bar progress-bar-adc\" role=\"progressbar\" aria-valuenow=\"0\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em; width: 0%;\">\n                                0%\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">$0</td>\n                </tr>\n                <tr>\n                    <td>\n                        <a href=\"#\" class=\"naked_link\">B747-567</a>\n                    </td>\n                    <td>Profile Incomplete</td>\n                    <td class=\"text-center\"> - </td>\n                    <td>\n                        <div class=\"progress\">\n                            <div class=\"progress-bar progress-bar-adc\" role=\"progressbar\" aria-valuenow=\"0\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em; width: 0%;\">\n                                0%\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">$0</td>\n                </tr>\n                <tr>\n                    <td colspan=\"6\">\n                        <i class=\"green fa fa-plus\"></i> Start a new disassembly\n                    </td>\n                </tr>\n            </tbody></table>\n        </div>\n    </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/widgets/Projects.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache[".progress {\n  margin-bottom: 0;\n  background-color: #aaa;\n}\n.progress-bar-adc {\n  background-color: #f35958;\n  color: #fff;\n}\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],16:[function(require,module,exports){
 'use strict';
 
 var _Alert = require('./components/Alert.vue');
@@ -10644,10 +10672,17 @@ var _Notificator = require('./components/Notificator.vue');
 
 var _Notificator2 = _interopRequireDefault(_Notificator);
 
+var _Projects = require('./components/widgets/Projects.vue');
+
+var _Projects2 = _interopRequireDefault(_Projects);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Vue = require('vue');
-Vue.use(require('vue-resource'));
+var VueResource = require('vue-resource');
+
+Vue.use(VueResource);
+
 Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
 
 new Vue({
@@ -10660,13 +10695,14 @@ new Vue({
     },
     components: {
         Alert: _Alert2.default,
-        Notificator: _Notificator2.default
+        Notificator: _Notificator2.default,
+        Projects: _Projects2.default
     },
     ready: function ready() {
         //alert('Ready to go');
     }
 });
 
-},{"./components/Alert.vue":13,"./components/Notificator.vue":14,"vue":11,"vue-resource":4}]},{},[15]);
+},{"./components/Alert.vue":13,"./components/Notificator.vue":14,"./components/widgets/Projects.vue":15,"vue":11,"vue-resource":4}]},{},[16]);
 
 //# sourceMappingURL=main.js.map

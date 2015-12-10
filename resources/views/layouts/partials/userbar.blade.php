@@ -19,36 +19,7 @@
             </li>
             {{--NOTIFICATOR--}}
             <li class="dropdown hidden-xs">
-                <a class="btn dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-bell"></i>
-                    @if(count($notifications) > 0)
-                        <span class="count">
-                            {{count($notifications)}}
-                        </span>
-                    @endif
-                </a>
-                <ul class="dropdown-menu notifications-list">
-                    <li class="pointer">
-                        <div class="pointer-inner">
-                            <div class="arrow"></div>
-                        </div>
-                    </li>
-                    <li class="item-header">
-                        You have {{count($notifications)}} new notifications
-                    </li>
-                    @foreach($notifications as $nts)
-                        <li class="item">
-                            <a href="#">
-                                <i class="fa fa-{{$nts->type->icon}}"></i>
-                                <span class="content">{{$nts->message}}</span>
-                            </a>
-                            <i class="btnNotificator fa fa-sticky-note"></i>
-                        </li>
-                    @endforeach
-                    <li class="item-footer">
-                        {!! link_to_route('all_notifications', $title='View all notifications') !!}
-                    </li>
-                </ul>
+                <notificator></notificator>
             </li>
             {{--MESSENGER--}}
             <li class="dropdown hidden-xs">
