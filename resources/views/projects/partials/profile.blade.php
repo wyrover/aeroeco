@@ -3,9 +3,7 @@
     {!! Form::hidden('creator_id', $user->id) !!}
     <div class="row">
         {!! Form::label('project_type_id', 'Project Type') !!}
-        {!! Form::select('project_type_id', [
-            '1' => 'Aircraft', '2' => 'Auxiliary Power Unit (APU)', '3' => 'Engine', '4' => 'Landing Gear', '5' => 'Thrust Reverser'
-        ], null, ['class' => 'form-control']) !!}
+        {!! Form::select('project_type_id', $types, null, ['class' => 'form-control']) !!}
     </div>
     <div class="row">
         {!! Form::label('disassemblers_id', 'Disassembly Location') !!}
@@ -16,7 +14,7 @@
         {!! Form::date('asset_arrival_date', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
     </div>
     <div class="row text-right" style="margin-top:20px;">
-        {!! Form::submit('Continue', ['class' => 'btn btn-uam']) !!}
+        {!! Form::submit('Continue', ['id' => 'btnProfile', 'class' => 'btn btn-uam']) !!}
     </div>
     {!! Form::close() !!}
 </div>

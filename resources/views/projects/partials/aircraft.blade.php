@@ -2,71 +2,95 @@
     <div class="row">
         <div class="col-md-4">
             <label>Aircraft Type</label>
-            <input type="text" class="form-control" placeholder="Aircraft Type"  ng-model="aircraft_type" uib-typeahead="m.model for m in vm.mocks | filter:$viewValue | limitTo:8">
+            <input type="text" class="form-control" name="type_id" placeholder="Aircraft Type" >
         </div>
         <div class="col-md-4">
             <label>Manufacturer's Serial Number (MSN)</label>
-            <input type="text" class="form-control" placeholder="Manufacturer's Serial Number (MSN)"/>
+            <input type="text" class="form-control" name="msn" placeholder="Manufacturer's Serial Number (MSN)"/>
         </div>
         <div class="col-md-4">
             <label>Registration / Tail Number</label>
-            <input type="text" class="form-control" placeholder="Registration / Tail Number"/>
+            <input type="text" class="form-control" name="tail" placeholder="Registration / Tail Number"/>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
             <label>Aircraft Owner</label>
-            <input type="text" class="form-control" placeholder="Aircraft Owner" />
+            <input type="text" class="form-control" class="owner" placeholder="Aircraft Owner" />
         </div>
         <div class="col-md-4">
             <label>Current or Last Operator</label>
-            <input type="text" class="form-control" placeholder="Current or last operator"/>
+            <input type="text" class="form-control" name="last_operator" placeholder="Current or last operator"/>
         </div>
         <div class="col-md-4">
             <label>Country of Origin</label>
-            <select name="country_origin" class="form-control">
+            <select name="country_origin" class="form-control" name="country_id">
                 <option value="184">United States of America</option>
             </select>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
-            <label>Proof of Ownership</label>
-            <input type="file" class="form-control">
+            <label>Aircraft Model Year</label>
+            <input type="number" class="form-control" name="model_year" placeholder="Aircraft Model Year">
         </div>
         <div class="col-md-4">
-            <label>Non-Incident Statement (NIS)</label>
-            <input type="file" class="form-control">
+            <label>Flight Hours</label>
+            <input type="number" class="form-control" name="flight_hours" placeholder="Flight Hours">
+        </div>
+        <div class="col-md-4">
+            <label>Cycles</label>
+            <input type="number" class="form-control" name="cycles" placeholder="Cycles">
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <label>Proof of Ownership</label>
+            <input type="file" class="form-control" name="path_proof_ownership">
+        </div>
+        <div class="col-md-4">
+            <label>Proof of Insurance</label>
+            <input type="file" class="form-control" name="path_proof_insurance">
         </div>
         <div class="col-md-4">
             <label>Aircraft Trace</label>
-            <input type="file" class="form-control">
+            <input type="file" class="form-control" name="path_trace">
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
-            <label>Proof of Insurance</label>
-            <input type="file" class="form-control">
+            <label>Denied Party Clearance</label>
+            <input type="file" class="form-control" name="path_denied_party">
         </div>
         <div class="col-md-4">
             <label>Aircraft Maintenance Manual (AMM)</label>
-            <input type="file" class="form-control">
+            <input type="file" class="form-control" name="path_amm">
         </div>
         <div class="col-md-4">
             <label>Illustrated Parts Catalog (IPC)</label>
-            <input type="file" class="form-control">
+            <input type="file" class="form-control" name="path_ipc">
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
+            <label>
+                Non-Incident Statement (NIS)
+                &nbsp;&nbsp;-&nbsp;&nbsp;
+                Incidents:&nbsp;&nbsp;
+                <input type="radio" name="has_incident" value="1">&nbsp; Yes
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="has_incident" value="0">&nbsp; No
+            </label>
+            <input type="file" class="form-control" name="path_nis">
+        </div>
+
+        <div class="col-md-4">
             <label>Upload an image of the aircraft.</label>
-            <input type="file" class="form-control">
+            <input type="file" class="form-control" name="path_plane_image">
         </div>
-        <div class="col-md-6">&nbsp;</div>
-    </div>
-    <div class="row">
-        <div class="col-md-12" style="text-align: right;">
-            <button ng-click="vm.moveToEngines()" class="btn btn-uam">Continue</button>
+        <div class="col-md-4 text-right" style="padding-top: 30px;">
+            <button class="btn btn-uam">Continue</button>
         </div>
     </div>
 </div>

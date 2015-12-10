@@ -7,7 +7,7 @@
 @section('content')
     <div style="margin-top: 10px;">
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
+        <ul id="projectTabs" class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active">
                 <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
                     PROFILE
@@ -64,7 +64,15 @@
 @push('scripts')
 <script>
     $(function() {
-        //alert('jQuery');
+        $('#btnProfile').on('click', function(e) {
+            e.preventDefault();
+            alert('I caught that!');
+            $('#projectTabs a[href = "#aircraft"]').tab('show')
+        });
+        $('#btnAircraft').on('click', function(e) {
+            e.preventDefault();
+            alert('I caught that from Aircraft!');
+        });
     });
 </script>
 @endpush

@@ -20,3 +20,7 @@ $primary-color: rgb(141,198,63);
 .darkGreen { color: $dark-green; }
 .red { color: $red; }
 .legal { color: $blue; }
+
+[v-cloak] {
+    display: none;
+}

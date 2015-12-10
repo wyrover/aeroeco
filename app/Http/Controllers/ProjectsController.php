@@ -7,6 +7,7 @@ use App\Models\ConsortiumGlobal;
 use App\Models\Contracttopic;
 use App\Models\Disassembler;
 use App\Models\Project;
+use App\Models\ProjectType;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -50,14 +51,18 @@ class ProjectsController extends ApiController
     {
         $user = Auth::user();
         $disassemblers = Disassembler::lists('name', 'id');
-        return view('projects.create', compact('disassemblers', 'user'));
+        $types = ProjectType::lists('type', 'id');
+        return view('projects.create', compact('disassemblers', 'types', 'user'));
     }
 
     public function store()
     {
-        //dd(Input::all());
         // insert new
-        $record = Project::create(Input::all());
+        $inputted = Input::all();
+        $user = Auth::user();
+        $ins = array_add($inputted, 'company_id', $user->company_id);
+        //dd($ins);
+        $record = Project::create($ins);
         return $this->respond($record->id);
     }
 

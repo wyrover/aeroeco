@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="token" name="token" value="{{ csrf_token() }}">
 
     <title> @yield('title') </title>
 
@@ -14,7 +15,7 @@
     {!! HTML::style('css/app.css') !!}
 </head>
 
-<body id="app" class="@yield('body_class')">
+<body class="@yield('body_class')">
 @include('layouts.partials.userbar')
 
 <div id="wrapper">

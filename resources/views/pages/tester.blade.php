@@ -4,6 +4,10 @@
 
 @section('content')
     <div style="width: 400px; margin: 0 auto;">
+        <notificator></notificator>
+    </div>
+
+    <div style="width: 400px; margin: 0 auto; display:none;">
         <alert type="alert">
             <strong>General!</strong> Your account needs to be updated!
         </alert>

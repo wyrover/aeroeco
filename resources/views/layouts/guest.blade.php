@@ -4,6 +4,7 @@
     <title> @yield('title') </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta id="token" name="token" value="{{ csrf_token() }}">
 
     <link type="image/x-icon" href="favicon.ico" rel="shortcut icon" />
     <script src="https://use.typekit.net/eqs2vwj.js"></script>
@@ -23,6 +24,7 @@
 
     <div class="footer">
         @yield('footer')
+    </div>
 </div>
 </body>
 {!! HTML::script('js/app.js') !!}

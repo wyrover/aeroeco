@@ -21,6 +21,10 @@ class Project extends Model
     {
         return $this->belongsTo('App\Models\Company');
     }
+    public function type()
+    {
+        return $this->hasOne('App\ProjectType');
+    }
     /* RELATIONSHIPS */
     
     /* METHODS */

@@ -29,6 +29,9 @@
 .legal {
   color: #009; }
 
+[v-cloak] {
+  display: none; }
+
 .black {
   color: black; }
 
@@ -58,6 +61,9 @@
 
 .legal {
   color: #009; }
+
+[v-cloak] {
+  display: none; }
 
 .wf-loading {
   visibility: hidden; }
@@ -174,6 +180,9 @@
 
 .legal {
   color: #009; }
+
+[v-cloak] {
+  display: none; }
 
 .wf-loading {
   visibility: hidden; }
@@ -7976,6 +7985,9 @@ button.close {
 .legal {
   color: #009; }
 
+[v-cloak] {
+  display: none; }
+
 .wf-loading {
   visibility: hidden; }
 
@@ -8032,6 +8044,9 @@ button.close {
 .legal {
   color: #009; }
 
+[v-cloak] {
+  display: none; }
+
 .wf-loading {
   visibility: hidden; }
 
@@ -8087,6 +8102,9 @@ button.close {
 
 .legal {
   color: #009; }
+
+[v-cloak] {
+  display: none; }
 
 .wf-loading {
   visibility: hidden; }
@@ -8178,6 +8196,9 @@ button.close {
 
 .legal {
   color: #009; }
+
+[v-cloak] {
+  display: none; }
 
 .wf-loading {
   visibility: hidden; }
@@ -8404,6 +8425,9 @@ button.close {
 .legal {
   color: #009; }
 
+[v-cloak] {
+  display: none; }
+
 .black {
   color: black; }
 
@@ -8433,6 +8457,9 @@ button.close {
 
 .legal {
   color: #009; }
+
+[v-cloak] {
+  display: none; }
 
 .wf-loading {
   visibility: hidden; }
@@ -9456,6 +9483,9 @@ body.stop-scrolling {
 .legal {
   color: #009; }
 
+[v-cloak] {
+  display: none; }
+
 .wf-loading {
   visibility: hidden; }
 
@@ -9615,6 +9645,9 @@ th {
 
 .legal {
   color: #009; }
+
+[v-cloak] {
+  display: none; }
 
 .wf-loading {
   visibility: hidden; }

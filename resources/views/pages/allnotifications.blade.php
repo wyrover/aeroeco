@@ -3,7 +3,9 @@
 @section('title', 'AeroEco::Notifications')
 
 @section('content')
-    <h3>All Notifications</h3>
+    <div class="container">
+        <notificator></notificator>
+    </div>
 @endsection
 
 @section('footer')
@@ -11,9 +13,4 @@
 @endsection
 
 @push('scripts')
-<script>
-    $(function() {
-        //alert('jQuery');
-    });
-</script>
 @endpush

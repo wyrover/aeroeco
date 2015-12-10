@@ -12,10 +12,19 @@ class ProjectTypesTableSeeder extends Seeder
 
         $collection = [
             [
-                'type' => 'aircraft'
+                'type' => 'Aircraft'
             ],
             [
-                'type' => 'engine'
+                'type' => 'Auxiliary Power Unit (APU)'
+            ],
+            [
+                'type' => 'Engine'
+            ],
+            [
+                'type' => 'Landing Gear'
+            ],
+            [
+                'type' => 'Thrust Reverser'
             ]
         ];
 

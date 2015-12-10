@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Notification;
-
 Route::get('/',['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 Route::get('/home',['as' => 'home', 'uses' => 'DashboardController@index']);
 

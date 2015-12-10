@@ -1,5 +1,5 @@
 <template>
-    <div :class="alertClasses" v-show=show>
+    <div :class="alertClasses" v-show="show">
         <slot></slot>
         <span class="Alert__Close" @click="show = false">X</span>
     </div>
