@@ -9,8 +9,8 @@
         <div class="panel-body">
             <table class="table table-striped table-bordered table-condensed">
                 <tr>
-                    <th style="width:20%">Project</th>
-                    <th style="width:20%">Status</th>
+                    <th style="width:15%">Project</th>
+                    <th style="width:25%">Status</th>
                     <th style="width:20%">Parts Currently in Market</th>
                     <th style="width:25%">Work Progress</th>
                     <th style="width:15%">Estimated Income Potential</th>
