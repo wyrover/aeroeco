@@ -8,8 +8,16 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <projects></projects>
+        </div>
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Widget</h3>
+                </div>
+                <div class="panel-body"></div>
+            </div>
         </div>
     </div>
     <!--<div class="row">

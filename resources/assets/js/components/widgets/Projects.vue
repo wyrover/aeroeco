@@ -7,13 +7,13 @@
             </h3>
         </header>
         <div class="panel-body">
-            <table class="table table-striped table-condensed">
+            <table class="table table-striped table-bordered table-condensed">
                 <tr>
                     <th style="width:20%">Project</th>
                     <th style="width:20%">Status</th>
                     <th style="width:20%">Parts Currently in Market</th>
                     <th style="width:25%">Work Progress</th>
-                    <th style="width:15%">Income Potential</th>
+                    <th style="width:15%">Estimated Income Potential</th>
                 </tr>
                 <tr>
                     <td>
@@ -90,16 +90,21 @@
                     </td>
                     <td class="text-right">$0</td>
                 </tr>
-                <tr>
-                    <td colspan="6">
-                        <i class="green fa fa-plus"></i> Start a new disassembly
-                    </td>
-                </tr>
             </table>
+            <p>
+                <button class="btn btn-uam">
+                    <i class="fa fa-plus"></i> Start a new project
+                </button>
+            </p>
         </div>
     </div>
 </template>
 <style lang="stylus">
+    .panel, button {
+        -webkit-box-shadow: 3px 3px 5px 0px rgba(119,119,119,1);
+        -moz-box-shadow: 3px 3px 5px 0px rgba(119,119,119,1);
+        box-shadow: 3px 3px 5px 0px rgba(119,119,119,1);
+    }
     .progress {
         margin-bottom: 0;
         background-color: #aaa;

@@ -5,6 +5,8 @@ Route::get('/home',['as' => 'home', 'uses' => 'DashboardController@index']);
 
 // USER INFO
 Route::get('/messages', ['as' => 'my_messages', 'uses' => 'MessagesController@myMessages']);
+Route::get('/profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
+Route::get('/preferences', ['as' => 'preferences', 'uses' => 'UsersController@preferences']);
 
 // COMPANIES
 Route::get('/companies/newco', 'CompaniesController@newco');

@@ -60,4 +60,14 @@ class UsersController extends ApiController
         $record->fill(Input::all())->save();
         return $this->respond($record);
     }
+
+    public function profile()
+    {
+        return view('user.profile');
+    }
+
+    public function preferences()
+    {
+        return view('user.preferences');
+    }
 }

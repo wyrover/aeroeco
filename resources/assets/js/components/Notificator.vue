@@ -85,13 +85,13 @@
         },
         methods: {
             fetchNotesList: function() {
-                this.$http.get('api/notifications', function(notes) {
+                this.$http.get('/api/notifications', function(notes) {
                     this.list = notes;
                 }.bind(this));
             },
             deleteNote: function(note) {
                 if(confirm("Are you sure you want to delete this event?")) {
-                    this.$http.delete('api/notifications/' + note.id, function (data, status, request) {
+                    this.$http.delete('/api/notifications/' + note.id, function (data, status, request) {
                         console.log('Success');
                     }).error(function (data, status, request) {
                         console.log(data);

@@ -37,6 +37,13 @@
                      Confirm Password
                      <input type="password" class="form-control" name="password_confirmation">
                  </div>
+
+                 <div>
+                     <input type="checkbox" class="form-control" name="can_sell">&nbsp;
+                     <label class="checkbox-inline" style="margin-top: -55px;">
+                         I am registering as an Asset Owner
+                     </label>
+                 </div>
                  <br><br>
                  <div class="text-right">
                      <button type="submit" class="btn btn-uam">Register</button>

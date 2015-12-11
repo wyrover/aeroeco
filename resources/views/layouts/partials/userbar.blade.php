@@ -73,10 +73,14 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li>
-                            <a href="#"><i class="fa fa-user">&nbsp;</i>Profile</a>
+                            <a href="/profile">
+                                <i class="fa fa-user">&nbsp;</i>&nbsp;Profile
+                            </a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-cog"></i>&nbsp;Settings</a>
+                            <a href="/preferences">
+                                <i class="fa fa-cog">&nbsp;</i>&nbsp;Settings
+                            </a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-envelope-o"></i>&nbsp;Messages</a>
