@@ -55,6 +55,7 @@ return [
         GeneaLabs\LaravelCaffeine\LaravelCaffeineServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
+        Aloha\Twilio\Support\Laravel\ServiceProvider::class,
     ],
     'aliases' => [
         'App'       => Illuminate\Support\Facades\App::class,
@@ -98,6 +99,7 @@ return [
         'Gravatar'  => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
         'HTML'      => Collective\Html\HtmlFacade::class,
         'Image'     => Intervention\Image\Facades\Image::class,
+        'Twilio'    => Aloha\Twilio\Support\Laravel\Facade::class,
     ],
 
 ];

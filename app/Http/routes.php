@@ -17,7 +17,7 @@ Route::resource('projects', 'ProjectsController');
 Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
 Route::post('project', ['as' => 'project_store', 'uses' => 'ProjectsController@store']);
 
-// TEST ROUTES
+// TEST ROUTES  Jon: 9012870209; Kenn: 8702083769; Tracy: 6624366086
 Route::get('/emailer', function() {
     $data = array('name' => 'Jonathan'); // Change name
 
@@ -39,6 +39,10 @@ Route::get('/tester', function () {
 Route::get('/notifier', function () {
     notify('2', '2', 'Angelina Jole just friended you.');
     return 'Notification Saved!';
+});
+Route::get('/sms', function() {
+    Twilio::message('9012870209', 'Hi, I am Echo from the AeroEco software. I can now send but not receive text messages. Pretty cool, huh?');
+    return 'Message sent';
 });
 Route::get('/messenger', function () {
     tweet('2', 'Dude, why are you sending yourself a message? Are you some kind of freak? Oh, you are just testing.');
