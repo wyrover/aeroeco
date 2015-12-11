@@ -40,8 +40,8 @@ Route::get('/notifier', function () {
     notify('2', '2', 'Angelina Jole just friended you.');
     return 'Notification Saved!';
 });
-Route::get('/sms', function() {
-    Twilio::message('9012870209', 'Hi, I am Echo from the AeroEco software. I can now send but not receive text messages. Pretty cool, huh?');
+Route::get('/sms/{tier}', function($phone) {
+    Twilio::message($phone, 'Hi, I am Echo from the AeroEco software. I can now send but not receive text messages. Pretty cool, huh?');
     return 'Message sent';
 });
 Route::get('/messenger', function () {
