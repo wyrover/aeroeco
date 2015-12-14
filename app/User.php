@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -27,6 +28,13 @@ class User extends Model implements AuthenticatableContract,
         'all_companies' => 'boolean'
     ];
     /* CASTING */
+
+    /* Accessor & Mutators */
+    public function getFullnameAttribute()
+    {
+        return $this->firstname . " " . $this->lastname;
+    } // end getFullnameAttribute function
+    /* Accessor & Mutators */
 
     /* RELATIONSHIPS */
     public function company()

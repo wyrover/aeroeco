@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Software',
                 'email' => 'groundcontrol@eco.local',
                 'password' => Hash::make('password'),
-                'company_id' => 5,
+                'company_id' => 2,
                 'all_companies' => true,
                 'is_admin' => true,
                 'can_sell' => true,

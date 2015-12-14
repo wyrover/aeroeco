@@ -40,13 +40,13 @@ class CompaniesTableSeeder extends Seeder
                 'corporation_type' => 'Limited Liability Corporation'
             ],
             [
-                'company' => 'Robert Half Technology',
-                'dba' => 'RHT',
-                'domain' => 'rht.com',
+                'company' => 'Starfleet Academy',
+                'dba' => 'SFA',
+                'domain' => 'sfa.org',
                 'tier' => '4',
                 'reply_to' => 'jon.gravois@rhsps.com',
-                'website' => 'http://www.rhtmemphis.com',
-                'corporation_type' => 'New Jersey'
+                'website' => 'http://acad.sfi.org/',
+                'corporation_type' => 'San Francisco'
             ]
         ];
 

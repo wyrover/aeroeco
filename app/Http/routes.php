@@ -1,5 +1,11 @@
 <?php
 
+Route::group(['middleware' => 'auth'], function ()
+{
+    // Restricted routes go here
+});
+
+// Unrestricted routes go here
 Route::get('/',['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 Route::get('/home',['as' => 'home', 'uses' => 'DashboardController@index']);
 
@@ -18,6 +24,10 @@ Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
 Route::post('project', ['as' => 'project_store', 'uses' => 'ProjectsController@store']);
 
 // TEST ROUTES  Jon: 9012870209; Kenn: 8702083769; Tracy: 6624366086
+Route::get('upload', function() {
+    return View::make('pages.upload');
+});
+Route::post('apply/upload', 'ApplyController@upload');
 Route::get('/emailer', function() {
     $data = array('name' => 'Jonathan'); // Change name
 
@@ -30,6 +40,7 @@ Route::get('/emailer', function() {
 
     return 'Email Sent!';
 });
+Route::get('/excel', ['as' => 'excel', 'uses' => 'ExcelController@index']);
 Route::get('/event', function() {
     logit('created a test event');
 });
@@ -40,7 +51,7 @@ Route::get('/notifier', function () {
     notify('2', '2', 'Angelina Jole just friended you.');
     return 'Notification Saved!';
 });
-Route::get('/sms/{tier}', function($phone) {
+Route::get('/sms/{phone}', function($phone) {
     Twilio::message($phone, 'Hi, I am Echo from the AeroEco software. I can now send but not receive text messages. Pretty cool, huh?');
     return 'Message sent';
 });
@@ -77,6 +88,7 @@ Route::group(['prefix' => 'api/'], function () {
     Route::resource('countries', 'CountriesController');
     Route::resource('disassemblers', 'DisassemblersController');
     Route::resource('locations', 'LocationsController');
+    Route::resource('messages', 'MessagesController');
     Route::resource('notifications', 'NotificationsController');
     Route::resource('phones', 'PhonesController');
     Route::resource('projects', 'ProjectsController');

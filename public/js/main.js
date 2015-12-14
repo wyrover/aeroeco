@@ -10576,6 +10576,60 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],14:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert(".list-group li.list-group-item .avatar {\n  position: absolute;\n  margin-top: 10px;\n}\n.list-group li.list-group-item .content {\n  display: block;\n  padding-left: 50px;\n  padding-top: 5px;\n}\n.list-group li.list-group-item .content .content-headline {\n  color: #333;\n  display: block;\n  font-weight: 600;\n}\n.list-group li.list-group-item .content .content-text {\n  color: #605f5f;\n  font-size: 0.9em;\n  font-weight: normal;\n}\n.btnReply {\n  cursor: pointer;\n  color: #75a651;\n}\n.btnArchive {\n  cursor: pointer;\n  color: #e84e40;\n}\n")
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    props: [],
+    data: function data() {
+        return {
+            list: []
+        };
+    },
+
+    computed: {},
+    created: function created() {
+        this.fetchMessagesList();
+    },
+    methods: {
+        fetchMessagesList: function fetchMessagesList() {
+            this.$http.get('/api/messages', (function (msgs) {
+                this.list = msgs;
+            }).bind(this));
+        },
+        deleteMessage: function deleteMessage(msg) {
+            if (confirm("Are you sure you want to delete this message?")) {
+                this.$http.delete('/api/messages/' + msg.id, function (data, status, request) {
+                    console.log('Success');
+                }).error((function (data, status, request) {
+                    console.log(data);
+                }).bind(this));
+                this.list.$remove(msg);
+            }
+        }
+    }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n        <i class=\"fa fa-envelope\"></i>\n        <span class=\"count\" v-show=\"list.length > 0\">\n            {{list.length}}\n        </span>\n    </a>\n    <ul class=\"dropdown-menu notifications-list messages-list\">\n        <li class=\"pointer\">\n            <div class=\"pointer-inner\">\n                <div class=\"arrow\"></div>\n            </div>\n        </li>\n        <ul class=\"list-group\">\n            <li class=\"item-header\">\n                You have {{list.length}} new messages\n            </li>\n            <li class=\"list-group-item\" v-for=\"msg in list\">\n                <span class=\"avatar\">\n                    <img src=\"http://www.gravatar.com/avatar/{{msg.gravatar}}\" alt=\"Gravatar\" style=\"height: 40px; width: auto;\">\n                </span>\n                <span class=\"content\">\n                    <span class=\"content-headline\">\n                        {{msg.sender}}\n                        <span class=\"pull-right\">\n                            <i class=\"btnReply fa fa-reply\"></i>\n                            <i class=\"btnArchive fa fa-trash\"></i>\n                        </span>\n                    </span>\n                    <span class=\"content-text\">\n                        {{ msg.brief }}\n                    </span>\n                </span>\n            </li>\n        </ul>\n        <li class=\"item-footer\">\n            <a href=\"/messages\">View all messages</a>\n        </li>\n    </ul>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Messenger.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache[".list-group li.list-group-item .avatar {\n  position: absolute;\n  margin-top: 10px;\n}\n.list-group li.list-group-item .content {\n  display: block;\n  padding-left: 50px;\n  padding-top: 5px;\n}\n.list-group li.list-group-item .content .content-headline {\n  color: #333;\n  display: block;\n  font-weight: 600;\n}\n.list-group li.list-group-item .content .content-text {\n  color: #605f5f;\n  font-size: 0.9em;\n  font-weight: normal;\n}\n.btnReply {\n  cursor: pointer;\n  color: #75a651;\n}\n.btnArchive {\n  cursor: pointer;\n  color: #e84e40;\n}\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],15:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert(".list-group {\n  width: 320px;\n}\n.list-group .list-group-item {\n  position: relative;\n}\n.list-group .list-group-item .typeicon {\n  color: #e84e40;\n  margin-right: 3px;\n}\n.list-group .list-group-item .delicon {\n  color: #e84e40;\n  margin-left: 3px;\n}\n.list-group .list-group-item .btnClose {\n  position: absolute;\n  right: 0;\n  width: 20px;\n  color: #900;\n  cursor: pointer;\n}\n#notif {\n  padding: 8px 0;\n  text-align: center;\n  list-style: none;\n  background-color: #8dc63f;\n  border-radius: 0 0 4px 4px;\n}\n#notif a {\n  color: #fff;\n  text-decoration: none;\n}\n#notif a:hover {\n  padding: 11px;\n  color: #8dc63f;\n  background-color: #fff;\n}\n")
 'use strict';
 
@@ -10601,7 +10655,7 @@ exports.default = {
             }).bind(this));
         },
         deleteNote: function deleteNote(note) {
-            if (confirm("Are you sure you want to delete this event?")) {
+            if (confirm("Are you sure you want to delete this notification?")) {
                 this.$http.delete('/api/notifications/' + note.id, function (data, status, request) {
                     console.log('Success');
                 }).error((function (data, status, request) {
@@ -10613,7 +10667,7 @@ exports.default = {
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n        <i class=\"fa fa-bell\"></i>\n        <span class=\"count\" v-show=\"list.length > 0\">\n            {{list.length}}\n        </span>\n    </a>\n    <ul class=\"dropdown-menu notifications-list\">\n        <li class=\"pointer\">\n            <div class=\"pointer-inner\">\n                <div class=\"arrow\"></div>\n            </div>\n        </li>\n        <ul class=\"list-group\">\n        <li class=\"list-group-item\" v-for=\"note in list\">\n            <i class=\"typeicon fa fa-{{ note.type.icon}}\"></i>\n            {{ note.message }}\n            <span class=\"btnClose\">\n                <i class=\"delicon fa fa-trash\" @click=\"deleteNote(note)\"></i>\n            </span>\n        </li>\n        <li id=\"notif\" class=\"item-footer\">\n            <a href=\"#\">Delete All</a>\n        </li>\n        </ul>\n        \n    </ul>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n        <i class=\"fa fa-bell\"></i>\n        <span class=\"count\" v-show=\"list.length > 0\">\n            {{list.length}}\n        </span>\n    </a>\n    <ul class=\"dropdown-menu notifications-list\">\n        <li class=\"pointer\">\n            <div class=\"pointer-inner\">\n                <div class=\"arrow\"></div>\n            </div>\n        </li>\n        <ul class=\"list-group\">\n            <li class=\"list-group-item\" v-for=\"note in list\">\n                <i class=\"typeicon fa fa-{{ note.type.icon}}\"></i>\n                {{ note.message }}\n                <span class=\"btnClose\">\n                    <i class=\"delicon fa fa-trash\" @click=\"deleteNote(note)\"></i>\n                </span>\n            </li>\n            <li id=\"notif\" class=\"item-footer\">\n                <a href=\"#\">Delete All</a>\n            </li>\n        </ul>\n        \n    </ul>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -10629,7 +10683,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],15:[function(require,module,exports){
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],16:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert(".panel,\nbutton {\n  -webkit-box-shadow: 3px 3px 5px 0px #777;\n  -moz-box-shadow: 3px 3px 5px 0px #777;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.progress {\n  margin-bottom: 0;\n  background-color: #aaa;\n}\n.progress-bar-adc {\n  background-color: #f35958;\n  color: #fff;\n}\n")
 "use strict";
 
@@ -10661,12 +10715,16 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],16:[function(require,module,exports){
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],17:[function(require,module,exports){
 'use strict';
 
 var _Alert = require('./components/Alert.vue');
 
 var _Alert2 = _interopRequireDefault(_Alert);
+
+var _Messenger = require('./components/Messenger.vue');
+
+var _Messenger2 = _interopRequireDefault(_Messenger);
 
 var _Notificator = require('./components/Notificator.vue');
 
@@ -10695,6 +10753,7 @@ new Vue({
     },
     components: {
         Alert: _Alert2.default,
+        Messenger: _Messenger2.default,
         Notificator: _Notificator2.default,
         Projects: _Projects2.default
     },
@@ -10703,6 +10762,6 @@ new Vue({
     }
 });
 
-},{"./components/Alert.vue":13,"./components/Notificator.vue":14,"./components/widgets/Projects.vue":15,"vue":11,"vue-resource":4}]},{},[16]);
+},{"./components/Alert.vue":13,"./components/Messenger.vue":14,"./components/Notificator.vue":15,"./components/widgets/Projects.vue":16,"vue":11,"vue-resource":4}]},{},[17]);
 
 //# sourceMappingURL=main.js.map

@@ -44,11 +44,11 @@ class ViewComposerServiceProvider extends ServiceProvider
         view()->composer('layouts.partials.userbar', function ($view) {
             $user = Auth::user();
             $notifications = Notification::with('type')
-                ->where('user_id', $user->id)
+                ->where('user_id', Auth::id())
                 ->where('status', 'pending')
                 ->latest()
                 ->get();
-            $messages = Message::where('user_id', $user->id)
+            $messages = Message::where('user_id', Auth::id())
                 ->where('status', 'pending')
                 ->latest()
                 ->get();

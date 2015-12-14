@@ -12,16 +12,16 @@
             </div>
         </li>
         <ul class="list-group">
-        <li class="list-group-item" v-for="note in list">
-            <i class="typeicon fa fa-{{ note.type.icon}}"></i>
-            {{ note.message }}
-            <span class='btnClose'>
-                <i class="delicon fa fa-trash" @click="deleteNote(note)"></i>
-            </span>
-        </li>
-        <li id="notif" class="item-footer">
-            <a href="#">Delete All</a>
-        </li>
+            <li class="list-group-item" v-for="note in list">
+                <i class="typeicon fa fa-{{ note.type.icon}}"></i>
+                {{ note.message }}
+                <span class='btnClose'>
+                    <i class="delicon fa fa-trash" @click="deleteNote(note)"></i>
+                </span>
+            </li>
+            <li id="notif" class="item-footer">
+                <a href="#">Delete All</a>
+            </li>
         </ul>
         </li>
     </ul>
@@ -90,7 +90,7 @@
                 }.bind(this));
             },
             deleteNote: function(note) {
-                if(confirm("Are you sure you want to delete this event?")) {
+                if(confirm("Are you sure you want to delete this notification?")) {
                     this.$http.delete('/api/notifications/' + note.id, function (data, status, request) {
                         console.log('Success');
                     }).error(function (data, status, request) {

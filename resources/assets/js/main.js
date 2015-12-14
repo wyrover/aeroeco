@@ -6,6 +6,7 @@ Vue.use(VueResource);
 Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
 
 import Alert from './components/Alert.vue';
+import Messenger from './components/Messenger.vue';
 import Notificator from './components/Notificator.vue';
 import Projects from './components/widgets/Projects.vue';
 
@@ -19,6 +20,7 @@ new Vue({
     },
     components: {
         Alert,
+        Messenger,
         Notificator,
         Projects
     },

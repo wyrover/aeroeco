@@ -22,6 +22,9 @@ class UsersController extends ApiController
     {
         // show all
         $records = User::with($this->related)->get();
+        foreach($records as $record) {
+            $record['fullname'] = $record->fullname;
+        }
         return $records;
     }
 
@@ -37,6 +40,7 @@ class UsersController extends ApiController
     {
         //show single
         $record = User::with($this->related)->findOrFail($id);
+        $record['fullname'] = $record->fullname;
         return $record;
     }
 

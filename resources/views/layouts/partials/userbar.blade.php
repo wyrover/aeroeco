@@ -23,42 +23,7 @@
             </li>
             {{--MESSENGER--}}
             <li class="dropdown hidden-xs">
-                <a class="btn dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-envelope"></i>
-                    @if(count($messages) > 0)
-                        <span class="count">
-                            {{count($messages)}}
-                        </span>
-                    @endif
-                </a>
-                <ul class="dropdown-menu notifications-list messages-list">
-                    <li class="pointer">
-                        <div class="pointer-inner">
-                            <div class="arrow"></div>
-                        </div>
-                    </li>
-                    <li class="item-header">
-                        You have {{count($messages)}} new messages
-                    </li>
-                    @foreach($messages as $msg)
-                        <li class="item">
-                            <a href="#">
-                                <img src="{{ Gravatar::src($msg->email) }}" alt="Gravatar" style="height: 40px; width: auto;"/>
-                                <span class="content">
-                                    <span class="content-headline">
-                                        {{$msg->sender}}
-                                    </span>
-                                    <span class="content-text">
-                                        {!! str_limit($msg->message, 80) !!}
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                    @endforeach
-                    <li class="item-footer">
-                        {!! link_to_route('my_messages', $title='View all messages') !!}
-                    </li>
-                </ul>
+                <messenger></messenger>
             </li>
         </ul>
         {{--PROFILE BLOCK--}}
@@ -68,7 +33,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{{ Gravatar::src(Auth::user()->email) }}" alt="Gravatar"/>
                             <span class="hidden-xs">
-                                {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
+                                {{ Auth::user()->fullname }}
                             </span> <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
@@ -83,7 +48,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-envelope-o"></i>&nbsp;Messages</a>
+                            <a href="/messages"><i class="fa fa-envelope-o"></i>&nbsp;Messages</a>
                         </li>
                         <li>
                             <a href="/auth/logout"><i class="fa fa-power-off"></i>&nbsp;Logout</a>

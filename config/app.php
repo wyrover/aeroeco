@@ -56,6 +56,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
         Aloha\Twilio\Support\Laravel\ServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
     'aliases' => [
         'App'       => Illuminate\Support\Facades\App::class,
@@ -95,6 +96,7 @@ return [
          * User Added Facades...
          */
         'Debugger'  => Barryvdh\Debugbar\Facade::class,
+        'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Gravatar'  => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
         'HTML'      => Collective\Html\HtmlFacade::class,
