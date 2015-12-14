@@ -12,7 +12,7 @@ class RegisterCommands extends Command
      *
      * @var string
      */
-    protected $signature = 'register:commands';
+    protected $signature = 'zulu:register-commands';
 
     /**
      * The console command description.
@@ -32,6 +32,25 @@ class RegisterCommands extends Command
     }
 
     /**
+     * @param $files
+     * @return array
+     */
+    protected function filesOnly($files)
+    {
+        do {
+            $done = true;
+            for ($i = 0; $i < sizeof($files); $i++) {
+                if (preg_match('/^\./', $files[$i], $match)) {
+                    unset($files[$i]);
+                    $done = false;
+                }
+            }
+            $files = array_values($files);
+        } while (!$done);
+        return $files;
+    }
+
+    /**
      * Execute the console command.
      *
      * @return mixed
@@ -42,6 +61,7 @@ class RegisterCommands extends Command
         $path = "app/Console/Commands/";
         // Get array of console command file names
         $arr = scandir($path);
+        //$arr = filesOnly($arr);
         // Get file names exclusing directories and dots
         for ($i = 0; $i < sizeof($arr); $i++){
             if (preg_match('/[.]php/', $arr[$i], $match)){

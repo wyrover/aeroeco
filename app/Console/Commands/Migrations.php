@@ -11,14 +11,16 @@ class Migrations extends Command
      *
      * @var string
      */
-    protected $signature = 'zulu:show-migrations {--write}';
+    protected $signature = 'zulu:show-migrations
+                            {--write : Output migrations to text file (alternative bash > output)}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Show all migration schemas.';
+    protected $description = 'Show all migration schemas.
+                            {--write : Output migrations to text file (alternative bash > output)}';
 
     /**
      * Create a new command instance.
@@ -28,6 +30,25 @@ class Migrations extends Command
     public function __construct()
     {
         parent::__construct();
+    }
+
+    /**
+     * @param $files
+     * @return array
+     */
+    protected function filesOnly($files)
+    {
+        do {
+            $done = true;
+            for ($i = 0; $i < sizeof($files); $i++) {
+                if (preg_match('/^\./', $files[$i], $match)) {
+                    unset($files[$i]);
+                    $done = false;
+                }
+            }
+            $files = array_values($files);
+        } while (!$done);
+        return $files;
     }
 
     /**
@@ -41,6 +62,7 @@ class Migrations extends Command
         $path = "database/migrations/";
         // Scan directory for database migration files
         $files = scandir($path);
+        $files = fileOnly($files);
         // Get only migration files excluding directories and dots
         for ($i = 0; $i < sizeof($files); $i++){
             if (preg_match('/^[.]/', $files[$i], $match)){

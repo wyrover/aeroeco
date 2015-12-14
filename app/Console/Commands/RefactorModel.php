@@ -3,21 +3,23 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class UpdateModel extends Command
+class RefactorModel extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'zulu:refactor-models {--fill} {--cast}';
+    protected $signature = 'zulu:refactor-model
+                            {file? : (optional) Model}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Replace fillable and cast variables in each model.';
+    protected $description = 'Replace fillable and cast variables in each model.
+                            {file : Model}';
 
     /**
      * Create a new command instance.
@@ -30,12 +32,54 @@ class UpdateModel extends Command
     }
 
     /**
+     * @param $files
+     * @return array
+     */
+    protected function filesOnly($files)
+    {
+        do {
+            $done = true;
+            for ($i = 0; $i < sizeof($files); $i++) {
+                if (preg_match('/^\./', $files[$i], $match)) {
+                    unset($files[$i]);
+                    $done = false;
+                }
+            }
+            $files = array_values($files);
+        } while (!$done);
+        return $files;
+    }
+
+    /**
+     * @param $x
+     * @param $min
+     * @param $max
+     * @return bool
+     */
+    protected function between($x, $min, $max)
+    {
+        if ($x >= $min) {
+            if ($x <= $max) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Execute the console command.
      *
      * @return mixed
      */
     public function handle()
     {
+        /**
+         * Argument
+         */
+        $model = $this->argument('file');
+        $tableModel = str_plural(snake_case($model));
+        $this->info($tableModel);
+
         /**
          * Models, by default in Laravel 5.1, are located in the app folder.
          * In this project a folder called Models has been created under app.
@@ -44,6 +88,9 @@ class UpdateModel extends Command
          * MODELS=app/Models/
          */
         $pathModels = env('MODELS');
+        if ($pathModels == ''){
+            $pathModels = 'app/';
+        }
 
         /**
          * php wordwrap width
@@ -53,13 +100,18 @@ class UpdateModel extends Command
         // Path to database migration files
         $path = "database/migrations/";
         $files = scandir($path);
-        // Get file names excluding directories and dots
-        for ($i = 0; $i < sizeof($files); $i++) {
-            if (preg_match('/^[.]/', $files[$i], $match)) {
-                unset($files[$i]);
+        $files = SELF::filesOnly($files);
+
+        // Looking for a single model?
+        if ($tableModel) {
+            $str = '';
+            foreach ($files as $file) {
+                if (strpos($file, $tableModel)) {
+                    $str = $file;
+                }
             }
+            $files = [$str];
         }
-        #print_r($files);
 
         // Fill
         if ($this->option('fill')) {
@@ -82,9 +134,9 @@ class UpdateModel extends Command
                             $s .= "\t\t'" . $matches[1][$i] . "',\n";
                         }
                         $s .= "\t];";
-                        $s = preg_replace('/\'id\', /', '', $s);
+                        $s = preg_replace("/'id',\n\t\t/", '', $s);
                         $s = wordwrap($s, $width);
-                        #$this->line($s);
+                        $this->line($s);
                     }
                     $model = preg_replace('/^.*?create_(.*?)_table.*/', "$1", $file);
                     $model = str_singular($model);

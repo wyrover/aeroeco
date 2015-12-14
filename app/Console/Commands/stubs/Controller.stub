@@ -1,5 +1,4 @@
-<?php
-namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
 use {{use_path}}{{model_singular}};
 use Illuminate\Http\Request;
