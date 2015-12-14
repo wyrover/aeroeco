@@ -27,7 +27,3 @@ DB_PASSWORD=your-mysql-password
 * From the webroot, run ```composer update```
 * From the webroot, run ```npm install```
 * From the webroot, run ```bower install```
-
-## Please Note: Unusual Configuration
-
-* With most Laravel applications, you point your document root to the /public folder. **HOWEVER**, this app is set up to run from the document root.
