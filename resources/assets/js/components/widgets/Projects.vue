@@ -92,9 +92,9 @@
                 </tr>
             </table>
             <p>
-                <button class="btn btn-uam">
+                <a class="btn btn-uam" href="/projects/create">
                     <i class="fa fa-plus"></i> Start a new project
-                </button>
+                </a>
             </p>
         </div>
     </div>
