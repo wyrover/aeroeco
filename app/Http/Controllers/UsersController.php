@@ -15,7 +15,7 @@ class UsersController extends ApiController
     public function __construct(User $records)
     {
         $this->records = $records;
-        $this->related = ['company.contacts.type', 'notifications.type'];
+        $this->related = ['company.contacts.type', 'manager', 'notifications.type'];
     }
 
     public function index()

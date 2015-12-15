@@ -1,6 +1,6 @@
-@extends('layouts/logged')
+@extends('layouts.logged')
 
-@section('title', 'Contract')
+@section('title', 'AeroEco::Removal')
 
 @section('body_class', 'contract')
 
@@ -9,34 +9,33 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    {{--CONTRACT TYPE--}}
-                    {{$conType}}:&nbsp;
+                    B777-1209:&nbsp;
                     {{--COMPANY_NAME--}}
                     <small>{{ $company->company }}</small>
                 </h1>
-                <input type="text" class="form-control" style="width: 300px;margin-top:5px;" placeholder="Search Contract ....">
+                <input type="text" class="form-control" style="width: 300px;margin-top:5px;" placeholder="Search Listing ....">
                 <div class="panel-group" id="accordion1">
-                    @foreach($topics as $topic)
+                    @foreach($atas as $ata)
                         <div class="panel panel-default">
-                        <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" data-target="#{{$topic->slug}}">
-                            <h4 class="panel-title">{{$topic->topic}}</h4>
+                            <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" data-target="#{{$ata->slug}}">
+                                <h4 class="panel-title">
+                                    {{$ata->chapter}} {{$ata->title}}
+                                </h4>
                             <span class="pull-right" style="margin-top:-16px;">
-                                <i class="btnEdit fa fa-pencil"></i>
+                                0 of 28
                             </span>
-                        </div>
-                        <div id="{{$topic->slug}}" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                @include("contracts.GTA." . $topic->slug)
+                            </div>
+                            <div id="{{$ata->slug}}" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>HUH</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>
-            <!-- /.row -->
         </div>
     </div>
-    <!-- /.container-fluid -->
 @endsection
 
 @section('footer')

@@ -20,6 +20,7 @@ class CreateProjectsTable extends Migration
             $table->integer('disassemblers_id')->unsigned()->default(3);
             $table->integer('creator_id')->unsigned()->default(1);
             $table->integer('company_id')->unsigned()->default(1);
+            $table->string('directory_path')->nullable();
             $table->integer('sales_id')->unsigned()->default(7);
             $table->dateTime('project_start_date')->default(Carbon::now());
             $table->dateTime('asset_arrival_date')->nullable();

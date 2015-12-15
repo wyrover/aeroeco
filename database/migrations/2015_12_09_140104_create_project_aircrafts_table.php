@@ -25,6 +25,9 @@ class CreateProjectAircraftsTable extends Migration
             $table->integer('model_year')->nullable();
             $table->integer('flight_hours')->nullable();
             $table->integer('cycles')->nullable();
+            $table->string('apu_stands_provider')->default('ADC');
+            $table->string('landing_gear_stands_provider')->default('ADC');
+            $table->string('thrust_reverser_stands_provider')->default('ADC');
             $table->string('path_proof_ownership')->nullable();
             $table->string('path_denied_party')->nullable();
             $table->string('path_nis')->nullable();

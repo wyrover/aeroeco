@@ -1,7 +1,7 @@
 <div class="company__block">
     <h3 class="text-center">{{$company->company}}</h3>
     <p class="text-center">
-        {!! HTML::image("vault/{$company->id}/logo.png", 'Logo', ['style' => 'width:120px; height: auto;']) !!}
+        {!! HTML::image("vault/{$company->folder_name}/logo.png", 'Logo', ['style' => 'width:120px; height: auto;']) !!}
     </p>
 </div>
 <ul class="sidebar-nav nav-pills nav-stacked" id="menu">

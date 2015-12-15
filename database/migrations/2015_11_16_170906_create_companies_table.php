@@ -19,6 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('corporation_type')->nullable();
             $table->integer('location_id')->unsigned()->default(1);
             $table->string('domain')->nullable();
+            $table->string('folder_name')->nullable();
             $table->string('reply_to')->nullable();
             $table->string('website')->nullable();
             $table->integer('tier')->nullable();

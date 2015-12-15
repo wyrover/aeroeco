@@ -16,6 +16,7 @@ class CreateAtasTable extends Migration {
 			$table->increments('id')->unsigned();
 			$table->integer('chapter');
 			$table->string('title');
+			$table->string('slug')->default('none');
 			$table->boolean('active');
 		});
 

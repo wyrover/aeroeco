@@ -6,13 +6,28 @@ Route::group(['middleware' => 'auth'], function ()
 });
 
 // Unrestricted routes go here
-Route::get('/',['as' => 'dashboard', 'uses' => 'DashboardController@index']);
-Route::get('/home',['as' => 'home', 'uses' => 'DashboardController@index']);
+Route::get('/',[
+    'as' => 'dashboard',
+    'uses' => 'DashboardController@index'
+]);
+Route::get('/home',[
+    'as' => 'home',
+    'uses' => 'DashboardController@index'
+]);
 
 // USER INFO
-Route::get('/messages', ['as' => 'my_messages', 'uses' => 'MessagesController@myMessages']);
-Route::get('/profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
-Route::get('/preferences', ['as' => 'preferences', 'uses' => 'UsersController@preferences']);
+Route::get('/messages', [
+    'as' => 'my_messages',
+    'uses' => 'MessagesController@myMessages'
+]);
+Route::get('/profile', [
+    'as' => 'profile',
+    'uses' => 'UsersController@profile'
+]);
+Route::get('/preferences', [
+    'as' => 'preferences',
+    'uses' => 'UsersController@preferences'
+]);
 
 // COMPANIES
 Route::get('/companies/newco', 'CompaniesController@newco');
@@ -21,7 +36,15 @@ Route::resource('companies', 'CompaniesController');
 // PROJECTS
 Route::resource('projects', 'ProjectsController');
 Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
-Route::post('project', ['as' => 'project_store', 'uses' => 'ProjectsController@store']);
+Route::get('projects/{id}/parts', 'ProjectsController@contract_parts');
+Route::post('project', [
+    'as' => 'project_store',
+    'uses' => 'ProjectsController@store'
+]);
+Route::post('aircraft', [
+    'as' => 'aircraft_store',
+    'uses' => 'ProjectsController@storeAircraft'
+]);
 
 // TEST ROUTES  Jon: 9012870209; Kenn: 8702083769; Tracy: 6624366086
 Route::get('upload', function() {
@@ -40,7 +63,10 @@ Route::get('/emailer', function() {
 
     return 'Email Sent!';
 });
-Route::get('/excel', ['as' => 'excel', 'uses' => 'ExcelController@index']);
+Route::get('/xlimport/{dir}/{file}', [
+    'as' => 'xlimport',
+    'uses' => 'ExcelController@fromExcel'
+]);
 Route::get('/event', function() {
     logit('created a test event');
 });

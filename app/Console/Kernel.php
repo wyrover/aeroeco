@@ -19,9 +19,6 @@ class Kernel extends ConsoleKernel
 		\App\Console\Commands\MigrateMysqlSchemaCommand::class,
 		\App\Console\Commands\Migrations::class,
 		\App\Console\Commands\Model::class,
-		\App\Console\Commands\Parts::class,
-		\App\Console\Commands\PhpInfo::class,
-		\App\Console\Commands\RefactorModel::class,
 		\App\Console\Commands\RegisterCommands::class,
 		\App\Console\Commands\Versions::class,
 	];

@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'company_id' => 2,
                 'all_companies' => true,
+                'manager_id' => 10,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 1,
@@ -30,6 +31,7 @@ class UsersTableSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'company_id' => 5,
                 'all_companies' => true,
+                'manager_id' => 8,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 2,
@@ -40,6 +42,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Thompson',
                 'email' => 'kennthompson@gmail.com',
                 'password' => Hash::make('password'),
+                'manager_id' => 7,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 2,
@@ -50,6 +53,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Cooper',
                 'email' => 'jcooper@uaminc.com',
                 'password' => Hash::make('password'),
+                'manager_id' => 8,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 2,
@@ -60,6 +64,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Truong',
                 'email' => 'atruong@uaminc.com',
                 'password' => Hash::make('password'),
+                'manager_id' => 4,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 2,
@@ -71,6 +76,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'mscott@uaminc.com',
                 'password' => Hash::make('password'),
                 'all_companies' => true,
+                'manager_id' => 7,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 2,
@@ -81,16 +87,18 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Andrews',
                 'email' => 'tandrews@uaminc.com',
                 'password' => Hash::make('password'),
+                'manager_id' => 10,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 2,
                 'tier' => 1
             ],
             [
-                'firstname' => 'John',
+                'firstname' => 'Jon',
                 'lastname' => 'Moon',
                 'email' => 'jmoon@uaminc.com',
                 'password' => Hash::make('password'),
+                'manager_id' => 10,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 2,
@@ -101,6 +109,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Kenney',
                 'email' => 'mkenney@uaminc.com',
                 'password' => Hash::make('password'),
+                'manager_id' => 10,
                 'role_id' => 3
             ],
             [
@@ -109,6 +118,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'kwright@uaminc.com',
                 'password' => Hash::make('password'),
                 'all_companies' => true,
+                'manager_id' => 10,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 2,
@@ -120,6 +130,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'admin@aero.local',
                 'password' => Hash::make('password'),
                 'all_companies' => true,
+                'manager_id' => 7,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 2
@@ -130,6 +141,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'exec@aero.local',
                 'password' => Hash::make('password'),
                 'all_companies' => true,
+                'manager_id' => 7,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 3
@@ -140,6 +152,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'techadmin@aero.local',
                 'password' => Hash::make('password'),
                 'all_companies' => true,
+                'manager_id' => 7,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 4
@@ -149,6 +162,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Support',
                 'email' => 'support@aero.local',
                 'password' => Hash::make('password'),
+                'manager_id' => 7,
                 'all_companies' => true,
                 'can_sell' => true,
                 'role_id' => 5
@@ -158,6 +172,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Tech',
                 'email' => 'tech@aero.local',
                 'password' => Hash::make('password'),
+                'manager_id' => 7,
                 'all_companies' => true,
                 'can_sell' => true,
                 'role_id' => 6
@@ -167,6 +182,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Seller',
                 'email' => 'seller@aero.local',
                 'password' => Hash::make('password'),
+                'manager_id' => 7,
                 'can_sell' => true,
                 'role_id' => 7
             ],
@@ -175,6 +191,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Tier 1',
                 'email' => 'tier1@aero.local',
                 'password' => Hash::make('password'),
+                'manager_id' => 7,
                 'can_sell' => true,
                 'role_id' => 8
             ],
@@ -183,6 +200,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Tier 2',
                 'email' => 'tier2@aero.local',
                 'password' => Hash::make('password'),
+                'manager_id' => 7,
                 'can_sell' => true,
                 'role_id' => 8
             ],
@@ -191,6 +209,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Tier 3',
                 'email' => 'tier3@aero.local',
                 'password' => Hash::make('password'),
+                'manager_id' => 7,
                 'can_sell' => true,
                 'role_id' => 8
             ],
@@ -199,6 +218,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Tier 4',
                 'email' => 'tier4@aero.local',
                 'password' => Hash::make('password'),
+                'manager_id' => 7,
                 'can_sell' => true,
                 'role_id' => 8
             ],
@@ -206,6 +226,7 @@ class UsersTableSeeder extends Seeder
                 'firstname' => 'Aero',
                 'lastname' => 'Vendor',
                 'email' => 'vendor@aero.local',
+                'manager_id' => 7,
                 'password' => Hash::make('password'),
                 'role_id' => 9
             ]

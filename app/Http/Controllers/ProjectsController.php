@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ata;
 use App\Models\Company;
 use App\Models\ConsortiumGlobal;
 use App\Models\Contracttopic;
@@ -22,7 +23,7 @@ class ProjectsController extends ApiController
     {
         $this->middleware('auth');
         $this->records = $records;
-        $this->related = ['company.addresses'];
+        $this->related = ['aircraft.country', 'aircraft.type', 'company.addresses', 'creator', 'engines', 'project_type', 'sales.manager', 'status', 'worksite'];
     }
 
     public function index()
@@ -66,6 +67,11 @@ class ProjectsController extends ApiController
         return $this->respond($record->id);
     }
 
+    public function storeAircraft()
+    {
+        return 'Gotcha';
+    } // end storeAircraft function
+
     public function update($id)
     {
         // save updated
@@ -91,7 +97,19 @@ class ProjectsController extends ApiController
 
         $adc = ConsortiumGlobal::where('id', '1')->first();
 
-        //dd($project);
         return view('contracts.contract', compact('conType', 'topics', 'project', 'company', 'adc'));
     }
+
+    public function contract_parts($id)
+    {
+        $conType = "General Terms Agreement";
+        $atas = Ata::where('active', 1)
+            ->get();
+
+        $project = Project::where('id', $id)->first();
+        $company = $project->company;
+
+        $adc = ConsortiumGlobal::where('id', '1')->first();
+        return view('workscopes.listing', compact('conType', 'atas', 'company', 'project', 'adc'));
+    } // end contract_parts function
 }

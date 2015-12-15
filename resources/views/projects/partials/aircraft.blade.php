@@ -1,4 +1,5 @@
 <div id="aircraft">
+    {!! Form::open(['route' => 'aircraft_store']) !!}
     <div class="row">
         <div class="col-md-4">
             <label>Aircraft Type</label>
@@ -24,7 +25,7 @@
         </div>
         <div class="col-md-4">
             <label>Country of Origin</label>
-            <select name="country_origin" class="form-control" name="country_id">
+            <select id="country_origin" class="form-control" name="country_id">
                 <option value="184">United States of America</option>
             </select>
         </div>
@@ -41,6 +42,31 @@
         <div class="col-md-4">
             <label>Cycles</label>
             <input type="number" class="form-control" name="cycles" placeholder="Cycles">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label>APU Stands Provided By:&nbsp;&nbsp;
+            <select name="apu_stands_provider" class="form-control">
+                <option value="ADC">ADC</option>
+                <option value="owner">Owner</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+
+            <label>Landing Gear Stands Provided By:
+            <select name="landing_gear_stands_provider" class="form-control">
+                <option value="ADC">ADC</option>
+                <option value="owner">Owner</option>
+            </select>
+            </label>
+        </div>
+        <div class="col-md-4">
+            <label>Reverse Thruster Stands Provided By:&nbsp;&nbsp;
+            <select name="reserse_thruster_stands_provider" class="form-control">
+                <option value="ADC">ADC</option>
+                <option value="owner">Owner</option>
+            </select>
         </div>
     </div>
     <hr>
@@ -84,13 +110,13 @@
             </label>
             <input type="file" class="form-control" name="path_nis">
         </div>
-
         <div class="col-md-4">
             <label>Upload an image of the aircraft.</label>
             <input type="file" class="form-control" name="path_plane_image">
         </div>
         <div class="col-md-4 text-right" style="padding-top: 30px;">
-            <button class="btn btn-uam">Continue</button>
+            {!! Form::submit('Continue', ['id' => 'btnAircraft', 'class' => 'btn btn-uam']) !!}
         </div>
     </div>
+    {!! Form::close() !!}
 </div>

@@ -12,6 +12,8 @@ class ConsortiumGlobalsTableSeeder extends Seeder
 
         $collection = [
             [
+                'name' => 'Aerospace Disassembly Consortium',
+                'abr' => 'ADC',
                 'address' => '5350 Poplar Avenue, Suite 150',
                 'address2' => 'Memphis, TN 38119',
                 'phone' => '9016824064',

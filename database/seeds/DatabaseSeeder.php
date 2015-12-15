@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
         'NotificationtypesTableSeeder',
 		'PhonesTableSeeder',
 		'ProjectsTableSeeder',
+		'ProjectAircraftsTableSeeder',
+		'ProjectEnginesTableSeeder',
 		'ProjectStatusesTableSeeder',
 		'ProjectTypesTableSeeder',
 		'RolesTableSeeder',

@@ -10,54 +10,6 @@
         <div class="col-md-6">&nbsp;</div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <label>
-                Engines
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" name="mpa" />
-                &nbsp;MPA
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" name="boroscope" />
-                &nbsp;Boroscope
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" name="storage" />
-                &nbsp;Storage Program
-            </label>
-        </div>
-        <div class="col-md-6">
-            <label>
-                Engine Stands
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" name="adc_furnished" />
-                &nbsp;ADC Furnished
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" name="owner_furnished" />
-                &nbsp;Owner Furnished
-            </label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6"></div>
-        <div class="col-md-6">
-            <label>
-                APU Stands
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" name="adc_furnished" />
-                &nbsp;ADC Furnished
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" name="owner_furnished" />
-                &nbsp;Owner Furnished
-            </label>
-        </div>
-    </div>
-    <div class="row">
         <table class="table table-striped table-condensed">
             <tr>
                 <th>&nbsp;</th>

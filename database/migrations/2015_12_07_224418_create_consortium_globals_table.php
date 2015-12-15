@@ -14,6 +14,8 @@ class CreateConsortiumGlobalsTable extends Migration
     {
         Schema::create('consortium_globals', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('abr');
             $table->string('address');
             $table->string('address2');
             $table->string('phone');

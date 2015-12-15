@@ -8,7 +8,7 @@ class ConsortiumGlobal extends Model
 {
     public $timestamps = false;
     protected $table = 'consortium_globals';
-    protected $fillable = ['address', 'address2', 'phone', 'fax', 'corporation_type'];
+    protected $fillable = ['name', 'abr', 'address', 'address2', 'phone', 'fax', 'corporation_type'];
     /*protected $hidden = ['created_at', 'updated_at'];*/
 
     /* CASTING */
