@@ -50,10 +50,14 @@ class ProjectsController extends ApiController
 
     public function create()
     {
-        $user = Auth::user();
+        $adc = ConsortiumGlobal::where('id', '1')->first();
+        $atas = Ata::where('active', 1)->get();
         $disassemblers = Disassembler::lists('name', 'id');
+        $user = Auth::user();
         $types = ProjectType::lists('type', 'id');
-        return view('projects.create', compact('disassemblers', 'types', 'user'));
+        $company = Company::where('id', $user->company_id)->first();
+
+        return view('projects.create', compact('adc', 'atas', 'disassemblers', 'company', 'types', 'user'));
     }
 
     public function store()

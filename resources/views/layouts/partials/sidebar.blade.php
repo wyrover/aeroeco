@@ -69,7 +69,7 @@
     @if( $user->role_id == 14 || $user->id == 2)
         {{--VENDOR--}}
         <li>
-            <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-bar-chart fa-stack-1x "></i></span> VENDOR</a>
+            <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-briefcase fa-stack-1x "></i></span> VENDOR</a>
             <ul class="nav-pills nav-stacked" style="list-style-type:none;">
                 <li><a href="#">link1</a></li>
                 <li><a href="#">link2</a></li>

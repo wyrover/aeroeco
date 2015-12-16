@@ -97,8 +97,33 @@ class AircraftsTableSeeder extends Seeder
                 'manufacturer' => 'Boeing'
             ],
             [
-                'model' => 'B747-8F	4',
-                'engine_count' => 2,
+                'model' => 'B747-100',
+                'engine_count' => 4,
+                'manufacturer' => 'Boeing'
+            ],
+            [
+                'model' => 'B747-200',
+                'engine_count' => 4,
+                'manufacturer' => 'Boeing'
+            ],
+            [
+                'model' => 'B747-300',
+                'engine_count' => 4,
+                'manufacturer' => 'Boeing'
+            ],
+            [
+                'model' => 'B747-400',
+                'engine_count' => 4,
+                'manufacturer' => 'Boeing'
+            ],
+            [
+                'model' => 'B747-8',
+                'engine_count' => 4,
+                'manufacturer' => 'Boeing'
+            ],
+            [
+                'model' => 'B747-8F',
+                'engine_count' => 4,
                 'manufacturer' => 'Boeing'
             ],
             [
@@ -123,6 +148,11 @@ class AircraftsTableSeeder extends Seeder
             ],
             [
                 'model' => 'B767-KC-767',
+                'engine_count' => 2,
+                'manufacturer' => 'Boeing'
+            ],
+            [
+                'model' => 'B777-1209',
                 'engine_count' => 2,
                 'manufacturer' => 'Boeing'
             ],

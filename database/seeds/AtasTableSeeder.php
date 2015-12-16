@@ -69,13 +69,13 @@ class AtasTableSeeder extends Seeder
                 'chapter' => 11,
                 'title' => 'PLACARDS AND MARKINGS',
                 'slug' => 'placards',
-                'active' => true
+                'active' => false
             ],
             [
                 'chapter' => 12,
                 'title' => 'SERVICING',
                 'slug' => 'servicing',
-                'active' => true
+                'active' => false
             ],
             [
                 'chapter' => 13,
@@ -86,7 +86,7 @@ class AtasTableSeeder extends Seeder
                 'chapter' => 14,
                 'title' => 'HARDWARE',
                 'slug' => 'hardware',
-                'active' => true
+                'active' => false
             ],
             [
                 'chapter' => 15,
@@ -107,7 +107,7 @@ class AtasTableSeeder extends Seeder
                 'chapter' => 18,
                 'title' => 'HELICOPTER VIBRATION',
                 'slug' => 'helicopter',
-                'active' => true
+                'active' => false
             ],
             [
                 'chapter' => 19,
@@ -356,25 +356,25 @@ class AtasTableSeeder extends Seeder
                 'chapter' => 62,
                 'title' => 'MAIN ROTOR',
                 'slug' => 'main_rotor',
-                'active' => true
+                'active' => false
             ],
             [
                 'chapter' => 63,
                 'title' => 'MAIN ROTOR DRIVE',
                 'slug' => 'main_rotor_drive',
-                'active' => true
+                'active' => false
             ],
             [
                 'chapter' => 64,
                 'title' => 'TAIL ROTOR',
                 'slug' => 'tail_rotor',
-                'active' => true
+                'active' => false
             ],
             [
                 'chapter' => 65,
                 'title' => 'TAIL ROTOR DRIVE',
                 'slug' => 'tail_rotor_drive',
-                'active' => true
+                'active' => false
             ],
             [
                 'chapter' => 66,
@@ -385,7 +385,7 @@ class AtasTableSeeder extends Seeder
                 'chapter' => 67,
                 'title' => 'ROTORS FLIGHT CONTROL',
                 'slug' => 'rotors_flight_control',
-                'active' => true
+                'active' => false
             ],
             [
                 'chapter' => 68,

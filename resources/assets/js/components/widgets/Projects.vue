@@ -100,7 +100,7 @@
     </div>
 </template>
 <style lang="stylus">
-    .panel, button {
+    .panel {
         -webkit-box-shadow: 3px 3px 5px 0px rgba(119,119,119,1);
         -moz-box-shadow: 3px 3px 5px 0px rgba(119,119,119,1);
         box-shadow: 3px 3px 5px 0px rgba(119,119,119,1);

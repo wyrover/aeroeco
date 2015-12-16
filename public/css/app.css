@@ -8061,10 +8061,12 @@ button.close {
     margin-top: 6px; }
   .project_page .row {
     line-height: 1.6em; }
-  .project_page .nav-tabs > li > a {
-    background-color: #333333;
-    border-color: #777777;
-    color: #fff; }
+  .project_page .nav-tabs {
+    margin-bottom: 15px !important; }
+    .project_page .nav-tabs > li > a {
+      background-color: #333333;
+      border-color: #777777;
+      color: #fff; }
   .project_page .nav-tabs > li.active > a, .project_page .nav-tabs > li.active > a:hover, .project_page .nav-tabs > li.active > a:focus {
     color: #fff;
     background-color: #666;

@@ -4,10 +4,14 @@
     label {margin-top: 6px;}
     .row {line-height: 1.6em;}
     /* tab color */
-    .nav-tabs>li>a {
-        background-color: #333333;
-        border-color: #777777;
-        color:#fff;
+    .nav-tabs {
+        margin-bottom: 15px !important;
+
+        >li>a {
+            background-color: #333333;
+            border-color: #777777;
+            color: #fff;
+        }
     }
 
     /* active tab color */
