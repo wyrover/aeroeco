@@ -30,13 +30,27 @@ Route::get('/preferences', [
 ]);
 
 // COMPANIES
-Route::get('/companies/newco', 'CompaniesController@newco');
+Route::get('companies/profile', 'CompaniesController@profile');
+Route::get('companies/{id}/profile', 'CompaniesController@profile');
+Route::get('companies/{id}/locations', 'CompaniesController@locations');
+Route::get('companies/{id}/contacts', 'CompaniesController@contacts');
+Route::get('companies/{id}/roles', 'CompaniesController@roles');
+Route::get('companies/{id}/users', 'CompaniesController@users');
+Route::get('companies/{id}/notifications', 'CompaniesController@notifications');
+Route::get('companies/{id}/messages', 'CompaniesController@messages');
+Route::get('companies/{id}/emails', 'CompaniesController@emails');
 Route::resource('companies', 'CompaniesController');
 
 // PROJECTS
-Route::resource('projects', 'ProjectsController');
+Route::get('projects/profile', 'ProjectsController@profile');
+Route::get('projects/{id}/profile', 'ProjectsController@profile');
+Route::get('projects/{id}/aircraft', 'ProjectsController@aircraft');
+Route::get('projects/{id}/engines', 'ProjectsController@engines');
+Route::get('projects/{id}/scope', 'ProjectsController@scope');
+Route::get('projects/{id}/summary', 'ProjectsController@summary');
 Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
 Route::get('projects/{id}/parts', 'ProjectsController@contract_parts');
+Route::resource('projects', 'ProjectsController');
 Route::post('project', [
     'as' => 'project_store',
     'uses' => 'ProjectsController@store'

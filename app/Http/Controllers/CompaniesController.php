@@ -40,10 +40,6 @@ class CompaniesController extends ApiController
         return $record;
     }
 
-    public function create() {
-        return view('companies.create');
-    }
-
     public function store()
     {
         dd(Input::all());
@@ -66,7 +62,19 @@ class CompaniesController extends ApiController
         return $this->respond($record);
     }
 
-    public function newco() {
-        return view('companies.tabs');
-    }
+    // CREATE / EDIT COMPANIES
+    public function profile($id = null)
+    {
+        return view('companies.profile');
+    } // end profile function
+
+    public function locations()
+    {
+        return view('companies.locations');
+    } // end location function
+
+    public function contacts()
+    {
+        return view('companies.contacts');
+    } // end contacts function
 }

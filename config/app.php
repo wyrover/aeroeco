@@ -49,14 +49,15 @@ return [
         /*
          * User Added Service Providers...
          */
+        Aloha\Twilio\Support\Laravel\ServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         GeneaLabs\LaravelCaffeine\LaravelCaffeineServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
-        Aloha\Twilio\Support\Laravel\ServiceProvider::class,
+        Laravelista\Ekko\EkkoServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
     ],
     'aliases' => [
         'App'       => Illuminate\Support\Facades\App::class,
@@ -96,6 +97,7 @@ return [
          * User Added Facades...
          */
         'Debugger'  => Barryvdh\Debugbar\Facade::class,
+        'Ekko'      => Laravelista\Ekko\Facades\Ekko::class,
         'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Gravatar'  => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,

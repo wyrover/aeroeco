@@ -1,6 +1,3 @@
-<style>
-    input[type=checkbox] {display: inline;}
-</style>
 <div class="container-fluid contract">
     <div class="row">
         <div class="col-lg-12">

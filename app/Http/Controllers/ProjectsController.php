@@ -48,18 +48,6 @@ class ProjectsController extends ApiController
         return $record;
     }
 
-    public function create()
-    {
-        $adc = ConsortiumGlobal::where('id', '1')->first();
-        $atas = Ata::where('active', 1)->get();
-        $disassemblers = Disassembler::lists('name', 'id');
-        $user = Auth::user();
-        $types = ProjectType::lists('type', 'id');
-        $company = Company::where('id', $user->company_id)->first();
-
-        return view('projects.create', compact('adc', 'atas', 'disassemblers', 'company', 'types', 'user'));
-    }
-
     public function store()
     {
         // insert new
@@ -116,4 +104,43 @@ class ProjectsController extends ApiController
         $adc = ConsortiumGlobal::where('id', '1')->first();
         return view('workscopes.listing', compact('conType', 'atas', 'company', 'project', 'adc'));
     } // end contract_parts function
+
+    public function profile()
+    {
+        $adc = ConsortiumGlobal::where('id', '1')->first();
+        $atas = Ata::where('active', 1)->get();
+        $disassemblers = Disassembler::lists('name', 'id');
+        $user = Auth::user();
+        $types = ProjectType::lists('type', 'id');
+        $company = Company::where('id', $user->company_id)->first();
+
+        return view('projects.profile', compact('adc', 'atas', 'disassemblers', 'company', 'types', 'user'));
+    }
+
+    public function aircraft()
+    {
+        return view('projects.aircraft');
+    } // end aircraft function
+
+    public function engines()
+    {
+        return view('projects.engines');
+    } // end engines function
+
+    public function scope()
+    {
+        $adc = ConsortiumGlobal::where('id', '1')->first();
+        $atas = Ata::where('active', 1)->get();
+        $disassemblers = Disassembler::lists('name', 'id');
+        $user = Auth::user();
+        $types = ProjectType::lists('type', 'id');
+        $company = Company::where('id', $user->company_id)->first();
+
+        return view('projects.scope', compact('adc', 'atas', 'disassemblers', 'company', 'types', 'user'));
+    } // end scope function
+
+    public function summary()
+    {
+        return view('projects.summary');
+    } // end summary function
 }
