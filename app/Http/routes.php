@@ -3,62 +3,62 @@
 Route::group(['middleware' => 'auth'], function ()
 {
     // Restricted routes go here
+    Route::get('/',[
+        'as' => 'dashboard',
+        'uses' => 'DashboardController@index'
+    ]);
+    Route::get('/home',[
+        'as' => 'home',
+        'uses' => 'DashboardController@index'
+    ]);
+
+    // USER INFO
+    Route::get('/messages', [
+        'as' => 'my_messages',
+        'uses' => 'MessagesController@myMessages'
+    ]);
+    Route::get('/profile', [
+        'as' => 'profile',
+        'uses' => 'UsersController@profile'
+    ]);
+    Route::get('/preferences', [
+        'as' => 'preferences',
+        'uses' => 'UsersController@preferences'
+    ]);
+
+    // COMPANIES
+    Route::get('companies/profile', 'CompaniesController@profile');
+    Route::get('companies/{id}/profile', 'CompaniesController@profile');
+    Route::get('companies/{id}/locations', 'CompaniesController@locations');
+    Route::get('companies/{id}/contacts', 'CompaniesController@contacts');
+    Route::get('companies/{id}/roles', 'CompaniesController@roles');
+    Route::get('companies/{id}/users', 'CompaniesController@users');
+    Route::get('companies/{id}/notifications', 'CompaniesController@notifications');
+    Route::get('companies/{id}/messages', 'CompaniesController@messages');
+    Route::get('companies/{id}/emails', 'CompaniesController@emails');
+    Route::resource('companies', 'CompaniesController');
+
+// PROJECTS
+    Route::get('projects/profile', 'ProjectsController@profile');
+    Route::get('projects/{id}/profile', 'ProjectsController@profile');
+    Route::get('projects/{id}/aircraft', 'ProjectsController@aircraft');
+    Route::get('projects/{id}/engines', 'ProjectsController@engines');
+    Route::get('projects/{id}/scope', 'ProjectsController@scope');
+    Route::get('projects/{id}/summary', 'ProjectsController@summary');
+    Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
+    Route::get('projects/{id}/parts', 'ProjectsController@contract_parts');
+    Route::resource('projects', 'ProjectsController');
+    Route::post('project', [
+        'as' => 'project_store',
+        'uses' => 'ProjectsController@store'
+    ]);
+    Route::post('aircraft', [
+        'as' => 'aircraft_store',
+        'uses' => 'ProjectsController@storeAircraft'
+    ]);
 });
 
 // Unrestricted routes go here
-Route::get('/',[
-    'as' => 'dashboard',
-    'uses' => 'DashboardController@index'
-]);
-Route::get('/home',[
-    'as' => 'home',
-    'uses' => 'DashboardController@index'
-]);
-
-// USER INFO
-Route::get('/messages', [
-    'as' => 'my_messages',
-    'uses' => 'MessagesController@myMessages'
-]);
-Route::get('/profile', [
-    'as' => 'profile',
-    'uses' => 'UsersController@profile'
-]);
-Route::get('/preferences', [
-    'as' => 'preferences',
-    'uses' => 'UsersController@preferences'
-]);
-
-// COMPANIES
-Route::get('companies/profile', 'CompaniesController@profile');
-Route::get('companies/{id}/profile', 'CompaniesController@profile');
-Route::get('companies/{id}/locations', 'CompaniesController@locations');
-Route::get('companies/{id}/contacts', 'CompaniesController@contacts');
-Route::get('companies/{id}/roles', 'CompaniesController@roles');
-Route::get('companies/{id}/users', 'CompaniesController@users');
-Route::get('companies/{id}/notifications', 'CompaniesController@notifications');
-Route::get('companies/{id}/messages', 'CompaniesController@messages');
-Route::get('companies/{id}/emails', 'CompaniesController@emails');
-Route::resource('companies', 'CompaniesController');
-
-// PROJECTS
-Route::get('projects/profile', 'ProjectsController@profile');
-Route::get('projects/{id}/profile', 'ProjectsController@profile');
-Route::get('projects/{id}/aircraft', 'ProjectsController@aircraft');
-Route::get('projects/{id}/engines', 'ProjectsController@engines');
-Route::get('projects/{id}/scope', 'ProjectsController@scope');
-Route::get('projects/{id}/summary', 'ProjectsController@summary');
-Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
-Route::get('projects/{id}/parts', 'ProjectsController@contract_parts');
-Route::resource('projects', 'ProjectsController');
-Route::post('project', [
-    'as' => 'project_store',
-    'uses' => 'ProjectsController@store'
-]);
-Route::post('aircraft', [
-    'as' => 'aircraft_store',
-    'uses' => 'ProjectsController@storeAircraft'
-]);
 
 // TEST ROUTES  Jon: 9012870209; Kenn: 8702083769; Tracy: 6624366086
 Route::get('upload', function() {
@@ -106,8 +106,10 @@ Route::get('/welcome_page', function () {
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
 Route::get('auth/register/{tier}', 'Auth\AuthController@getRegister');
