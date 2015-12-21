@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
 
 	$seeders = [
 		'AddressesTableSeeder',
+		'AircraftPartTableSeeder',
 		'AircraftsTableSeeder',
 		'AtasTableSeeder',
 		'CompaniesTableSeeder',
@@ -26,6 +27,8 @@ class DatabaseSeeder extends Seeder
 		'MessagesTableSeeder',
 		'NotificationsTableSeeder',
         'NotificationtypesTableSeeder',
+		'PackagesTableSeeder',
+		'PartsListingTableSeeder',
 		'PhonesTableSeeder',
 		'ProjectsTableSeeder',
 		'ProjectAircraftsTableSeeder',

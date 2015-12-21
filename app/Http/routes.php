@@ -48,13 +48,21 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
     Route::get('projects/{id}/parts', 'ProjectsController@contract_parts');
     Route::resource('projects', 'ProjectsController');
-    Route::post('project', [
+    Route::post('projects', [
         'as' => 'project_store',
         'uses' => 'ProjectsController@store'
     ]);
-    Route::post('aircraft', [
+    Route::post('aircraft_store', [
         'as' => 'aircraft_store',
-        'uses' => 'ProjectsController@storeAircraft'
+        'uses' => 'ProjectsController@store_aircraft'
+    ]);
+    Route::post('engines_store', [
+        'as' => 'engines_store',
+        'uses' => 'ProjectsController@store_engines'
+    ]);
+    Route::post('parts_store', [
+        'as' => 'parts_store',
+        'uses' => 'ProjectsController@store_parts'
     ]);
 });
 
@@ -121,6 +129,10 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 
 // API
 Route::group(['prefix' => 'api/'], function () {
+    Route::get('aircrafts/list', 'AircraftsController@typelist');
+    Route::get('project/{id}/enginelist', 'ProjectEnginesController@listByProject');
+    Route::get('project/{id}/atalist', 'ProjectsController@ataList');
+    Route::get('project/{id}/partslist', 'ProjectsController@partsList');
     Route::resource('addresses', 'AddressesController');
     Route::resource('aircrafts', 'AircraftsController');
     Route::resource('atas', 'AtasController');

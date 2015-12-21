@@ -28,10 +28,12 @@ elixir(function(mix) {
         .copy(paths.vendor + 'bootstrap/fonts/**', paths.public + 'fonts/bootstrap/')
         .sass('app.scss')
         .scripts([
+            paths.vendor + 'lodash/lodash.js',
             paths.vendor + 'jquery/dist/jquery.min.js',
             paths.vendor + 'bootstrap/dist/js/bootstrap.js',
             paths.scripts + 'sidebar_menu.js',
-            paths.vendor + 'sweetalert/dist/sweetalert-dev.js'
+            paths.vendor + 'sweetalert/dist/sweetalert-dev.js',
+            paths.vendor + 'bs-typeahead/js/bootstrap-typeahead.js'
         ], 'public/js/app.js')
         .browserify('main.js')
         //.phpUnit()

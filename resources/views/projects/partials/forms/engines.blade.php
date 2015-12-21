@@ -40,8 +40,3 @@
         </tr>
     </table>
 </div>
-<div class="row">
-    <div class="col-md-12" style="text-align: right;">
-        <button ng-click="vm.moveToParts()" class="btn btn-uam">Continue</button>
-    </div>
-</div>

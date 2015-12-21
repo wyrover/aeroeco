@@ -8125,6 +8125,7 @@ button.close {
   margin: 10px 20px; }
 
 .contract h4 {
+  color: #3b3b3b;
   font-weight: bold;
   font-size: 16px; }
 
@@ -9586,7 +9587,7 @@ body.stop-scrolling {
   height: 100%;
   margin-left: -220px;
   overflow-y: auto;
-  background: #ebebeb;
+  border-right: 2px solid #ebebeb;
   transition: all 0.5s ease; }
 
 #wrapper.toggled #sidebar-wrapper {

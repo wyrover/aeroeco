@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectEngine extends Model
 {
     protected $table = 'project_engines';
-    protected $fillable = ['project_id', 'position', 'engine_type_variant', 'engine_msn', 'path_engine_trace', 'stand_provider', 'MPA', 'boroscope', 'storage_program'];
+    protected $fillable = ['project_id', 'position', 'engine_type_variant', 'engine_msn', 'path_engine_trace', 'owner', 'task', 'stand_provider', 'MPA', 'boroscope', 'storage_program'];
     /*protected $hidden = ['created_at', 'updated_at'];*/
 
     /* CASTING */

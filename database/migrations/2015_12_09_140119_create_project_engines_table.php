@@ -15,9 +15,11 @@ class CreateProjectEnginesTable extends Migration
         Schema::create('project_engines', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('project_id')->unsigned();
-            $table->integer('position')->unsigned();
+            $table->string('position');
             $table->string('engine_type_variant')->nullable();
             $table->string('engine_msn')->nullable();
+            $table->string('owner')->nullable();
+            $table->string('task')->nullable();
             $table->string('stand_provider')->default('ADC');
             $table->boolean('MPA')->default(false);
             $table->boolean('boroscope')->default(false);

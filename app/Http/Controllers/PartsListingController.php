@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Aircraft;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 
-class AircraftsController extends ApiController
+class PartsListingController extends ApiController
 {
     protected $records;
 
-    public function __construct(Aircraft $records)
+    public function __construct(PartsListing $records)
     {
         $this->records = $records;
         $this->related = [];
@@ -21,7 +20,7 @@ class AircraftsController extends ApiController
     public function index()
     {
         // show all
-        $records = Aircraft::with($this->related)->get();
+        $records = PartsListing::with($this->related)->get();
         return $records;
     }
 
@@ -30,20 +29,20 @@ class AircraftsController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('Aircraft was deleted');
+        return $this->respondOK('PartsListing was deleted');
     }
 
     public function show($id)
     {
         //show single
-        $record = Aircraft::with($this->related)->findOrFail($id);
+        $record = PartsListing::with($this->related)->findOrFail($id);
         return $record;
     }
 
     public function store()
     {
         // insert new
-        $record = Aircraft::create(Input::all());
+        $record = PartsListing::create(Input::all());
         return $this->respond($record->id);
     }
 
@@ -53,16 +52,11 @@ class AircraftsController extends ApiController
         $record = $this->records->find($id);
 
         if(! $record){
-            Aircraft::create(Input::all());
+            PartsListing::create(Input::all());
             return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
         return $this->respond($record);
     }
-
-    public function typelist()
-    {
-        return Aircraft::all('manufacturer', 'model', 'id');
-    } // end list function
 }

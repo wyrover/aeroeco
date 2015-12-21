@@ -13,39 +13,51 @@ class ProjectEnginesTableSeeder extends Seeder
         $collection = [
             [
                 'project_id' => 1,
-                'position' => 1,
+                'position' => 'P1',
                 'engine_type_variant' => 'PW400-94',
-                'stand_provider' => 'Owner',
-                'MPA' => false,
-                'boroscope' => true,
+                'owner' => 'leased',
+                'task' => 'return to owner',
+                'stand_provider' => 'ADC',
+                'MPA' => true,
+                'boroscope' => false,
                 'storage_program' => false
             ],
             [
                 'project_id' => 1,
-                'position' => 2,
+                'position' => 'P2',
                 'engine_type_variant' => 'PW400-94',
+                'engine_msn' => 'D0G192',
+                'owner' => 'Starfleet',
+                'task' => 'market',
                 'stand_provider' => 'Owner',
                 'MPA' => false,
                 'boroscope' => true,
-                'storage_program' => false
+                'storage_program' => false,
+                'path_engine_trace' => 'd0g192.trace.pdf'
             ],
             [
                 'project_id' => 1,
-                'position' => 3,
+                'position' => 'P3',
                 'engine_type_variant' => 'PW400-94',
+                'engine_msn' => 'D0G188',
+                'owner' => 'Starfleet',
+                'task' => 'market',
                 'stand_provider' => 'Owner',
                 'MPA' => false,
-                'boroscope' => true,
-                'storage_program' => false
+                'boroscope' => false,
+                'storage_program' => true,
+                'path_engine_trace' => 'd0g188.trace.pdf'
             ],
             [
                 'project_id' => 1,
-                'position' => 4,
+                'position' => 'P4',
                 'engine_type_variant' => 'PW400-94',
-                'stand_provider' => 'Owner',
-                'MPA' => false,
+                'owner' => 'leased',
+                'task' => 'return to owner',
+                'stand_provider' => 'ADC',
+                'MPA' => true,
                 'boroscope' => true,
-                'storage_program' => false
+                'storage_program' => true
             ]
         ];
 

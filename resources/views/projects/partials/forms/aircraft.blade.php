@@ -1,7 +1,8 @@
 <div class="row">
+    {!! Form::hidden('project_id', $project->id) !!}
     <div class="col-md-4">
         <label>Aircraft Type</label>
-        <input type="text" class="form-control" name="type_id" placeholder="Aircraft Type" >
+        <input type="text" id="aircraft_type" name="aircraft_type" class="form-control" placeholder="Aircraft Type" autocomplete="off" >
     </div>
     <div class="col-md-4">
         <label>Manufacturer's Serial Number (MSN)</label>
@@ -15,17 +16,15 @@
 <div class="row">
     <div class="col-md-4">
         <label>Aircraft Owner</label>
-        <input type="text" class="form-control" class="owner" placeholder="Aircraft Owner" />
+        <input type="text" class="form-control" name="owner" placeholder="Aircraft Owner" />
     </div>
     <div class="col-md-4">
         <label>Current or Last Operator</label>
         <input type="text" class="form-control" name="last_operator" placeholder="Current or last operator"/>
     </div>
     <div class="col-md-4">
-        <label>Country of Origin</label>
-        <select id="country_origin" class="form-control" name="country_id">
-            <option value="184">United States of America</option>
-        </select>
+        {!! Form::label('country_id', 'Country of Origin') !!}
+        {!! Form::select('animal', $countries, 184, ['class' => 'form-control']) !!}
     </div>
 </div>
 <div class="row">
@@ -101,18 +100,12 @@
         <label>
             Non-Incident Statement (NIS)
             &nbsp;&nbsp;-&nbsp;&nbsp;
-            Incidents:&nbsp;&nbsp;
-            <input type="radio" name="has_incident" value="1">&nbsp; Yes
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="radio" name="has_incident" value="0">&nbsp; No
+            <input type="checkbox" name="has_incident" value="true">&nbsp; Incident(s) Recorded
         </label>
         <input type="file" class="form-control" name="path_nis">
     </div>
     <div class="col-md-4">
         <label>Upload an image of the aircraft.</label>
         <input type="file" class="form-control" name="path_plane_image">
-    </div>
-    <div class="col-md-4 text-right" style="padding-top: 30px;">
-        {!! Form::submit('Continue', ['id' => 'btnAircraft', 'class' => 'btn btn-uam']) !!}
     </div>
 </div>

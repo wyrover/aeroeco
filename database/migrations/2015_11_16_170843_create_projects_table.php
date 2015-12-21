@@ -15,6 +15,7 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('is_mocked')->default(false);
             $table->integer('project_types_id')->unsigned()->default(1);
             $table->integer('project_statuses_id')->unsigned()->default(1);
             $table->integer('disassemblers_id')->unsigned()->default(3);

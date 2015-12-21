@@ -8,15 +8,14 @@
     </style>
     @include('projects.partials.tabs')
     @include('errors.errors')
-    <div style="margin-top: 5px;">
-        {!! Form::open([
-            'url' => '/projects/engines',
-            'class' => 'form',
-            'novalidate' => 'novalidate',
-            'files' => 'true'
-        ]) !!}
-        @include('projects.partials.forms.engines')
-        {!! Form::close() !!}
+    <div class="row" style="margin-top: 5px;">
+        <engines project="{{$project->id}}"></engines>
+    </div>
+    <div class="row pull-right">
+       <button class="btn btn-uam" style="margin-right: 20px;">
+            Continue
+        </button>
+    </div>
         <br><br>
     </div>
 @stop

@@ -10576,6 +10576,49 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],14:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    props: ['project'],
+    data: function data() {
+        return {
+            list: []
+        };
+    },
+
+    computed: {},
+    created: function created() {
+        this.fetchEnginesList();
+    },
+    methods: {
+        fetchEnginesList: function fetchEnginesList() {
+            var path = '/api/project/' + this.project + '/enginelist';
+            this.$http.get(path, (function (engines) {
+                this.list = engines;
+            }).bind(this));
+        },
+        engine_trace: function engine_trace(engine) {
+            alert('Clicked');
+        }
+    }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <table class=\"table table-striped table-condensed\">\n        <tbody><tr>\n            <th style=\"width:4%;\">Pos</th>\n            <th style=\"width:15%;\">Engine Type / Variant</th>\n            <th style=\"width:14%;\">Engine Serial Number (SSN)</th>\n            <th style=\"width:15%;\">Owner</th>\n            <th style=\"width:15%;\">Instructions</th>\n            <th style=\"width:15%;\">Engine Stands</th>\n            <th style=\"width:10%;\">Engine Trace</th>\n            <th style=\"width:12%;\">Add-Ons</th>\n        </tr>\n        <tr v-for=\"engine in list\">\n            <td style=\"vertical-align:middle;\">{{engine.position}}</td>\n            <td style=\"vertical-align:middle;\">\n                <input type=\"text\" class=\"form-control\" v-model=\"engine.engine_type_variant\">\n            </td>\n            <td style=\"vertical-align:middle;\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Engine SSN\" v-model=\"engine.engine_msn\">\n            </td>\n            <td style=\"vertical-align:middle;\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Engine SSN\" v-model=\"engine.owner\">\n            </td>\n            <td style=\"vertical-align:middle;\">\n                <select class=\"form-control\" v-model=\"engine.task\">\n                    <option>return to owner</option>\n                    <option>market</option>\n                </select>\n            </td>\n            <td style=\"vertical-align:middle;\">\n                <select class=\"form-control\" v-model=\"engine.stand_provider\">\n                    <option value=\"ADC\">ADC</option>\n                    <option value=\"Owner\">Owner</option>\n                </select>\n            </td>\n            <td style=\"vertical-align:middle;\">\n                <span style=\"padding:10px 0 0 0;\" v-show=\"!engine.path_engine_trace\">\n                    <button class=\"btn btn-uam btn-sm\" @click=\"engine_trace(engine)\">Upload File</button>\n                </span>\n                <span style=\"padding:10px 0 0 0;\" v-show=\"engine.path_engine_trace\">\n                    <button class=\"btn btn-warning btn-sm\" @click=\"engine_trace(engine)\">Replace File</button>\n                </span>\n            </td>\n            <td style=\"vertical-align:middle;\">\n                <input type=\"checkbox\" v-model=\"engine.MPA\"> MPA\n                <br>\n                <input type=\"checkbox\" v-model=\"engine.boroscope\"> Boroscope\n                <br>\n                <input type=\"checkbox\" v-model=\"engine.storage_program\"> Storage\n            </td>\n        </tr>\n        <tr>\n            <td colspan=\"6\">\n                <a href=\"#\" class=\"btn btn-default naked_link\">\n                    <i class=\"fa fa-plus-circle\"></i> Add New Engine\n                </a>\n            </td>\n        </tr>\n    </tbody></table>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Engines.vue"
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"vue":11,"vue-hot-reload-api":2}],15:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert(".list-group li.list-group-item .avatar {\n  position: absolute;\n  margin-top: 10px;\n}\n.list-group li.list-group-item .content {\n  display: block;\n  padding-left: 50px;\n  padding-top: 5px;\n}\n.list-group li.list-group-item .content .content-headline {\n  color: #333;\n  display: block;\n  font-weight: 600;\n}\n.list-group li.list-group-item .content .content-text {\n  color: #605f5f;\n  font-size: 0.9em;\n  font-weight: normal;\n}\n.btnReply {\n  cursor: pointer;\n  color: #75a651;\n}\n.btnArchive {\n  cursor: pointer;\n  color: #e84e40;\n}\n")
 'use strict';
 
@@ -10629,7 +10672,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],15:[function(require,module,exports){
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],16:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert(".list-group {\n  width: 320px;\n}\n.list-group .list-group-item {\n  position: relative;\n}\n.list-group .list-group-item .typeicon {\n  color: #e84e40;\n  margin-right: 3px;\n}\n.list-group .list-group-item .delicon {\n  color: #e84e40;\n  margin-left: 3px;\n}\n.list-group .list-group-item .btnClose {\n  position: absolute;\n  right: 0;\n  width: 20px;\n  color: #900;\n  cursor: pointer;\n}\n#notif {\n  padding: 8px 0;\n  text-align: center;\n  list-style: none;\n  background-color: #8dc63f;\n  border-radius: 0 0 4px 4px;\n}\n#notif a {\n  color: #fff;\n  text-decoration: none;\n}\n#notif a:hover {\n  padding: 11px;\n  color: #8dc63f;\n  background-color: #fff;\n}\n")
 'use strict';
 
@@ -10683,7 +10726,70 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],16:[function(require,module,exports){
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],17:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert(".ata__panel {\n  margin: 10px 20px;\n}\n.ata__panel .ata__cat {\n  margin: 0 0 5px -20px;\n  padding: 10px 15px;\n  background-color: #3b3b3b;\n  border-color: #ddd;\n  border-radius: 4px;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.ata__panel .ata__cat > .fa {\n  color: #fff;\n  font-weight: bold;\n  font-size: 16px;\n}\n.ata__panel .ata__cat > .title,\n.ata__panel .ata__cat .slectr,\n.ata__panel .ata__cat .counter {\n  color: #fff;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 16px;\n}\n.ata__panel .readySell {\n  border-left: 8px solid #8dc63f;\n}\n.ata__panel .holdSell {\n  border-left: 8px solid #c2c2c2;\n}\n")
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    props: ['project'],
+    data: function data() {
+        return {
+            atas: [],
+            parts: [],
+            show: false
+        };
+    },
+
+    computed: {},
+    created: function created() {
+        this.fetchAtasList();
+        this.fetchPartsList();
+    },
+    methods: {
+        fetchAtasList: function fetchAtasList() {
+            var path = '/api/project/' + this.project + '/atalist';
+            this.$http.get(path, (function (atas) {
+                _.each(atas, function (ata) {
+                    ata.show = false;
+                });
+                this.atas = atas;
+            }).bind(this));
+        },
+        fetchPartsList: function fetchPartsList() {
+            var path = '/api/project/' + this.project + '/partslist';
+            this.$http.get(path, (function (parts) {
+                this.parts = parts;
+            }).bind(this));
+        },
+        clkBox: function clkBox(msg, event) {
+            alert('You clicked the ' + msg + ' box');
+        },
+        toggleVisible: function toggleVisible(cat) {
+            alert(cat.show);
+        }
+    }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"row\" style=\"width: 90%; margin:20px auto 0 auto;\">\n        <div class=\"col-md-4\">\n            <div class=\"main-box infographic-box colored aqua-bg\" @click=\"clkBox('aqua', $event)\">\n                <div class=\"headline\">\n                    <span class=\"title\">Basic</span>\n                    <br>\n                    <span class=\"cost pull-right\">$75,000</span>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-md-4\">\n            <div class=\"main-box infographic-box colored rust-bg\" @click=\"clkBox('rust', $event)\">\n                <div class=\"headline\">\n                    <span class=\"title\">Enhanced</span>\n                    <br>\n                    <span class=\"cost pull-right\">$100,000</span>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-md-4\">\n            <div class=\"main-box infographic-box colored purple-bg\" @click=\"clkBox('purple', $event)\">\n                <div class=\"headline\">\n                    <span class=\"title\">Supreme</span>\n                    <br>\n                    <span class=\"cost pull-right\">$150,000</span>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"ata__panel\" v-for=\"cat in atas\">\n        <div class=\"ata__cat\">\n            <i class=\"fa fa-caret-right\" v-show=\"!cat.show\"></i>\n            <i class=\"fa fa-caret-down\" v-show=\"cat.show\"></i>\n            <span class=\"title\" @click=\"cat.show = ! cat.show\">\n                {{cat.ATA}}\n            </span>\n            <span class=\"counter pull-right\">\n                {{cat.in_project}} of {{cat.ata_total}}\n            </span>\n        </div>\n        <div class=\"ata__table\" v-show=\"cat.show\">\n            <table class=\"table table-striped table-condensed\">\n                <tbody><tr>\n                    <th style=\"width:5%;\">Include</th>\n                    <th style=\"width:15%;\">Part #</th>\n                    <th style=\"width:55%;\">Part</th>\n                    <th style=\"width:25%;\">Serial #</th>\n                </tr>\n                <tr v-for=\"item in parts|filterBy cat.chapter in 'ATA'\">\n                    <td class=\"readySell\" style=\"vertical-align: middle;>\n                        <input type=\" checkbox\"=\"\" v-model=\"item.in_project\">\n                    </td>\n                    <td style=\"vertical-align: middle;\">\n                        {{item.part.base_part_number}}\n                    </td>\n                    <td style=\"vertical-align: middle;\">\n                        {{item.part.description|capitalize}}\n                    </td>\n                    <td>\n                        <input type=\"text\" class=\"form-control\" v-model=\"item.msn\">\n                    </td>\n                </tr>\n            </tbody></table>\n        </div>\n    </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Parts.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache[".ata__panel {\n  margin: 10px 20px;\n}\n.ata__panel .ata__cat {\n  margin: 0 0 5px -20px;\n  padding: 10px 15px;\n  background-color: #3b3b3b;\n  border-color: #ddd;\n  border-radius: 4px;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.ata__panel .ata__cat > .fa {\n  color: #fff;\n  font-weight: bold;\n  font-size: 16px;\n}\n.ata__panel .ata__cat > .title,\n.ata__panel .ata__cat .slectr,\n.ata__panel .ata__cat .counter {\n  color: #fff;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 16px;\n}\n.ata__panel .readySell {\n  border-left: 8px solid #8dc63f;\n}\n.ata__panel .holdSell {\n  border-left: 8px solid #c2c2c2;\n}\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],18:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert(".panel {\n  -webkit-box-shadow: 3px 3px 5px 0px #777;\n  -moz-box-shadow: 3px 3px 5px 0px #777;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.progress {\n  margin-bottom: 0;\n  background-color: #aaa;\n}\n.progress-bar-adc {\n  background-color: #f35958;\n  color: #fff;\n}\n")
 "use strict";
 
@@ -10715,12 +10821,16 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],17:[function(require,module,exports){
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],19:[function(require,module,exports){
 'use strict';
 
 var _Alert = require('./components/Alert.vue');
 
 var _Alert2 = _interopRequireDefault(_Alert);
+
+var _Engines = require('./components/Engines.vue');
+
+var _Engines2 = _interopRequireDefault(_Engines);
 
 var _Messenger = require('./components/Messenger.vue');
 
@@ -10729,6 +10839,10 @@ var _Messenger2 = _interopRequireDefault(_Messenger);
 var _Notificator = require('./components/Notificator.vue');
 
 var _Notificator2 = _interopRequireDefault(_Notificator);
+
+var _Parts = require('./components/Parts.vue');
+
+var _Parts2 = _interopRequireDefault(_Parts);
 
 var _Projects = require('./components/widgets/Projects.vue');
 
@@ -10753,8 +10867,10 @@ new Vue({
     },
     components: {
         Alert: _Alert2.default,
+        Engines: _Engines2.default,
         Messenger: _Messenger2.default,
         Notificator: _Notificator2.default,
+        Parts: _Parts2.default,
         Projects: _Projects2.default
     },
     ready: function ready() {
@@ -10762,6 +10878,6 @@ new Vue({
     }
 });
 
-},{"./components/Alert.vue":13,"./components/Messenger.vue":14,"./components/Notificator.vue":15,"./components/widgets/Projects.vue":16,"vue":11,"vue-resource":4}]},{},[17]);
+},{"./components/Alert.vue":13,"./components/Engines.vue":14,"./components/Messenger.vue":15,"./components/Notificator.vue":16,"./components/Parts.vue":17,"./components/widgets/Projects.vue":18,"vue":11,"vue-resource":4}]},{},[19]);
 
 //# sourceMappingURL=main.js.map

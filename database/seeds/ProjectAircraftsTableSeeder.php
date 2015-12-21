@@ -13,7 +13,7 @@ class ProjectAircraftsTableSeeder extends Seeder
         $collection = [
             [
                 'project_id' => 1,
-                'type_id' => 19,
+                'type_id' => 21,
                 'msn' => '37833',
                 'tail' => 'N195UA',
                 'has_incident' => false,

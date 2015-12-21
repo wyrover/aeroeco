@@ -19,7 +19,9 @@
                 'files' => 'true'
             ]) !!}
             @include('projects.partials.forms.profile')
-
+            <div class="row pull-right">
+                {!! Form::submit('Continue', ['class' => 'btn btn-uam']) !!}
+            </div>
             {!! Form::close() !!}
         </div>
         <br><br>
