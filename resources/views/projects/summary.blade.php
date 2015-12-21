@@ -15,7 +15,7 @@
             'novalidate' => 'novalidate',
             'files' => 'true'
         ]) !!}
-        @include('projects.partials.forms.summary')
+        {{--@include('projects.partials.forms.summary')--}}
         {!! Form::close() !!}
         <br><br>
     </div>
