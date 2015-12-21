@@ -48,7 +48,7 @@
                     <th style="width:25%;">Serial #</th>
                 </tr>
                 <tr v-for="item in parts|filterBy cat.chapter in 'ATA'">
-                    <td class="readySell" style="vertical-align: middle;>
+                    <td :class="{'readySell': cat.can_sell, 'holdSell': !cat.can_sell}" style="vertical-align: middle;>
                         <input type="checkbox" v-model="item.in_project"/>
                     </td>
                     <td style="vertical-align: middle;">

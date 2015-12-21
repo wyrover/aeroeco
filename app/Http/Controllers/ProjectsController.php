@@ -218,7 +218,8 @@ class ProjectsController extends ApiController
                     'in_project' => false,
                     'part_listing_id' => $part->part_listing_id,
                     'package_id' => $part['parts'][0]->package_id,
-                    'condition' => 1
+                    'condition' => 1,
+                    'can_sell' => false
                 ]);
             }
         }

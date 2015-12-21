@@ -18,6 +18,7 @@ class CreateProjectPartsTable extends Migration
             $table->integer('project_id')->unsigned();
             $table->integer('ATA');
             $table->boolean('in_project')->default(false);
+            $table->boolean('can_sell')->default(false);
             $table->integer('part_listing_id')->unsigned();
             $table->integer('condition_id')->default(1);
             $table->integer('package_id')->nullable();
