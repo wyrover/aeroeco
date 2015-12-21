@@ -50,20 +50,15 @@
     @include('projects.partials.tabs')
     @include('errors.errors')
     <div>
-        {!! Form::open([
-            'url' => '/parts_store',
-            'class' => 'form',
-            'novalidate' => 'novalidate'
-        ]) !!}
         <div class="row" style="width: 90%; margin: 20px auto 0 auto;">
             <parts project="{{$project->id}}"></parts>
         </div>
 
         <div class="row pull-right">
-            {!! Form::submit('Continue', ['id' => 'btnParts', 'class' => 'btn btn-uam', 'style' => 'margin-right: 20px;']) !!}
+            <button class="btn btn-uam" style="margin-right: 20px;">
+                Continue
+            </button>
         </div>
-        {!! Form::close() !!}
-    </div>
     <br><br>
     </div>
 @stop

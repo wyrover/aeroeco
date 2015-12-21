@@ -69,9 +69,10 @@ Route::group(['middleware' => 'auth'], function ()
 // Unrestricted routes go here
 
 // TEST ROUTES  Jon: 9012870209; Kenn: 8702083769; Tracy: 6624366086
-Route::get('upload', function() {
+Route::get('/upload', function() {
     return View::make('pages.upload');
 });
+Route::get('/project/togglepart/{partid}', 'ProjectsController@togglePartInProject');
 Route::post('apply/upload', 'ApplyController@upload');
 Route::get('/emailer', function() {
     $data = array('name' => 'Jonathan'); // Change name
@@ -133,6 +134,9 @@ Route::group(['prefix' => 'api/'], function () {
     Route::get('project/{id}/enginelist', 'ProjectEnginesController@listByProject');
     Route::get('project/{id}/atalist', 'ProjectsController@ataList');
     Route::get('project/{id}/partslist', 'ProjectsController@partsList');
+    Route::any('project/togglepart/{partID}', 'ProjectsController@togglePartInProject');
+    Route::any('project/togglemsn', 'ProjectsController@togglemsn');
+    Route::any('project/{projectID}/package/{packageID}', 'ProjectsController@applyPackage');
     Route::resource('addresses', 'AddressesController');
     Route::resource('aircrafts', 'AircraftsController');
     Route::resource('atas', 'AtasController');

@@ -1,7 +1,7 @@
 <template>
     <div class="row" style="width: 90%; margin:20px auto 0 auto;">
         <div class="col-md-4">
-            <div class="main-box infographic-box colored aqua-bg" @click="clkBox('aqua', $event)">
+            <div class="main-box infographic-box colored aqua-bg" @click="clkBox('1', $event)">
                 <div class="headline">
                     <span class="title">Basic</span>
                     <br>
@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="main-box infographic-box colored rust-bg" @click="clkBox('rust', $event)">
+            <div class="main-box infographic-box colored rust-bg" @click="clkBox('2', $event)">
                 <div class="headline">
                     <span class="title">Enhanced</span>
                     <br>
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="main-box infographic-box colored purple-bg" @click="clkBox('purple', $event)">
+            <div class="main-box infographic-box colored purple-bg" @click="clkBox('3', $event)">
                 <div class="headline">
                     <span class="title">Supreme</span>
                     <br>
@@ -48,8 +48,12 @@
                     <th style="width:25%;">Serial #</th>
                 </tr>
                 <tr v-for="item in parts|filterBy cat.chapter in 'ATA'">
-                    <td :class="{'readySell': cat.can_sell, 'holdSell': !cat.can_sell}" style="vertical-align: middle;>
-                        <input type="checkbox" v-model="item.in_project"/>
+                    <td class="text-center" :class="{ readySell: !!item.can_sell, holdSell: !item.can_sell && !!item.in_project }"  style="vertical-align: middle;">
+                        <input type="checkbox"
+                               id="in_project"
+                               name="in_project"
+                               v-model="item.in_project"
+                               @change="toggleInProject(item, cat)"/>
                     </td>
                     <td style="vertical-align: middle;">
                         {{item.part.base_part_number}}
@@ -58,7 +62,10 @@
                         {{item.part.description|capitalize}}
                     </td>
                     <td>
-                        <input type="text" class="form-control" v-model="item.msn">
+                        <input type="text"
+                               class="form-control"
+                               v-model="item.msn"
+                               @change="toggleWithSerial(item)">
                     </td>
                 </tr>
             </table>
@@ -129,11 +136,42 @@
                     this.parts = parts;
                 }.bind(this));
             },
-            clkBox: function(msg, event) {
-                alert('You clicked the ' + msg + ' box');
+            clkBox: function(lvl, event) {
+                var path = '/api/project/' + this.project + '/package/' + lvl;
+                this.$http.post(path, function (data, status, request) {
+                    console.log('Success');
+                }).error(function (data, status, request) {
+                    console.log(data);
+                }.bind(this));
+                location.reload();
             },
             toggleVisible: function(cat) {
                 alert(cat.show);
+            },
+            toggleInProject: function(part, category) {
+                this.$http.patch('/api/project/togglepart/' + part.id, function (data, status, request) {
+                    if(part.in_project === true) {
+                        category.in_project++;
+                    } else {
+                        category.in_project--;
+                    }
+                    console.log('Success');
+                }).error(function (data, status, request) {
+                    console.log(data);
+                }.bind(this));
+            },
+            toggleWithSerial: function(part) {
+                if(part.msn.length > 0){
+                    part.can_sell = true;
+                    part.in_project = true;
+                } else {
+                    part.can_sell = false;
+                }
+                this.$http.patch('/api/project/togglemsn', part, function (data, status, request) {
+                    console.log('Success');
+                }).error(function (data, status, request) {
+                    console.log(data);
+                }.bind(this));
             }
         }
     };

@@ -186,6 +186,29 @@ class ProjectsController extends ApiController
         return view('projects.summary');
     } // end summary function
 
+    public function togglePartInProject($partID)
+    {
+        $part = ProjectPart::where('id', $partID)->first();
+        if($part->in_project) {
+            $part->in_project = false;
+            $part->save();
+        } else {
+            $part->in_project = true;
+            $part->save();
+        }
+        return $part;
+    } // end addPartToProject function
+
+    public function toggleMSN(Request $item)
+    {
+        $part = ProjectPart::where('id', $item->id)->first();
+        $part->msn = $item->msn;
+        $part->can_sell = $item->can_sell;
+        $part->save();
+        return $part;
+
+    } // end toggleMSN function
+
     public function ataList($id)
     {
         $ata = DB::select(DB::raw("SELECT CONCAT(n.chapter,': ',n.title) AS ATA, n.slug, n.chapter, coalesce(n.subtotal,0) AS in_project, coalesce(n.total,0) AS ata_total FROM (SELECT m.chapter, m.title, m.slug, (SELECT count(*) AS subtotal FROM atas a INNER JOIN parts_listings pl ON pl.ata = a.id INNER JOIN project_parts pp ON pp.part_listing_id = pl.id WHERE pl.ata = m.chapter AND pp.in_project AND a.active AND pp.project_id = {$id} GROUP BY a.id ORDER BY a.chapter) AS subtotal, (SELECT count(*) AS total FROM atas a INNER JOIN parts_listings pl ON pl.ata = a.id INNER JOIN project_parts pp ON pp.part_listing_id = pl.id WHERE pl.ata = m.chapter AND a.active AND pp.project_id = {$id} GROUP BY a.id ORDER BY a.chapter) AS total FROM atas m WHERE m.active AND (SELECT count(*) AS total FROM atas a INNER JOIN parts_listings pl ON pl.ata = a.id INNER JOIN project_parts pp ON pp.part_listing_id = pl.id WHERE pl.ata = m.chapter AND a.active AND pp.project_id = {$id} GROUP BY a.id ORDER BY a.chapter)  > 0 ORDER BY m.chapter) AS n"));
@@ -199,6 +222,18 @@ class ProjectsController extends ApiController
             ->orderBy('ATA')
             ->get();
     } // end partsList function
+
+    public function applyPackage($project_id, $package_id)
+    {
+        $project = ProjectPart::where('project_id', $project_id)
+            ->where('package_id', '<=', (integer)$package_id)
+            ->get();
+        foreach($project as $part) {
+            $part->in_project = true;
+            $part->save();
+        }
+        return;
+    } // end applyPackage function
 
     public function mockToParts($projectID, $aircraftTypeId)
     {
