@@ -12,5 +12,5 @@
 </div>
 <div class="row">
     {!! Form::label('asset_arrival_date', 'Asset Arrival Date') !!}
-    {!! Form::date('asset_arrival_date', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
+    {!! Form::date('asset_arrival_date', $project->asset_arrival_date, ['class' => 'form-control']) !!}
 </div>

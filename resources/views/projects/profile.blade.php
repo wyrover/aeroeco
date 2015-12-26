@@ -12,7 +12,7 @@
         @include('projects.partials.tabs')
         @include('errors.errors')
         <div style="width:40%; margin: 20px auto 0 auto;">
-            {!! Form::open([
+            {!! Form::model($project, [
                 'url' => '/projects',
                 'class' => 'form',
                 'novalidate' => 'novalidate',

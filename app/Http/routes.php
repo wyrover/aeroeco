@@ -67,52 +67,6 @@ Route::group(['middleware' => 'auth'], function ()
 });
 
 // Unrestricted routes go here
-
-// TEST ROUTES  Jon: 9012870209; Kenn: 8702083769; Tracy: 6624366086
-Route::get('/upload', function() {
-    return View::make('pages.upload');
-});
-Route::get('/project/togglepart/{partid}', 'ProjectsController@togglePartInProject');
-Route::post('apply/upload', 'ApplyController@upload');
-Route::get('/emailer', function() {
-    $data = array('name' => 'Jonathan'); // Change name
-
-    Mail::send('emails.welcome', $data, function($message)
-    {
-        // Please double-check email address
-        $message->to('jongravois@gmail.com')
-            ->subject('Hi, there! Laravel sent me!');
-    });
-
-    return 'Email Sent!';
-});
-Route::get('/xlimport/{dir}/{file}', [
-    'as' => 'xlimport',
-    'uses' => 'ExcelController@fromExcel'
-]);
-Route::get('/event', function() {
-    logit('created a test event');
-});
-Route::get('/tester', function () {
-    return view('pages.tester');
-});
-Route::get('/notifier', function () {
-    notify('2', '2', 'Angelina Jole just friended you.');
-    return 'Notification Saved!';
-});
-Route::get('/sms/{phone}', function($phone) {
-    Twilio::message($phone, 'Hi, I am Echo from the AeroEco software. I can now send but not receive text messages. Pretty cool, huh?');
-    return 'Message sent';
-});
-Route::get('/messenger', function () {
-    tweet('2', 'Dude, why are you sending yourself a message? Are you some kind of freak? Oh, you are just testing.');
-    return 'Message Saved!';
-});
-Route::get('/welcome_page', function () {
-    flash()->overlay('Hello, World!', 'This is the message');
-    return view('pages.welcome');
-});
-
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::get('login', 'Auth\AuthController@getLogin');
@@ -127,6 +81,53 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // Password reset link request routes...
 Route::get('password/email', 'Auth\PasswordController@getEmail');
 Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+// TEST ROUTES  Jon: 9012870209; Kenn: 8702083769; Tracy: 6624366086
+Route::group(['prefix' => 'test/'], function() {
+    Route::get('/upload', function() {
+        return View::make('pages.upload');
+    });
+    Route::get('/project/togglepart/{partid}', 'ProjectsController@togglePartInProject');
+    Route::post('apply/upload', 'ApplyController@upload');
+    Route::get('/emailer', function() {
+        $data = array('name' => 'Jonathan'); // Change name
+
+        Mail::send('emails.welcome', $data, function($message)
+        {
+            // Please double-check email address
+            $message->to('jongravois@gmail.com')
+                ->subject('Hi, there! Laravel sent me!');
+        });
+
+        return 'Email Sent!';
+    });
+    Route::get('/xlimport/{dir}/{file}', [
+        'as' => 'xlimport',
+        'uses' => 'ExcelController@fromExcel'
+    ]);
+    Route::get('/event', function() {
+        logit('created a test event');
+    });
+    Route::get('/tester', function () {
+        return view('pages.tester');
+    });
+    Route::get('/notifier', function () {
+        notify('2', '2', 'Angelina Jole just friended you.');
+        return 'Notification Saved!';
+    });
+    Route::get('/sms/{phone}', function($phone) {
+        Twilio::message($phone, 'Hi, I am Echo from the AeroEco software. I can now send but not receive text messages. Pretty cool, huh?');
+        return 'Message sent';
+    });
+    Route::get('/messenger', function () {
+        tweet('2', 'Dude, why are you sending yourself a message? Are you some kind of freak? Oh, you are just testing.');
+        return 'Message Saved!';
+    });
+    Route::get('/welcome_page', function () {
+        flash()->overlay('Hello, World!', 'This is the message');
+        return view('pages.welcome');
+    });
+});
 
 // API
 Route::group(['prefix' => 'api/'], function () {

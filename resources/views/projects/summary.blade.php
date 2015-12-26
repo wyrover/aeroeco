@@ -12,8 +12,7 @@
         {!! Form::open([
             'url' => '/projects/summary',
             'class' => 'form',
-            'novalidate' => 'novalidate',
-            'files' => 'true'
+            'novalidate' => 'novalidate'
         ]) !!}
         {{--@include('projects.partials.forms.summary')--}}
         {!! Form::close() !!}

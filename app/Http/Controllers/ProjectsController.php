@@ -14,6 +14,7 @@ use App\Models\Project;
 use App\Models\ProjectAircraft;
 use App\Models\ProjectPart;
 use App\Models\ProjectType;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -29,7 +30,7 @@ class ProjectsController extends ApiController
     {
         $this->middleware('auth');
         $this->records = $records;
-        $this->related = ['aircraft.country', 'aircraft.type', 'company.addresses', 'creator', 'engines', 'project_type', 'sales.manager', 'status', 'worksite'];
+        $this->related = ['aircraft.country', 'aircraft.type', 'company.addresses', 'creator', 'engines', 'parts', 'project_type', 'sales.manager', 'status', 'worksite'];
     }
 
     public function index()
@@ -63,12 +64,12 @@ class ProjectsController extends ApiController
     {
         // save updated
         $record = $this->records->find($id);
-        
+
         if(! $record){
             Project::create(Input::all());
             return $this->respond($record);
         }
-        
+
         $record->fill(Input::all())->save();
         return $this->respond($record);
     }
@@ -100,7 +101,7 @@ class ProjectsController extends ApiController
         return view('workscopes.listing', compact('conType', 'atas', 'company', 'project', 'adc'));
     } // end contract_parts function
 
-    public function profile()
+    public function profile($id = null)
     {
         $adc = ConsortiumGlobal::where('id', '1')->first();
         $atas = Ata::where('active', 1)->get();
@@ -109,7 +110,19 @@ class ProjectsController extends ApiController
         $types = ProjectType::lists('type', 'id');
         $company = Company::where('id', $user->company_id)->first();
 
-        return view('projects.profile', compact('adc', 'atas', 'disassemblers', 'company', 'types', 'user'));
+        if($id) {
+            $project = Project::find($id);
+        } else {
+            $project = Project::create([
+                'creator_id' => $user->id,
+                'company_id' => $user->company_id,
+                'directory_path' => $company->company . '/' . date('Y') . '/'
+            ]);
+        }
+
+        //dd($project);
+
+        return view('projects.profile', compact('adc', 'atas', 'company', 'disassemblers', 'project', 'types', 'user'));
     }
 
     public function store(Request $request)
@@ -267,4 +280,37 @@ class ProjectsController extends ApiController
             ->orderBy('ATA')
             ->get();
     } // end mockToParts function
+
+    public function listByUser($id)
+    {
+        $user = Auth::user();
+        if($user->all_companies) {
+            $projects = Project::with($this->related)->get();
+        } else {
+            $projects = Project::with($this->related)
+                ->where('company_id', $user->company_id)
+                ->all();
+        }
+
+        foreach($projects as $pro) {
+            $cntParts = ProjectPart::where('project_id', $pro->id)
+                ->where('in_project', true)
+                ->count();
+            $cntMarket = ProjectPart::where('project_id', $pro->id)
+                ->where('in_project', true)
+                ->where('can_sell', true)
+                //->where('msn', '!=', NULL)
+                ->count();
+
+            $pro->in_market = $cntMarket;
+            $pro->total_parts = $cntParts;
+            if($cntParts == 0) {
+                $pro->percentage = 0;
+            } else {
+                $pro->percentage = $cntMarket/$cntParts;
+            }
+        }
+
+        return $projects;
+    } // end listByUser function
 }

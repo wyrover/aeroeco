@@ -11,12 +11,16 @@ class Project extends Model
     protected $dates = ['project_start_date', 'asset_arrival_date', 'projected_completion_date', 'completion_date'];
     /*protected $hidden = ['created_at', 'updated_at'];*/
 
+    private function getAssetArrivalDateValue() {
+        return date('m/d/Y', strtotime($this->attributes['asset_arrival_date']));
+    }
+
     /* CASTING */
     protected $casts = [
         'is_mocked' => 'boolean'
     ];
     /* CASTING */
-    
+
     /* RELATIONSHIPS */
     public function aircraft()
     {
@@ -38,6 +42,10 @@ class Project extends Model
     {
         return $this->hasOne('App\Models\ProjectType', 'id', 'project_types_id');
     }
+    public function parts()
+    {
+        return $this->hasMany('App\Models\ProjectPart');
+    }
     public function sales()
     {
         return $this->hasOne('App\User', 'id', 'sales_id');
@@ -51,7 +59,7 @@ class Project extends Model
         return $this->hasOne('App\Models\Disassembler', 'id', 'disassemblers_id');
     }
     /* RELATIONSHIPS */
-    
+
     /* METHODS */
     /* METHODS */
 }

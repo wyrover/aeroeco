@@ -12,52 +12,52 @@ class AircraftsTableSeeder extends Seeder
 
         $collection = [
             [
-                'model' => 'Airbus A300',
+                'model' => 'A300',
                 'engine_count' => 2,
                 'manufacturer' => 'Airbus'
             ],
             [
-                'model' => 'Airbus A310',
+                'model' => 'A310',
                 'engine_count' => 2,
                 'manufacturer' => 'Airbus'
             ],
             [
-                'model' => 'Airbus A318',
+                'model' => 'A318',
                 'engine_count' => 2,
                 'manufacturer' => 'Airbus'
             ],
             [
-                'model' => 'Airbus A319',
+                'model' => 'A319',
                 'engine_count' => 2,
                 'manufacturer' => 'Airbus'
             ],
             [
-                'model' => 'Airbus A320',
+                'model' => 'A320',
                 'engine_count' => 1,
                 'manufacturer' => 'Airbus'
             ],
             [
-                'model' => 'Airbus A321',
+                'model' => 'A321',
                 'engine_count' => 2,
                 'manufacturer' => 'Airbus'
             ],
             [
-                'model' => 'Airbus A330',
+                'model' => 'A330',
                 'engine_count' => 2,
                 'manufacturer' => 'Airbus'
             ],
             [
-                'model' => 'Airbus A340',
+                'model' => 'A340',
                 'engine_count' => 4,
                 'manufacturer' => 'Airbus'
             ],
             [
-                'model' => 'Airbus A350',
+                'model' => 'A350',
                 'engine_count' => 2,
                 'manufacturer' => 'Airbus'
             ],
             [
-                'model' => 'Airbus A380',
+                'model' => 'A380',
                 'engine_count' => 4,
                 'manufacturer' => 'Airbus'
             ],
