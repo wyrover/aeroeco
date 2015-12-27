@@ -16,7 +16,7 @@
                     <th style="width:15%">Estimated Income Potential</th>
                 </tr>
                 <tr>
-                    <td v-if="list.length == 0"><strong>No Projects Found!</strong></td>
+                    <td colspan="5" v-if="list.length == 0"><strong>No Projects Found!</strong></td>
                 </tr>
                 <tr v-for="p in list" v-if="list.length > 0">
                     <td>

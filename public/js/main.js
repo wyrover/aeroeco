@@ -10822,21 +10822,34 @@ if (module.hot) {(function () {  module.hot.accept()
 })()}
 },{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],18:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert(".panel {\n  -webkit-box-shadow: 3px 3px 5px 0px #777;\n  -moz-box-shadow: 3px 3px 5px 0px #777;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.progress {\n  margin-bottom: 0;\n  background-color: #aaa;\n}\n.progress-bar-adc {\n  background-color: #f35958;\n  color: #fff;\n}\n")
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = {
-    props: [],
+    props: ['user'],
     data: function data() {
-        return {};
+        return {
+            list: []
+        };
     },
 
-    computed: {}
+    computed: {},
+    created: function created() {
+        this.fetchProjectsList();
+    },
+    methods: {
+        fetchProjectsList: function fetchProjectsList() {
+            var path = '/api/projects/user/' + this.user + '/projectslist';
+            this.$http.get(path, (function (projects) {
+                this.list = projects;
+            }).bind(this));
+        }
+    }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"panel panel-info\" style=\"margin-left:-10px;\">\n        <header class=\"panel-heading\">\n            <h3 class=\"panel-title\">\n                <i class=\"fa fa-plane\"></i>\n                Projects\n            </h3>\n        </header>\n        <div class=\"panel-body\">\n            <table class=\"table table-striped table-bordered table-condensed\">\n                <tbody><tr>\n                    <th style=\"width:15%\">Project</th>\n                    <th style=\"width:25%\">Status</th>\n                    <th style=\"width:20%\">Parts Currently in Market</th>\n                    <th style=\"width:25%\">Work Progress</th>\n                    <th style=\"width:15%\">Estimated Income Potential</th>\n                </tr>\n                <tr>\n                    <td>\n                        <a href=\"#\" class=\"naked_link\">B777-123</a>\n                    </td>\n                    <td>Disassembly In Progress</td>\n                    <td class=\"text-center\">144 of 200</td>\n                    <td>\n                        <div class=\"progress\">\n                            <div class=\"progress-bar progress-bar-adc\" role=\"progressbar\" aria-valuenow=\"72\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em; width: 72%;\">\n                                72%\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">$15,000,000</td>\n                </tr>\n                <tr>\n                    <td>\n                        <a href=\"#\" class=\"naked_link\">B777-234</a>\n                    </td>\n                    <td>Disassembly In Progress</td>\n                    <td class=\"text-center\">120 of 300</td>\n                    <td>\n                        <div class=\"progress\">\n                            <div class=\"progress-bar progress-bar-adc\" role=\"progressbar\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em; width: 40%;\">\n                                40%\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">$600,000</td>\n                </tr>\n                <tr>\n                    <td>\n                        <a href=\"#\" class=\"naked_link\">B747-345</a>\n                    </td>\n                    <td>Pending Disassembly</td>\n                    <td class=\"text-center\"> - </td>\n                    <td>\n                        <div class=\"progress\">\n                            <div class=\"progress-bar progress-bar-adc\" role=\"progressbar\" aria-valuenow=\"0\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em; width: 0%;\">\n                                0%\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">$0</td>\n                </tr>\n                <tr>\n                    <td>\n                        <a href=\"#\" class=\"naked_link\">B747-456</a>\n                    </td>\n                    <td>Awaiting Arrival</td>\n                    <td class=\"text-center\"> - </td>\n                    <td>\n                        <div class=\"progress\">\n                            <div class=\"progress-bar progress-bar-adc\" role=\"progressbar\" aria-valuenow=\"0\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em; width: 0%;\">\n                                0%\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">$0</td>\n                </tr>\n                <tr>\n                    <td>\n                        <a href=\"#\" class=\"naked_link\">B747-567</a>\n                    </td>\n                    <td>Profile Incomplete</td>\n                    <td class=\"text-center\"> - </td>\n                    <td>\n                        <div class=\"progress\">\n                            <div class=\"progress-bar progress-bar-adc\" role=\"progressbar\" aria-valuenow=\"0\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em; width: 0%;\">\n                                0%\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">$0</td>\n                </tr>\n            </tbody></table>\n            <p>\n                <a class=\"btn btn-uam\" href=\"/projects/profile\">\n                    <i class=\"fa fa-plus\"></i> Start a new project\n                </a>\n            </p>\n        </div>\n    </div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"panel panel-info\" style=\"margin-left:-10px;\">\n        <header class=\"panel-heading\">\n            <h3 class=\"panel-title\">\n                <i class=\"fa fa-plane\"></i>\n                Projects\n            </h3>\n        </header>\n        <div class=\"panel-body\">\n            <table class=\"table table-striped table-bordered table-condensed\">\n                <tbody><tr>\n                    <th style=\"width:20%\">Project</th>\n                    <th style=\"width:20%\">Status</th>\n                    <th style=\"width:20%\">Parts Currently in Market</th>\n                    <th style=\"width:25%\">Work Progress</th>\n                    <th style=\"width:15%\">Estimated Income Potential</th>\n                </tr>\n                <tr>\n                    <td colspan=\"5\" v-if=\"list.length == 0\"><strong>No Projects Found!</strong></td>\n                </tr>\n                <tr v-for=\"p in list\" v-if=\"list.length > 0\">\n                    <td>\n                        <a href=\"/projects/{{p.id}}/profile\" class=\"naked_link\">\n                            {{p.aircraft.type.model}}-{{p.aircraft.msn}}-{{p.aircraft.tail}}\n                        </a>\n                    </td>\n                    <td>\n                        {{p.status.status}}\n                    </td>\n                    <td class=\"text-center\">\n                        {{p.in_market}} of {{p.total_parts}}\n                    </td>\n                    <td>\n                        <div class=\"progress\">\n                            <div class=\"progress-bar progress-bar-adc\" role=\"progressbar\" aria-valuenow=\"{{p.percentage}}\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"min-width: 2em; width: 0%;\">\n                                {{p.percentage|percentage 0}}\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">\n                        Upgrade Now!\n                    </td>\n                </tr>\n            </tbody></table>\n            <p>\n                <a class=\"btn btn-uam\" href=\"/projects/profile\">\n                    <i class=\"fa fa-plus\"></i> Start a new project\n                </a>\n            </p>\n        </div>\n    </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -10887,6 +10900,21 @@ var VueResource = require('vue-resource');
 Vue.use(VueResource);
 
 Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
+
+Vue.filter('percentage', function (value, decimals) {
+    if (!value) {
+        value = 0;
+    }
+
+    if (!decimals) {
+        decimals = 0;
+    }
+
+    value = value * 100;
+    value = Math.round(value * Math.pow(10, decimals)) / Math.pow(10, decimals);
+    value = value + '%';
+    return value;
+});
 
 new Vue({
     el: 'body',

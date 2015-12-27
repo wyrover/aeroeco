@@ -138,6 +138,7 @@ Route::group(['prefix' => 'api/'], function () {
     Route::any('project/togglepart/{partID}', 'ProjectsController@togglePartInProject');
     Route::any('project/togglemsn', 'ProjectsController@togglemsn');
     Route::any('project/{projectID}/package/{packageID}', 'ProjectsController@applyPackage');
+    Route::get('projects/user/{userID}/projectslist', 'ProjectsController@listByUser');
     Route::resource('addresses', 'AddressesController');
     Route::resource('aircrafts', 'AircraftsController');
     Route::resource('atas', 'AtasController');

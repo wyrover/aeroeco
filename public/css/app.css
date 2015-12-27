@@ -8246,6 +8246,23 @@ button.close {
         color: white;
         text-decoration: none; }
 
+/* tab color */
+.nav-tabs > li > a {
+  background-color: #333333;
+  border-color: #777777;
+  color: #fff; }
+
+/* active tab color */
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  color: #fff;
+  background-color: #666;
+  border: 1px solid #888888; }
+
+/* hover tab color */
+.nav-tabs > li > a:hover {
+  border-color: #000000;
+  background-color: #111111; }
+
 .black {
   color: black; }
 
@@ -9621,7 +9638,7 @@ body.stop-scrolling {
 
 .sidebar-nav {
   position: absolute;
-  top: 120px;
+  top: 20px;
   width: 220px;
   margin: 0;
   padding: 0;
@@ -9674,8 +9691,7 @@ body.stop-scrolling {
   #wrapper.toggled #sidebar-wrapper {
     width: 220px; }
   #wrapper.toggled-2 #sidebar-wrapper {
-    width: 50px;
-    margin-top: -100px; }
+    width: 50px; }
   #page-content-wrapper {
     padding: 20px;
     position: relative;
