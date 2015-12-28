@@ -1,3 +1,6 @@
+<div class="class">
+    <h3>Company Roles</h3>
+</div>
 <div class="row" style="margin-top: 20px;">
     <p class="intro__text">
         All users in AeroEco have one of the following roles. You can configure permissions for each role.

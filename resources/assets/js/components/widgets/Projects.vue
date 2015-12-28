@@ -9,20 +9,28 @@
         <div class="panel-body">
             <table class="table table-striped table-bordered table-condensed">
                 <tr>
-                    <th style="width:20%">Project</th>
+                    <th style="width:10%">Aircraft</th>
+                    <th style="width:10%">MSN</th>
+                    <th style="width:10%">Tail</th>
                     <th style="width:20%">Status</th>
-                    <th style="width:20%">Parts Currently in Market</th>
+                    <th style="width:10%">Parts Currently in Market</th>
                     <th style="width:25%">Work Progress</th>
                     <th style="width:15%">Estimated Income Potential</th>
                 </tr>
                 <tr>
-                    <td colspan="5" v-if="list.length == 0"><strong>No Projects Found!</strong></td>
+                    <td colspan="7" v-if="list.length == 0"><strong>No Projects Found!</strong></td>
                 </tr>
                 <tr v-for="p in list" v-if="list.length > 0">
                     <td>
                         <a href="/projects/{{p.id}}/profile" class="naked_link">
-                            {{p.aircraft.type.model}}-{{p.aircraft.msn}}-{{p.aircraft.tail}}
+                            {{p.aircraft.type.model}}
                         </a>
+                    </td>
+                    <td>
+                        {{p.aircraft.msn}}
+                    </td>
+                    <td>
+                        {{p.aircraft.tail}}
                     </td>
                     <td>
                         {{p.status.status}}

@@ -10,19 +10,19 @@
     @include('errors.errors')
     <div style="margin-top: 15px;">
         {!! Form::open([
-            'url' => '/aircraft_store',
+            'url' => '/uploads_store',
             'class' => 'form',
             'novalidate' => 'novalidate',
             'files' => 'true'
         ]) !!}
-        @include('projects.partials.forms.aircraft')
+        @include('projects.partials.forms.uploads')
         <div class="row pull-right" style="margin-right: 0;">
-            {!! Form::submit('Continue', ['id' => 'btnAircraft', 'class' => 'btn btn-uam']) !!}
+            {!! Form::submit('Continue', ['id' => 'btnUploads', 'class' => 'btn btn-uam']) !!}
         </div>
         {!! Form::close() !!}
         <br><br>
     </div>
-@stop
+@endsection
 
 @section('footer')
     @include('layouts/partials/footer')
@@ -31,14 +31,7 @@
 @push('scripts')
 <script>
     $(function() {
-        $('#aircraft_type').typeahead({
-            ajax: '/api/aircrafts/list',
-            displayField: 'model',
-            triggerLength: 1,
-            onSelect: function(item) {
-                console.log(item);
-            }
-        });
+        //alert('jQuery');
     });
 </script>
 @endpush

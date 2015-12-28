@@ -33,10 +33,21 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('companies/{id}/contacts', 'CompaniesController@contacts');
     Route::get('companies/{id}/roles', 'CompaniesController@roles');
     Route::get('companies/{id}/users', 'CompaniesController@users');
-    Route::get('companies/{id}/notifications', 'CompaniesController@notifications');
+    Route::get('companies/{id}/plugins', 'CompaniesController@plugins');
     Route::get('companies/{id}/messages', 'CompaniesController@messages');
     Route::get('companies/{id}/emails', 'CompaniesController@emails');
+    Route::any('companies/store_profile', 'CompaniesController@storeProfile');
+    Route::any('companies/store_locations', 'CompaniesController@storeLocations');
+    Route::any('companies/store_contacts', 'CompaniesController@storeContacts');
+    Route::any('companies/store_plugins', 'CompaniesController@storePlugins');
+    Route::any('companies/store_roles', 'CompaniesController@storeRoles');
+    Route::any('companies/store_users', 'CompaniesController@storeUsers');
+    Route::any('companies/store_messages', 'CompaniesController@storeMessages');
+    Route::any('companies/store_emails', 'CompaniesController@storeEmails');
     Route::resource('companies', 'CompaniesController');
+
+// INSTRUCTIONS
+    Route::get('instructions/custom_url', 'InstructionsController@customUrl');
 
 // PROJECTS
     Route::get('projects/profile', 'ProjectsController@profile');
@@ -44,6 +55,7 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('projects/{id}/aircraft', 'ProjectsController@aircraft');
     Route::get('projects/{id}/engines', 'ProjectsController@engines');
     Route::get('projects/{id}/scope', 'ProjectsController@scope');
+    Route::get('projects/{id}/uploads', 'ProjectsController@uploads');
     Route::get('projects/{id}/summary', 'ProjectsController@summary');
     Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
     Route::get('projects/{id}/parts', 'ProjectsController@contract_parts');
@@ -138,7 +150,7 @@ Route::group(['prefix' => 'api/'], function () {
     Route::any('project/togglepart/{partID}', 'ProjectsController@togglePartInProject');
     Route::any('project/togglemsn', 'ProjectsController@togglemsn');
     Route::any('project/{projectID}/package/{packageID}', 'ProjectsController@applyPackage');
-    Route::get('projects/user/{userID}/projectslist', 'ProjectsController@listByUser');
+    Route::get('projects/user/{id}/projectslist', 'ProjectsController@listByUser');
     Route::resource('addresses', 'AddressesController');
     Route::resource('aircrafts', 'AircraftsController');
     Route::resource('atas', 'AtasController');

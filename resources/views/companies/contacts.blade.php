@@ -8,13 +8,12 @@
     </style>
     <div style="margin-top: 5px;">
         @include('companies.partials.tabs')
-        {!! Form::open([
-            'url' => '/companies',
+        {!! Form::model($company->contacts, [
+            'url' => '/store_contacts',
             'class' => 'form',
-            'novalidate' => 'novalidate',
-            'files' => 'true'
+            'novalidate' => 'novalidate'
         ]) !!}
-        @include('companies.partials.forms.profile')
+        @include('companies.partials.forms.contacts')
         {!! Form::close() !!}
         <br><br>
     </div>

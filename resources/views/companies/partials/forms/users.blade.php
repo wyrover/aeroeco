@@ -1,8 +1,7 @@
-<div class="row" style="margin-top: 20px;">
-    <div class="optional_controls"></div>
+<div class="class">
+    <h3>Authorized Users</h3>
 </div>
-<br>
-<div class="row">
+<div class="row" style="margin-top: 20px;">
     <table class="table table-striped rowed table-condensed disp-sm" style="width:98%; margin: 0 auto;">
         <tr>
             <th style="width:160px;">First Name</th>

@@ -33,7 +33,8 @@ elixir(function(mix) {
             paths.vendor + 'bootstrap/dist/js/bootstrap.js',
             paths.scripts + 'sidebar_menu.js',
             paths.vendor + 'sweetalert/dist/sweetalert-dev.js',
-            paths.vendor + 'bs-typeahead/js/bootstrap-typeahead.js'
+            paths.vendor + 'bs-typeahead/js/bootstrap-typeahead.js',
+            paths.vendor + 'jasny-bootstrap/dist/js/jasny-bootstrap.js'
         ], 'public/js/app.js')
         .browserify('main.js')
         //.phpUnit()

@@ -18,11 +18,12 @@ class User extends Model implements AuthenticatableContract,
     use Authenticatable, Authorizable, CanResetPassword;
 
     protected $table = 'users';
-    protected $fillable = ['firstname','lastname', 'email', 'password', 'company_id', 'all_companies', 'manager_id', 'is_admin', 'can_sell', 'role_id', 'tier', 'location_id'];
+    protected $fillable = ['firstname','lastname', 'email', 'password', 'confirmed', 'confirmation_code', 'company_id', 'all_companies', 'manager_id', 'is_admin', 'can_sell', 'role_id', 'tier', 'location_id'];
     protected $hidden = ['password', 'remember_token'];
 
     /* CASTING */
     protected $casts = [
+        'confirmed' => 'boolean',
         'is_admin' => 'boolean',
         'can_sell' => 'boolean',
         'all_companies' => 'boolean'

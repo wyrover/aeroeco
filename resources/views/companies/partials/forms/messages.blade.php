@@ -1,3 +1,6 @@
+<div class="class">
+    <h3>Customized Messages</h3>
+</div>
 <div class="row" style="margin-top: 20px;">
     <p class="intro__text">
         Use these settings to customize the messages that your users see during their AeroEco experience.

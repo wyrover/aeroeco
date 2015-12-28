@@ -15,7 +15,15 @@ class CompaniesController extends ApiController
     public function __construct(Company $records)
     {
         $this->records = $records;
-        $this->related = ['contacts.type'];
+        $this->related = [
+            'addresses',
+            'contacts.type',
+            'locations',
+//            'messages',
+            'phones',
+//            'roles',
+            'users'
+        ];
     }
 
     public function index()
@@ -42,8 +50,8 @@ class CompaniesController extends ApiController
 
     public function store()
     {
-        dd(Input::all());
         // insert new
+        //TODO: Create 1-4 contacts in EVENT
         $record = Company::create(Input::all());
         return $this->respond($record->id);
     }
@@ -63,18 +71,150 @@ class CompaniesController extends ApiController
     }
 
     // CREATE / EDIT COMPANIES
+
     public function profile($id = null)
     {
-        return view('companies.profile');
+        if(!$id) {
+            $id = Company::create()->id;
+            return redirect('companies/' . $id . '/profile');
+        } else {
+            $company = Company::with($this->related)
+                ->where('id', $id)
+                ->first();
+        }
+
+        //return $company;
+        return view('companies.profile', compact('company'));
     } // end profile function
 
-    public function locations()
+    public function storeProfile(Request $request)
     {
-        return view('companies.locations');
+        dd($request);
+    } // end store_profile function
+
+    public function locations($id = null)
+    {
+        if(!$id) {
+            $company = [];
+        } else {
+            $company = Company::with($this->related)
+                ->where('id', $id)
+                ->first();
+        }
+
+        return view('companies.locations', compact('company'));
     } // end location function
 
-    public function contacts()
+    public function storeLocations(Request $request)
     {
-        return view('companies.contacts');
+        dd($request);
+    } // end store_locations function
+
+    public function contacts($id = null)
+    {
+        if(!$id) {
+            $company = [];
+        } else {
+            $company = Company::with($this->related)
+                ->where('id', $id)
+                ->first();
+        }
+        //return $company->contacts;
+        return view('companies.contacts', compact('company'));
     } // end contacts function
+
+    public function storeContacts(Request $request)
+    {
+        dd($request);
+    } // end store_contacts function
+
+    public function roles($id = null)
+    {
+        if(!$id) {
+            $company = [];
+        } else {
+            $company = Company::with($this->related)
+                ->where('id', $id)
+                ->first();
+        }
+
+        return view('companies.roles', compact('company'));
+    } // end contacts function
+
+    public function storeRoles(Request $request)
+    {
+        dd($requests);
+    } // end store_roles function
+
+    public function users($id = null)
+    {
+        if(!$id) {
+            $company = [];
+        } else {
+            $company = Company::with($this->related)
+                ->where('id', $id)
+                ->first();
+        }
+
+        return view('companies.users', compact('company'));
+    } // end contacts function
+
+    public function storeUsers(Request $request)
+    {
+        dd($requests);
+    } // end store_roles function
+
+    public function plugins($id = null)
+    {
+        if(!$id) {
+            $company = [];
+        } else {
+            $company = Company::with($this->related)
+                ->where('id', $id)
+                ->first();
+        }
+
+        return view('companies.plugins', compact('company'));
+    } // end contacts function
+
+    public function storePlugins(Request $request)
+    {
+        dd($requests);
+    } // end store_roles function
+
+    public function messages($id = null)
+    {
+        if(!$id) {
+            $company = [];
+        } else {
+            $company = Company::with($this->related)
+                ->where('id', $id)
+                ->first();
+        }
+
+        return view('companies.messages', compact('company'));
+    } // end contacts function
+
+    public function storeMessages(Request $request)
+    {
+        dd($requests);
+    } // end store_roles function
+
+    public function emails($id = null)
+    {
+        if(!$id) {
+            $company = [];
+        } else {
+            $company = Company::with($this->related)
+                ->where('id', $id)
+                ->first();
+        }
+
+        return view('companies.emails', compact('company'));
+    } // end contacts function
+
+    public function storeEmails(Request $request)
+    {
+        dd($requests);
+    } // end store_roles function
 }

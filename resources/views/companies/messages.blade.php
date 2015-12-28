@@ -10,12 +10,11 @@
         @include('companies.partials.tabs')
         @include('errors.errors')
         {!! Form::model($company, [
-            'url' => '/companies/store_profile',
+            'url' => '/companies/store_messages',
             'class' => 'form',
-            'novalidate' => 'novalidate',
-            'files' => 'true'
+            'novalidate' => 'novalidate'
         ]) !!}
-            @include('companies.partials.forms.profile')
+        @include('companies.partials.forms.messages')
         {!! Form::close() !!}
         <br><br>
     </div>

@@ -15,32 +15,28 @@ class CompanyContactsTableSeeder extends Seeder
                 'contact_type_id' => 1,
                 'name' => 'James T Kirk',
                 'title' => 'CEO',
-                'phone' => '901.456-9210',
-                'fax' => 'n/a'
+                'phone' => '9014569210'
             ],
             [
                 'company_id' => 5,
                 'contact_type_id' => 2,
                 'name' => 'Mister Spock',
                 'title' => 'CSO',
-                'phone' => '901.456-9211',
-                'fax' => 'n/a'
+                'phone' => '9014569211'
             ],
             [
                 'company_id' => 5,
                 'contact_type_id' => 3,
                 'name' => 'Leonard McCoy',
                 'title' => 'CMO',
-                'phone' => '901.456-9212',
-                'fax' => 'n/a'
+                'phone' => '9014569212'
             ],
             [
                 'company_id' => 5,
                 'contact_type_id' => 4,
                 'name' => 'Montgomery Scott',
                 'title' => 'COO',
-                'phone' => '901.456-9213',
-                'fax' => 'n/a'
+                'phone' => '9014569213'
             ]
         ];
 

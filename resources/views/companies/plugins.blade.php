@@ -1,4 +1,4 @@
-@extends('layouts/guest')
+@extends('layouts.guest')
 
 @section('title', 'Create Company Profile')
 
@@ -8,18 +8,16 @@
     </style>
     <div style="margin-top: 5px;">
         @include('companies.partials.tabs')
-        @include('errors.errors')
-        {!! Form::model($company, [
-            'url' => '/companies/store_profile',
+        {!! Form::model($company->plugins, [
+            'url' => '/store_plugins',
             'class' => 'form',
-            'novalidate' => 'novalidate',
-            'files' => 'true'
+            'novalidate' => 'novalidate'
         ]) !!}
-            @include('companies.partials.forms.profile')
+        <h3>Need Content</h3>
         {!! Form::close() !!}
         <br><br>
     </div>
-@stop
+@endsection
 
 @section('footer')
     @include('layouts/partials/footer')

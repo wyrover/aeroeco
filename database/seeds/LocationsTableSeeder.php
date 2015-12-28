@@ -11,7 +11,13 @@ class LocationsTableSeeder extends Seeder
         DB::table('locations')->delete();
 
         $collection = [
-
+            [
+                'company_id' => 5,
+                'location' => 'San Francisco',
+                'address' => '1 Star Fleet Row',
+                'address2' => 'San Francisco, CA 90021, USA',
+                'phone' => '1239993434'
+            ]
         ];
 
         foreach ($collection as $record) {

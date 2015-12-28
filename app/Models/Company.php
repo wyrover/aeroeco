@@ -23,9 +23,25 @@ class Company extends Model
     {
         return $this->hasMany('App\Models\CompanyContact');
     }
+    public function emails()
+    {
+        return $this->hasMany('App\Models\CompanyEmail');
+    }
+    public function locations()
+    {
+        return $this->hasMany('App\Models\Location');
+    }
+    public function messages()
+    {
+        return $this->hasMany('App\Models\CompanyMessages');
+    }
     public function phones()
     {
         return $this->hasMany('App\Models\Phone');
+    }
+    public function roles()
+    {
+        return $this->hasMany('App\Models\Role');
     }
     public function users()
     {

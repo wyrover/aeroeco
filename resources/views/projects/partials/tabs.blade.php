@@ -12,6 +12,9 @@
         <li class="{{ Ekko::isActiveMatch('scope') }}">
             <a href="/projects/{{$project->id or 1}}/scope">Scope</a>
         </li>
+        <li class="{{ Ekko::isActiveMatch('uploads') }}">
+            <a href="/projects/{{$project->id or 1}}/uploads">Uploads</a>
+        </li>
         <li class="{{ Ekko::isActiveMatch('summary') }}">
             <a href="/projects/{{$project->id or 1}}/summary">Summary</a>
         </li>

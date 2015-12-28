@@ -49,3 +49,6 @@ function notify($userId, $typeId, $message) {
     Notification::create($ins);
     return true;
 }
+function phone($data) {
+    return "(".substr($data, 0, 3).") ".substr($data, 3, 3)."-".substr($data,6);
+}

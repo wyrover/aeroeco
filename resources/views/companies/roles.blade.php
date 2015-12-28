@@ -9,12 +9,11 @@
     <div style="margin-top: 5px;">
         @include('companies.partials.tabs')
         {!! Form::open([
-            'url' => '/companies',
+            'url' => '/store_roles',
             'class' => 'form',
-            'novalidate' => 'novalidate',
-            'files' => 'true'
+            'novalidate' => 'novalidate'
         ]) !!}
-        @include('companies.partials.forms.profile')
+        @include('companies.partials.forms.roles')
         {!! Form::close() !!}
         <br><br>
     </div>

@@ -194,6 +194,11 @@ class ProjectsController extends ApiController
         return $request;
     } // end store_parts function
 
+    public function uploads($id)
+    {
+        return view('projects.uploads');
+    } // end uploads function
+
     public function summary()
     {
         return view('projects.summary');
