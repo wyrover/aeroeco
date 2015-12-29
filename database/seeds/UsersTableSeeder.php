@@ -345,6 +345,19 @@ class UsersTableSeeder extends Seeder
                 'can_sell' => true,
                 'role_id' => 2,
                 'tier' => 1
+            ],
+            [
+                'firstname' => 'James',
+                'lastname' => 'Johnson',
+                'email' => 'jjohnson@uaminc.com',
+                'password' => Hash::make('password'),
+                'company_id' => 5,
+                'all_companies' => true,
+                'manager_id' => 8,
+                'is_admin' => true,
+                'can_sell' => true,
+                'role_id' => 2,
+                'tier' => 1
             ]
         ];
 
