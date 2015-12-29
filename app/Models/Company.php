@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     protected $table = 'companies';
-    protected $fillable = ['company', 'dba', 'corporation_type', 'folder_name', 'domain', 'tier'];
+    protected $fillable = ['company', 'dba', 'corporation_type', 'country_id', 'location_id', 'folder_name', 'domain', 'mail_domain', 'tier', 'admin_id'];
     protected $hidden = ['created_at', 'updated_at'];
 
     /* CASTING */

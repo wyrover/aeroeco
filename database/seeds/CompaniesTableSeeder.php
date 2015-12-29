@@ -17,7 +17,8 @@ class CompaniesTableSeeder extends Seeder
                 'domain' => 'dagobah.com',
                 'folder_name' => snake_case('Dagobah Charters'),
                 'tier' => '2',
-                'corporation_type' => 'Limited Liability Corporation'
+                'corporation_type' => 'Limited Liability Corporation',
+                'admin_id' => 4
             ],
             [
                 'company' => 'Aerospace Disassembly Consortium',
@@ -25,7 +26,8 @@ class CompaniesTableSeeder extends Seeder
                 'domain' => 'aero-eco.com',
                 'folder_name' => snake_case('Aerospace Disassembly Consortium'),
                 'tier' => '1',
-                'corporation_type' => 'Tennessee'
+                'corporation_type' => 'Tennessee',
+                'admin_id' => 9
             ],
             [
                 'company' => 'Universal Asset Management',
@@ -33,7 +35,8 @@ class CompaniesTableSeeder extends Seeder
                 'domain' => 'uaminc.com',
                 'folder_name' => snake_case('Universal Asset Management'),
                 'tier' => '2',
-                'corporation_type' => 'Tennessee'
+                'corporation_type' => 'Tennessee',
+                'admin_id' => 6
             ],
             [
                 'company' => 'Braniff Airlines',
@@ -41,7 +44,8 @@ class CompaniesTableSeeder extends Seeder
                 'domain' => 'braniff.com',
                 'folder_name' => snake_case('Braniff Airlines'),
                 'tier' => '3',
-                'corporation_type' => 'Limited Liability Corporation'
+                'corporation_type' => 'Limited Liability Corporation',
+                'admin_id' => 3
             ],
             [
                 'company' => 'Starfleet Academy',
@@ -49,9 +53,11 @@ class CompaniesTableSeeder extends Seeder
                 'domain' => 'sfa.org',
                 'folder_name' => snake_case('Starfleet Academy'),
                 'tier' => '4',
-                'reply_to' => 'jon.gravois@rhsps.com',
-                'website' => 'http://acad.sfi.org/',
-                'corporation_type' => 'San Francisco'
+                'reply_to' => 'jon.gravois@sfa.com',
+                'mail_domain' => 'sfa.org',
+                'website' => 'http://acad.sfa.org/',
+                'corporation_type' => 'San Francisco',
+                'admin_id' => 2
             ]
         ];
 

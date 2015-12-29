@@ -9,11 +9,7 @@
         <li>
             <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-plane fa-stack-1x"></i></span> ASSET OWNER</a>
             <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                <li><a href="/projects/create"><span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x"></i></span>New Project</a></li>
-                <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-pencil fa-stack-1x"></i></span>Edit Project</a></li>
-                <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-folder fa-stack-1x"></i></span>Closed Projects</a></li>
-                <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-clock-o fa-stack-1x"></i></span>Modify Arrivals</a></li>
-                <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-bookmark fa-stack-1x"></i></span>GTA Contract</a></li>
+                <li><a href="/projects"><span class="fa-stack fa-lg pull-left"><i class="fa fa-table fa-stack-1x"></i></span>Projects</a></li>
             </ul>
         </li>
     @endif

@@ -26,7 +26,13 @@ Route::group(['middleware' => 'auth'], function ()
         'uses' => 'UsersController@preferences'
     ]);
 
+    // AUCTIONS
+    Route::get('auctions', 'AuctionsController@listAll');
+    Route::get('auctions/{id}', 'AuctionsController@listOne');
+
     // COMPANIES
+    Route::get('companies', 'CompaniesController@listAll');
+    Route::get('companies/{id}', 'CompaniesController@listOne');
     Route::get('companies/profile', 'CompaniesController@profile');
     Route::get('companies/{id}/profile', 'CompaniesController@profile');
     Route::get('companies/{id}/locations', 'CompaniesController@locations');
@@ -44,12 +50,16 @@ Route::group(['middleware' => 'auth'], function ()
     Route::any('companies/store_users', 'CompaniesController@storeUsers');
     Route::any('companies/store_messages', 'CompaniesController@storeMessages');
     Route::any('companies/store_emails', 'CompaniesController@storeEmails');
-    Route::resource('companies', 'CompaniesController');
+    //Route::resource('companies', 'CompaniesController');
 
-// INSTRUCTIONS
+    // INSTRUCTIONS
     Route::get('instructions/custom_url', 'InstructionsController@customUrl');
 
-// PROJECTS
+    // MARKET
+
+    // PROJECTS
+    Route::get('projects', 'ProjectsController@listAll');
+    Route::get('projects/{id}', 'ProjectsController@listOne');
     Route::get('projects/profile', 'ProjectsController@profile');
     Route::get('projects/{id}/profile', 'ProjectsController@profile');
     Route::get('projects/{id}/aircraft', 'ProjectsController@aircraft');
@@ -59,7 +69,7 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('projects/{id}/summary', 'ProjectsController@summary');
     Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
     Route::get('projects/{id}/parts', 'ProjectsController@contract_parts');
-    Route::resource('projects', 'ProjectsController');
+    //Route::resource('projects', 'ProjectsController');
     Route::post('projects', [
         'as' => 'project_store',
         'uses' => 'ProjectsController@store'
@@ -76,6 +86,14 @@ Route::group(['middleware' => 'auth'], function ()
         'as' => 'parts_store',
         'uses' => 'ProjectsController@store_parts'
     ]);
+
+    // WORKSCOPES
+    Route::get('workscopes', 'WorkscopesController@listAll');
+    Route::get('workscopes/{id}', 'WorkscopesController@listOne');
+
+    // WORKTICKETS
+    Route::get('worktickets', 'WorkticketsController@listAll');
+    Route::get('worktickets/{id}', 'WorkticketsController@listOne');
 });
 
 // Unrestricted routes go here
@@ -167,5 +185,6 @@ Route::group(['prefix' => 'api/'], function () {
     Route::resource('projecttypes', 'ProjectTypesController');
     Route::resource('roles', 'RolesController');
     Route::resource('systemics', 'SystemicsController');
+    Route::resource('techs', 'TechsController');
     Route::resource('users', 'UsersController');
 });

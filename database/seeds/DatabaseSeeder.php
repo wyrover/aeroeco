@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
 		'ProjectTypesTableSeeder',
 		'RolesTableSeeder',
 		'SystemicsTableSeeder',
+		'TechsTableSeeder',
 		'UsersTableSeeder',
 	];
 

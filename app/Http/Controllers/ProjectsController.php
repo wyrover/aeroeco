@@ -74,6 +74,20 @@ class ProjectsController extends ApiController
         return $this->respond($record);
     }
 
+    public function listAll()
+    {
+        // show all
+        $projects = Project::with($this->related)->get();
+        return view('projects.list', compact('projects'));
+    }
+
+    public function listOne($id)
+    {
+        //show single
+        $project = Project::with($this->related)->findOrFail($id);
+        return view('projects.single', compact('project'));
+    }
+
     public function contract_gta($id) {
         $conType = "General Terms Agreement";
         $topics = Contracttopic::where('contract_type_id', 1)

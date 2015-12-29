@@ -72,6 +72,20 @@ class CompaniesController extends ApiController
 
     // CREATE / EDIT COMPANIES
 
+    public function listAll()
+    {
+        // show all
+        $companies = Company::with($this->related)->get();
+        return view('companies.list', compact('companies'));
+    }
+
+    public function listOne($id)
+    {
+        //show single
+        $company = $this->records->with($this->related)->findOrFail($id);
+        return view('companies.single', compact('company'));
+    }
+
     public function profile($id = null)
     {
         if(!$id) {
