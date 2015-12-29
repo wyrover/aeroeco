@@ -353,7 +353,7 @@ class UsersTableSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'company_id' => 5,
                 'all_companies' => true,
-                'manager_id' => 8,
+                'manager_id' => 6,
                 'is_admin' => true,
                 'can_sell' => true,
                 'role_id' => 2,
