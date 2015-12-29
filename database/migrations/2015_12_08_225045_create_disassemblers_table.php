@@ -23,6 +23,7 @@ class CreateDisassemblersTable extends Migration
             $table->string('contact')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
+            $table->integer('country_id')->unsigned()->default(184);
             $table->timestamps();
         });
     }

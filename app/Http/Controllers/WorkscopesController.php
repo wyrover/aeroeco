@@ -64,14 +64,14 @@ class WorkscopesController extends ApiController
     public function listAll()
     {
         // show all
-        $workscopes = Workscope::with($this->related)->get();
-        return view('workscopes.list', compact('workscopes'));
+        $scopes = Workscope::with($this->related)->get();
+        return view('workscopes.list', compact('scopes'));
     }
 
     public function listOne($id)
     {
         //show single
-        $project = Workscope::with($this->related)->findOrFail($id);
-        return view('workscopes.single', compact('workscope'));
+        $scope = Workscope::with($this->related)->findOrFail($id);
+        return view('workscopes.single', compact('scope'));
     }
 }

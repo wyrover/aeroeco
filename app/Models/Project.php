@@ -34,6 +34,10 @@ class Project extends Model
     {
         return $this->hasOne('App\User', 'id', 'creator_id');
     }
+    public function disassembler()
+    {
+        return $this->hasOne('App\Models\Disassembler', 'id', 'disassemblers_id');
+    }
     public function engines()
     {
         return $this->hasMany('App\Models\ProjectEngine', 'project_id', 'id');

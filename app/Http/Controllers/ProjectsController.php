@@ -30,7 +30,7 @@ class ProjectsController extends ApiController
     {
         $this->middleware('auth');
         $this->records = $records;
-        $this->related = ['aircraft.country', 'aircraft.type', 'company.addresses', 'creator', 'engines', 'parts', 'project_type', 'sales.manager', 'status', 'worksite'];
+        $this->related = ['aircraft.country', 'aircraft.type', 'company.addresses', 'creator', 'disassembler.country', 'engines', 'parts', 'project_type', 'sales.manager', 'status', 'worksite'];
     }
 
     public function index()
@@ -94,10 +94,13 @@ class ProjectsController extends ApiController
             ->orderBy('sort_order')
             ->get();
 
-        $project = Project::with('company.addresses')->where('id', $id)->first();
+        $project = Project::with($this->related)
+            ->where('id', $id)
+            ->first();
         $company = $project->company;
 
         $adc = ConsortiumGlobal::where('id', '1')->first();
+        //return $project;
 
         return view('contracts.contract', compact('conType', 'topics', 'project', 'company', 'adc'));
     }
