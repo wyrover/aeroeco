@@ -4,7 +4,7 @@
 
 @section('content')
     <h3>Projects</h3>
-    <br><br>
+    <br>
     <table class="table table-striped table-condensed">
         <tr>
             <th>Mfg</th>
