@@ -13,6 +13,7 @@ class DisassemblersTableSeeder extends Seeder
         $collection = [
             [
                 'name' => 'Tupelo Regional Airport (KTUP)',
+                'short_name' => 'Tupelo, MS',
                 'address' => '118 Lemons Drive',
                 'city' => 'Tupelo',
                 'state' => 'MS',
@@ -22,7 +23,8 @@ class DisassemblersTableSeeder extends Seeder
                 'email' => 'dlowry@uaminc.com'
             ],
             [
-                'name' => 'On-site'
+                'name' => 'On-site',
+                'short_name' => 'On-site'
             ]
         ];
 

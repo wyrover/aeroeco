@@ -69,6 +69,7 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('projects/{id}/summary', 'ProjectsController@summary');
     Route::get('projects/{id}/gta', 'ProjectsController@contract_gta');
     Route::get('projects/{id}/parts', 'ProjectsController@contract_parts');
+    Route::get('projects/{id}/delete', 'ProjectsController@delete');
     //Route::resource('projects', 'ProjectsController');
     Route::post('projects', [
         'as' => 'project_store',

@@ -77,7 +77,15 @@ class ProjectsController extends ApiController
     public function listAll()
     {
         // show all
-        $projects = Project::with($this->related)->get();
+        $user = Auth::user();
+        if($user->all_companies) {
+            $projects = Project::with($this->related)->get();
+        } else {
+            $projects = Project::with($this->related)
+                ->where('company_id', $user->company_id)
+                ->all();
+        }
+
         return view('projects.list', compact('projects'));
     }
 
@@ -87,6 +95,12 @@ class ProjectsController extends ApiController
         $project = Project::with($this->related)->findOrFail($id);
         return view('projects.single', compact('project'));
     }
+
+    public function delete($id)
+    {
+        $project = Project::with($this->related)->findOrFail($id);
+        return $project;
+    } // end delete function
 
     public function contract_gta($id) {
         $conType = "General Terms Agreement";

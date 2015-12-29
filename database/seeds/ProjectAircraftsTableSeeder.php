@@ -18,7 +18,7 @@ class ProjectAircraftsTableSeeder extends Seeder
                 'tail' => 'N195UA',
                 'has_incident' => false,
                 'owner' => 'OK Consulatants, Inc',
-                'last_operator' => 'Unites Airlines',
+                'last_operator' => 'United Airlines',
                 'country_id' => 184,
                 'model_year' => '1992',
                 'flight_hours' => 66000,

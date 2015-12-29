@@ -15,6 +15,7 @@ class CreateDisassemblersTable extends Migration
         Schema::create('disassemblers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('short_name');
             $table->string('address')->nullable();
             $table->string('address2')->nullable();
             $table->string('city')->nullable();

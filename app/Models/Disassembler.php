@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Disassembler extends Model
 {
     protected $table = 'disassemblers';
-    protected $fillable = ['name', 'address', 'address2', 'city', 'state', 'postal_code', 'contact', 'phone', 'email', 'country_id'];
+    protected $fillable = ['name', 'short_name', 'address', 'address2', 'city', 'state', 'postal_code', 'contact', 'phone', 'email', 'country_id'];
     protected $hidden = ['created_at', 'updated_at'];
 
     /* CASTING */
