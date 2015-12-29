@@ -3,7 +3,7 @@
 return [
     'debug' => env('APP_DEBUG', false),
     'url' => 'http://localhost',
-    'timezone' => 'UTC',
+    'timezone' => env('TIME_ZONE', 'UTC'),
     'locale' => 'en',
     'fallback_locale' => 'en',
     'key' => env('APP_KEY', 'SomeRandomString'),

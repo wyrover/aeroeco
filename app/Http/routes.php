@@ -172,6 +172,7 @@ Route::group(['prefix' => 'api/'], function () {
     Route::resource('addresses', 'AddressesController');
     Route::resource('aircrafts', 'AircraftsController');
     Route::resource('atas', 'AtasController');
+    Route::resource('auctions', 'AuctionsController');
     Route::resource('companycontacts', 'CompanyContactsController');
     Route::resource('companies', 'CompaniesController');
     Route::resource('contracttypes', 'ContracttypesController');

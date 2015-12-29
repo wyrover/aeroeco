@@ -15,7 +15,7 @@ class AuctionsController extends ApiController
     public function __construct(Auction $records)
     {
         $this->records = $records;
-        $this->related = [];
+        $this->related = ['project', 'status'];
     }
 
     public function index()
