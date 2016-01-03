@@ -30,7 +30,7 @@ class ProjectsController extends ApiController
     {
         $this->middleware('auth');
         $this->records = $records;
-        $this->related = ['aircraft.country', 'aircraft.type', 'company.addresses', 'creator', 'disassembler.country', 'engines', 'parts', 'project_type', 'sales.manager', 'status', 'worksite'];
+        $this->related = ['aircraft.country', 'aircraft.type', 'company.addresses', 'creator', 'disassembler.country', 'engines', 'parts', 'project_type', 'sales.manager', 'status', 'worksite', 'worktickets'];
     }
 
     public function index()

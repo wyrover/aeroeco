@@ -9,7 +9,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        //
+        view()->share('ADMIN_PATH', env('ADMIN_PATH'));
     }
 
     public function register()

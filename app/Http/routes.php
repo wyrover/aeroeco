@@ -56,6 +56,7 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('instructions/custom_url', 'InstructionsController@customUrl');
 
     // MARKET
+    Route::get('market', 'MarketplaceController@listAll');
 
     // PROJECTS
     Route::get('projects', 'ProjectsController@listAll');
@@ -88,13 +89,19 @@ Route::group(['middleware' => 'auth'], function ()
         'uses' => 'ProjectsController@store_parts'
     ]);
 
+    // TECHS
+    Route::get('teams', 'TechniciansController@listByTeam');
+    Route::get('techs', 'TechniciansController@listAll');
+
     // WORKSCOPES
     Route::get('workscopes', 'WorkscopesController@listAll');
-    Route::get('workscopes/{id}', 'WorkscopesController@listOne');
+    Route::get('workscopes/{id}', 'WorkscopesController@listAll');
+    Route::get('workscopes/{proj_id}/list', 'WorkscopesController@listByProject');
 
     // WORKTICKETS
     Route::get('worktickets', 'WorkticketsController@listAll');
     Route::get('worktickets/{id}', 'WorkticketsController@listOne');
+    Route::get('worktickets/{proj_id}/list', 'WorkticketsController@listByProject');
 });
 
 // Unrestricted routes go here
@@ -113,14 +120,18 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('password/email', 'Auth\PasswordController@getEmail');
 Route::post('password/email', 'Auth\PasswordController@postEmail');
 
+Route::controllers([
+    'password' => 'Auth\PasswordController',
+]);
+
 // TEST ROUTES  Jon: 9012870209; Kenn: 8702083769; Tracy: 6624366086
 Route::group(['prefix' => 'test/'], function() {
-    Route::get('/upload', function() {
+    Route::get('upload', function() {
         return View::make('pages.upload');
     });
-    Route::get('/project/togglepart/{partid}', 'ProjectsController@togglePartInProject');
+    Route::get('project/togglepart/{partid}', 'ProjectsController@togglePartInProject');
     Route::post('apply/upload', 'ApplyController@upload');
-    Route::get('/emailer', function() {
+    Route::get('emailer', function() {
         $data = array('name' => 'Jonathan'); // Change name
 
         Mail::send('emails.welcome', $data, function($message)
@@ -132,29 +143,29 @@ Route::group(['prefix' => 'test/'], function() {
 
         return 'Email Sent!';
     });
-    Route::get('/xlimport/{dir}/{file}', [
+    Route::get('xlimport/{dir}/{file}', [
         'as' => 'xlimport',
         'uses' => 'ExcelController@fromExcel'
     ]);
-    Route::get('/event', function() {
+    Route::get('event', function() {
         logit('created a test event');
     });
-    Route::get('/tester', function () {
+    Route::get('tester', function () {
         return view('pages.tester');
     });
-    Route::get('/notifier', function () {
-        notify('2', '2', 'Angelina Jole just friended you.');
+    Route::get('notifier', function () {
+        notify(Auth::user()->id, '2', 'Angelina Jole just friended you.');
         return 'Notification Saved!';
     });
-    Route::get('/sms/{phone}', function($phone) {
+    Route::get('sms/{phone}', function($phone) {
         Twilio::message($phone, 'Hi, I am Echo from the AeroEco software. I can now send but not receive text messages. Pretty cool, huh?');
         return 'Message sent';
     });
-    Route::get('/messenger', function () {
+    Route::get('messenger', function () {
         tweet('2', 'Dude, why are you sending yourself a message? Are you some kind of freak? Oh, you are just testing.');
         return 'Message Saved!';
     });
-    Route::get('/welcome_page', function () {
+    Route::get('welcome_page', function () {
         flash()->overlay('Hello, World!', 'This is the message');
         return view('pages.welcome');
     });

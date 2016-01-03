@@ -65,13 +65,13 @@ return array(
             'returnInfo' => false
         ),
         'pdf'                         => array(
-            'driver'  => 'DomPDF',
+            'driver'  => 'tcPDF',
             'drivers' => array(
                 'DomPDF' => array(
                     'path' => base_path('vendor/dompdf/dompdf/')
                 ),
                 'tcPDF'  => array(
-                    'path' => base_path('vendor/tecnick.com/tcpdf/')
+                    'path' => base_path('vendor/tecnickcom/tcpdf/')
                 ),
                 'mPDF'   => array(
                     'path' => base_path('vendor/mpdf/mpdf/')

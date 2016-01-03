@@ -51,7 +51,6 @@ return [
          */
         Aloha\Twilio\Support\Laravel\ServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         GeneaLabs\LaravelCaffeine\LaravelCaffeineServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
@@ -96,7 +95,6 @@ return [
         /*
          * User Added Facades...
          */
-        'Debugger'  => Barryvdh\Debugbar\Facade::class,
         'Ekko'      => Laravelista\Ekko\Facades\Ekko::class,
         'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
         'Form'      => Collective\Html\FormFacade::class,

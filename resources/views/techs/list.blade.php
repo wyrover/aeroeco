@@ -3,8 +3,7 @@
 @section('title', 'AeroEco')
 
 @section('content')
-    <h3>Work Tickets</h3>
-    {{$tickets}}
+    <h3>Disassemblers</h3>
 @endsection
 
 @section('footer')

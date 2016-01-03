@@ -2,7 +2,9 @@
 
 use App\Models\Message;
 use App\Models\Notification;
+use App\Models\ProjectPart;
 use App\Models\Systemic;
+use App\Models\Workticket;
 use Illuminate\Support\Facades\Auth;
 
 function flash($title = null, $message = null) {
@@ -13,6 +15,20 @@ function flash($title = null, $message = null) {
     }
 
     return $flash->info($title, $message);
+}
+function generateWorkTickets($pID)
+{
+    $ticks = ProjectPart::where('in_project', 1)->where('project_id', $pID)->get();
+
+    foreach($ticks as $tick) {
+        Workticket::create([
+            'project_id' => $pID,
+            'part_id' => $tick->part_listing_id,
+            'scopestatus_id' => 1
+        ]);
+    } // end foreach
+
+    return $pID;
 }
 function logIt($msg) {
     if( !Auth::check() ) {

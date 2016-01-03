@@ -22,7 +22,7 @@ class PhonesTableSeeder extends Seeder
                 'type' => 'work'
             ],
             [
-                'user_id' => 1,
+                'user_id' => 2,
                 'phone' => '9012870209',
                 'type' => 'mobile'
             ]

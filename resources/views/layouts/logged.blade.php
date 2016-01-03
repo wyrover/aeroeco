@@ -41,6 +41,11 @@
 {!! HTML::script('js/main.js') !!}
 @include('layouts.flash')
 <!-- App scripts -->
-@stack('scripts')
+    @stack('scripts')
+    <script>
+        $(function() {
+            // jQuery goes here
+        });
+    </script>
     <!-- App scripts -->
 </html>

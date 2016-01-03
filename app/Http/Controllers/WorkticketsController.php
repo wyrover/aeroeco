@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
+use App\Models\ProjectPart;
+use App\Models\ProjectType;
 use App\Models\Workticket;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -15,7 +19,7 @@ class WorkticketsController extends ApiController
     public function __construct(Workticket $records)
     {
         $this->records = $records;
-        $this->related = [];
+        $this->related = ['part.atas', 'project.aircraft'];
     }
 
     public function index()
@@ -63,9 +67,21 @@ class WorkticketsController extends ApiController
 
     public function listAll()
     {
-        // show all
-        $tickets = Workticket::with($this->related)->get();
-        return view('tickets.list', compact('tickets'));
+        return view('tickets.projectslist');
+    } // end listAll function
+
+    public function listProject($projectID)
+    {
+        $tickets = Workticket::with($this->related)
+                ->where('project_id', $projectID)
+                ->get();
+        $techs = User::where('role_id', 6)->orderBy('lastname')
+            ->get(['firstname', 'lastname', 'id']);
+        $techsDD[0] = 'Please Select ...';
+        foreach($techs as $tech) {
+            $techsDD[$tech->id] = $tech->firstname . ' ' . $tech->lastname;
+        }
+        return view('tickets.list', compact('tickets', 'techsDD'));
     }
 
     public function listOne($id)
@@ -74,4 +90,6 @@ class WorkticketsController extends ApiController
         $ticket = Workticket::with($this->related)->findOrFail($id);
         return view('tickets.single', compact('ticket'));
     }
+
+
 }

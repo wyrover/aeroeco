@@ -14,6 +14,11 @@ class CreateWorkticketsTable extends Migration
     {
         Schema::create('worktickets', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('project_id')->unsigned();
+            $table->integer('part_id')->unsigned();
+            $table->integer('scopestatus_id')->unsigned();
+            $table->integer('tech_id')->unsigned();
+            $table->double('time_spent')->nullable();
             $table->timestamps();
         });
     }

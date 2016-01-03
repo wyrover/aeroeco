@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
             [
                 'firstname' => 'Jon',
                 'lastname' => 'Gravois',
-                'email' => 'jongravois@gmail.com',
+                'email' => 'jgravois@uaminc.com',
                 'password' => Hash::make('password'),
                 'company_id' => 5,
                 'all_companies' => true,
@@ -130,7 +130,7 @@ class UsersTableSeeder extends Seeder
                 'tier' => 1
             ],
             [
-                'firstname' => 'Aero',
+                'firstname' => 'AeroEco',
                 'lastname' => 'Sysadmin',
                 'email' => 'admin@aero.local',
                 'password' => Hash::make('password'),
@@ -142,18 +142,18 @@ class UsersTableSeeder extends Seeder
                 'tier' => 1
             ],
             [
-                'firstname' => 'Aero',
-                'lastname' => 'Exec',
-                'email' => 'exec@aero.local',
+                'firstname' => 'AeroEco',
+                'lastname' => 'Accounting',
+                'email' => 'accounting@aero.local',
                 'password' => Hash::make('password'),
                 'all_companies' => true,
                 'manager_id' => 7,
-                'is_admin' => true,
+                'is_admin' => false,
                 'can_sell' => true,
-                'role_id' => 3
+                'role_id' => 8
             ],
             [
-                'firstname' => 'Aero',
+                'firstname' => 'AeroEco',
                 'lastname' => 'TechAdmin',
                 'email' => 'techadmin@aero.local',
                 'password' => Hash::make('password'),
@@ -161,151 +161,82 @@ class UsersTableSeeder extends Seeder
                 'manager_id' => 7,
                 'is_admin' => true,
                 'can_sell' => true,
-                'role_id' => 4
+                'role_id' => 5
             ],
             [
-                'firstname' => 'Aero',
+                'firstname' => 'AeroEco',
                 'lastname' => 'Support',
                 'email' => 'support@aero.local',
                 'password' => Hash::make('password'),
                 'manager_id' => 7,
                 'all_companies' => true,
                 'can_sell' => true,
-                'role_id' => 5
+                'role_id' => 6
             ],
             [
-                'firstname' => 'Aero',
-                'lastname' => 'Tech',
-                'email' => 'tech@aero.local',
+                'firstname' => 'AeroEco',
+                'lastname' => 'Team Leader',
+                'email' => 'teamleader@aero.local',
                 'password' => Hash::make('password'),
                 'manager_id' => 7,
                 'all_companies' => true,
                 'can_sell' => true,
-                'role_id' => 6
+                'role_id' => 7
             ],
             [
-                'firstname' => 'Aero',
+                'firstname' => 'AeroEco',
                 'lastname' => 'Seller',
                 'email' => 'seller@aero.local',
                 'password' => Hash::make('password'),
                 'manager_id' => 7,
                 'can_sell' => true,
-                'role_id' => 7
+                'role_id' => 9
             ],
             [
-                'firstname' => 'Aero',
+                'firstname' => 'AeroEco',
                 'lastname' => 'Tier 1',
                 'email' => 'tier1@aero.local',
                 'password' => Hash::make('password'),
                 'manager_id' => 7,
                 'can_sell' => true,
-                'role_id' => 8
+                'role_id' => 10
             ],
             [
-                'firstname' => 'Aero',
+                'firstname' => 'AeroEco',
                 'lastname' => 'Tier 2',
                 'email' => 'tier2@aero.local',
                 'password' => Hash::make('password'),
                 'manager_id' => 7,
                 'can_sell' => true,
-                'role_id' => 8
+                'role_id' => 11
             ],
             [
-                'firstname' => 'Aero',
+                'firstname' => 'AeroEco',
                 'lastname' => 'Tier 3',
                 'email' => 'tier3@aero.local',
                 'password' => Hash::make('password'),
                 'manager_id' => 7,
                 'can_sell' => true,
-                'role_id' => 8
+                'role_id' => 12
             ],
             [
-                'firstname' => 'Aero',
+                'firstname' => 'AeroEco',
                 'lastname' => 'Tier 4',
                 'email' => 'tier4@aero.local',
                 'password' => Hash::make('password'),
                 'manager_id' => 7,
                 'can_sell' => true,
-                'role_id' => 8
+                'role_id' => 13
             ],
             [
-                'firstname' => 'Aero',
+                'firstname' => 'AeroEco',
                 'lastname' => 'Vendor',
                 'email' => 'vendor@aero.local',
                 'manager_id' => 7,
                 'password' => Hash::make('password'),
-                'role_id' => 9
-            ],
-            [
-                'firstname' => 'Tech',
-                'lastname' => 'Admin',
-                'email' => 'tadmin@aero.local',
-                'password' => Hash::make('password'),
-                'all_companies' => true,
-                'manager_id' => 7,
-                'is_admin' => true,
-                'can_sell' => true,
-                'role_id' => 4
-            ],
-            [
-                'firstname' => 'Tech1',
-                'lastname' => 'Tech',
-                'email' => 'tech1@aero.local',
-                'password' => Hash::make('password'),
-                'manager_id' => 12,
-                'all_companies' => true,
-                'can_sell' => true,
-                'role_id' => 6
-            ],
-            [
-                'firstname' => 'Tech2',
-                'lastname' => 'Tech',
-                'email' => 'tech2@aero.local',
-                'password' => Hash::make('password'),
-                'manager_id' => 12,
-                'all_companies' => true,
-                'can_sell' => true,
-                'role_id' => 6
-            ],
-            [
-                'firstname' => 'Tech3',
-                'lastname' => 'Tech',
-                'email' => 'tech3@aero.local',
-                'password' => Hash::make('password'),
-                'manager_id' => 12,
-                'all_companies' => true,
-                'can_sell' => true,
-                'role_id' => 6
-            ],
-            [
-                'firstname' => 'Tech4',
-                'lastname' => 'Tech',
-                'email' => 'tech4@aero.local',
-                'password' => Hash::make('password'),
-                'manager_id' => 12,
-                'all_companies' => true,
-                'can_sell' => true,
-                'role_id' => 6
-            ],
-            [
-                'firstname' => 'Tech5',
-                'lastname' => 'Tech',
-                'email' => 'tech5@aero.local',
-                'password' => Hash::make('password'),
-                'manager_id' => 12,
-                'all_companies' => true,
-                'can_sell' => true,
-                'role_id' => 6
-            ],
-            [
-                'firstname' => 'Tech6',
-                'lastname' => 'Tech',
-                'email' => 'tech6@aero.local',
-                'password' => Hash::make('password'),
-                'manager_id' => 12,
-                'all_companies' => true,
-                'can_sell' => true,
-                'role_id' => 6
+                'role_id' => 14,
+                'company_id' => 5,
+                'can_sell' => false
             ],
             [
                 'firstname' => 'Shawn',

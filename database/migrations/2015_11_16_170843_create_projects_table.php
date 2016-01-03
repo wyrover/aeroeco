@@ -16,6 +16,8 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->boolean('is_mocked')->default(false);
+            $table->boolean('is_scoped')->default(false);
+            $table->boolean('is_submited')->default(false);
             $table->integer('project_types_id')->unsigned()->default(1);
             $table->integer('project_statuses_id')->unsigned()->default(1);
             $table->integer('disassemblers_id')->unsigned()->default(1);
@@ -24,6 +26,7 @@ class CreateProjectsTable extends Migration
             $table->string('directory_path')->nullable();
             $table->integer('sales_id')->unsigned()->default(7);
             $table->dateTime('project_start_date')->default(Carbon::now());
+            $table->dateTime('project_submission_date')->nullable();
             $table->dateTime('asset_arrival_date')->default(Carbon::now());
             $table->dateTime('projected_completion_date')->nullable();
             $table->dateTime('completion_date')->nullable();

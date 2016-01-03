@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
 		'AircraftsTableSeeder',
 		'AtasTableSeeder',
 		'AuctionsTableSeeder',
+		'BundlesTableSeeder',
 		'CompaniesTableSeeder',
 		'CompanyContactsTableSeeder',
 		'ConditionsTableSeeder',

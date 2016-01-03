@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProjectPart;
 use App\Models\Workscope;
+use App\Models\Workticket;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -74,4 +77,11 @@ class WorkscopesController extends ApiController
         $scope = Workscope::with($this->related)->findOrFail($id);
         return view('workscopes.single', compact('scope'));
     }
+
+    public function listByProject($projectID)
+    {
+        $tickets = [];
+        return view('tickets.list', compact('tickets'));
+    } // end listByProject function
+    
 }

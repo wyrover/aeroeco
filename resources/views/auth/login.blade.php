@@ -29,7 +29,7 @@
                         <br>
                     <span>
                         <button type="submit" class="btn btn-uam">
-                            Log In
+                            <i class="fa fa-btn fa-sign-in"></i>&nbsp;Log In
                         </button>
                     </span>
                     </div>
@@ -37,10 +37,6 @@
                     <div class="row">
                         <span style="font-size: 0.75em;">
                         <a href="/password/email" class="naked_link">Forgot Password</a>
-                    </span>
-                        <br><br>
-                    <span style="font-size: 0.75em;">
-                        <a href="/auth/register/5" class="naked_link">Register for a free preview</a>
                     </span>
                 </div>
             {!! Form::close() !!}

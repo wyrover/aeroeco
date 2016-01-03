@@ -14,6 +14,7 @@ class CreateWorkscopesTable extends Migration
     {
         Schema::create('workscopes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('project_id')->unsigned();
             $table->timestamps();
         });
     }

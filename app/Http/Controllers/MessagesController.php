@@ -22,7 +22,9 @@ class MessagesController extends ApiController
     public function index()
     {
         // show all
-        $records = Message::with($this->related)->get();
+        $records = Message::with($this->related)
+            ->where('status', 'pending')
+            ->get();
         foreach($records as $record) {
             $record['gravatar'] = md5(strtolower(trim($record->sender_email)));
             $record['brief'] = str_limit($record['message'], 90);

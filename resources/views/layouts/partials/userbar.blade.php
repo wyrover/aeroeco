@@ -50,6 +50,17 @@
                         <li>
                             <a href="/messages"><i class="fa fa-envelope-o"></i>&nbsp;Messages</a>
                         </li>
+                        @if(Auth::user()->is_admin)
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                {!! Form::open(['url' => env('ADMIN_PATH')]) !!}
+                                {!! Form::hidden('email', Auth::user()->email) !!}
+                                {!! Form::hidden('password', Auth::user()->password) !!}
+                                {!! Form::submit('Administration', ['class' => 'btn btn-link']) !!}
+                                {!! Form::close() !!}
+                            </li>
+                        @endif
+                        <li role="separator" class="divider"></li>
                         <li>
                             <a href="/auth/logout"><i class="fa fa-power-off"></i>&nbsp;Logout</a>
                         </li>

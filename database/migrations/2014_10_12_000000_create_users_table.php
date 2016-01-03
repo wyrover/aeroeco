@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->integer('manager_id')->nullable();
             $table->integer('role_id')->default(4);
             $table->integer('tier')->default(4);
-            $table->integer('location_id')->unsigned()->default(1);
+            $table->integer('location_id')->unsigned()->default(2);
             $table->rememberToken();
             $table->timestamps();
         });

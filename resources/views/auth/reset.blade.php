@@ -9,9 +9,11 @@
         <div class="well" style="width: 60%; margin: 0 auto;">
              @if ($errors->any())
                   @include('errors.errors')
-              @endif
-              
+             @endif
+
              {!! Form::open(['url' => '/password/reset']) !!}
+                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                 <input type="hidden" name="token" value="{{ $token }}">
 
                  <label>Email Address</label>
                  <input type="email" class="form-control" placeholder="Email Address" name="email" value="{{ old('email') }}">

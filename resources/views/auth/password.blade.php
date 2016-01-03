@@ -16,25 +16,27 @@
                 @include('errors.errors')
             @endif
 
-                {!! Form::open(['url' => '/password/email', 'class' => 'form-horizontal']) !!}
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            @if (!session('status'))
 
-                <div class="form-group">
-                    <label class="col-md-4 control-label">E-Mail Address</label>
-                    <div class="col-md-6">
-                        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                    {!! Form::open(['url' => '/password/email', 'class' => 'form-horizontal']) !!}
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">E-Mail Address</label>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" name="email" autocomplete="off" value="{{ old('email') }}">
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" class="btn btn-uam">
-                            Send Password Reset Link
-                        </button>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                            <button type="submit" class="btn btn-uam">
+                                Send Password Reset Link
+                            </button>
+                        </div>
                     </div>
-                </div>
-                {!! Form::close() !!}
-
+                    {!! Form::close() !!}
+                @endif
         </div>
     </div>
 

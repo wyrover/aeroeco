@@ -164,6 +164,11 @@ class AircraftPartTableSeeder extends Seeder
             [
                 'aircraft_id' => 21,
                 'part_listing_id' => 31,
+                'quantity' => 1
+            ],
+            [
+                'aircraft_id' => 21,
+                'part_listing_id' => 34,
                 'quantity' => 4
             ]
         ];

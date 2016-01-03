@@ -12,7 +12,7 @@
             </div>
         </li>
         <ul class="list-group">
-            <li class="list-group-item" v-for="note in list">
+            <li class="list-group-item" v-for="note in list | orderBy 'id' -1">
                 <i class="typeicon fa fa-{{ note.type.icon}}"></i>
                 {{ note.message }}
                 <span class='btnClose'>

@@ -188,6 +188,30 @@ class PartsListingTableSeeder extends Seeder
                 'package_id' => 1
             ],
             [
+                'ATA' => '49',
+                'description' => 'hamilton sustrand PW901 APU',
+                'base_part_number' => 'PW-901A',
+                'package_id' => 1
+            ],
+            [
+                'ATA' => '71',
+                'description' => 'pratt & whitney PW4000',
+                'base_part_number' => 'PW4062',
+                'package_id' => 1
+            ],
+            [
+                'ATA' => '71',
+                'description' => 'general electric CF6',
+                'base_part_number' => 'CF6-80C2',
+                'package_id' => 1
+            ],
+            [
+                'ATA' => '71',
+                'description' => 'Rolls-Royce RB211',
+                'base_part_number' => 'RB211',
+                'package_id' => 1
+            ],
+            [
                 'ATA' => '73',
                 'description' => 'fuel pump',
                 'base_part_number' => '5006834M',

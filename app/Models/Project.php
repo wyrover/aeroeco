@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     protected $table = 'projects';
-    protected $fillable = ['is_mocked', 'project_types_id', 'project_statuses_id', 'disassemblers_id', 'creator_id', 'company_id', 'directory_path', 'sales_id', 'project_start_date', 'asset_arrival_date', 'projected_completion_date', 'completion_date'];
-    protected $dates = ['project_start_date', 'asset_arrival_date', 'projected_completion_date', 'completion_date'];
+    protected $fillable = ['is_mocked', 'is_scoped', 'is_submited', 'project_types_id', 'project_statuses_id', 'disassemblers_id', 'creator_id', 'company_id', 'directory_path', 'sales_id', 'project_start_date', 'project_submission_date', 'asset_arrival_date', 'projected_completion_date', 'completion_date'];
+    protected $dates = ['project_start_date', 'project_submission_date', 'asset_arrival_date', 'projected_completion_date', 'completion_date'];
     /*protected $hidden = ['created_at', 'updated_at'];*/
 
     private function getAssetArrivalDateValue() {
@@ -17,7 +17,9 @@ class Project extends Model
 
     /* CASTING */
     protected $casts = [
-        'is_mocked' => 'boolean'
+        'is_mocked' => 'boolean',
+        'is_scoped' => 'boolean',
+        'is_submited' => 'boolean'
     ];
     /* CASTING */
 
@@ -61,6 +63,10 @@ class Project extends Model
     public function worksite()
     {
         return $this->hasOne('App\Models\Disassembler', 'id', 'disassemblers_id');
+    }
+    public function worktickets()
+    {
+        return $this->hasMany('App\Models\Workticket', 'id', 'project_id');
     }
     /* RELATIONSHIPS */
 
