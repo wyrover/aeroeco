@@ -1,4 +1,5 @@
 <div class="row">
+    {!! Form::hidden('project_id', $project->id) !!}
     {!! Form::label('project_type_id', 'Project Type') !!}
     {!! Form::select('project_type_id', $types, null, ['class' => 'form-control']) !!}
 </div>

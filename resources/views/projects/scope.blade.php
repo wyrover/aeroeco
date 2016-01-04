@@ -9,7 +9,7 @@
         .row { margin-bottom: 20px; }
         .main-box {
             background: #FFFFFF;
-            height: 80px;
+            height: 100px;
             box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.4);
             margin-bottom: 16px;
             /* overflow: hidden; */
@@ -46,10 +46,22 @@
         .purple-bg {
             background-color: #783fc6 !important;
         }
+        .describe__bundle {
+            font-size: 0.8em;
+            color:#FFF;
+        }
     </style>
     @include('projects.partials.tabs')
     @include('errors.errors')
+    @include('layouts.flash')
     <div>
+        {!! Form::open([
+                'url' => '/parts_update',
+                'class' => 'form',
+                'novalidate' => 'novalidate',
+                'files' => 'true'
+            ]) !!}
+        {!! Form::hidden('project_id', $project->id) !!}
         <div class="row" style="width: 90%; margin: 20px auto 0 auto;">
             <parts project="{{$project->id}}"></parts>
         </div>
@@ -59,6 +71,7 @@
                 Continue
             </button>
         </div>
+        {!! Form::close() !!}
     <br><br>
     </div>
 @stop

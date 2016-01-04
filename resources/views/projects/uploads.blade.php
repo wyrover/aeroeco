@@ -8,13 +8,15 @@
     </style>
     @include('projects.partials.tabs')
     @include('errors.errors')
+    @include('layouts.flash')
     <div style="margin-top: 15px;">
         {!! Form::open([
-            'url' => '/uploads_store',
+            'url' => '/uploads_update',
             'class' => 'form',
             'novalidate' => 'novalidate',
             'files' => 'true'
         ]) !!}
+        {!! Form::hidden('project_id', $project->id) !!}
         @include('projects.partials.forms.uploads')
         <div class="row pull-right" style="margin-right: 0;">
             {!! Form::submit('Continue', ['id' => 'btnUploads', 'class' => 'btn btn-uam']) !!}

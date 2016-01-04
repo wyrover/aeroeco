@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
 		'PhonesTableSeeder',
 		'ProjectsTableSeeder',
 		'ProjectAircraftsTableSeeder',
+		'ProjectApusTableSeeder',
 		'ProjectEnginesTableSeeder',
 		'ProjectStatusesTableSeeder',
 		'ProjectTypesTableSeeder',

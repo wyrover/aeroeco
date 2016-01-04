@@ -1,8 +1,9 @@
+{!! Form::hidden('projectaircraft_id', $aircraft->id) !!}
+{!! Form::hidden('project_id', $aircraft->project_id) !!}
 <div class="row">
-    {!! Form::hidden('project_id', $project->id) !!}
     <div class="col-md-6">
-        <label>Aircraft Type</label>
-        <input type="text" id="aircraft_type" name="aircraft_type" class="form-control" placeholder="Aircraft Type" autocomplete="off" >
+        {!! Form::label('type_id', 'Aircraft Type') !!}
+        <input type="text" id="type_id" name="type_id" class="form-control" placeholder="Aircraft Type" value="{{getAircraft($aircraft->type_id)}}" autocomplete="off" >
     </div>
     <div class="col-md-6">
         {!! Form::label('country_id', 'Country of Origin') !!}
@@ -11,62 +12,52 @@
 </div>
 <div class="row">
     <div class="col-md-6">
-        <label>Aircraft Owner</label>
-        <input type="text" class="form-control" name="owner" placeholder="Aircraft Owner" />
+        {!! Form::label('owner', 'Aircraft Owner') !!}
+        {!! Form::text('owner', $aircraft->owner, ['class' => 'form-control', 'placeholder' => 'Aircraft Owner']) !!}
     </div>
     <div class="col-md-6">
-        <label>Current or Last Operator</label>
-        <input type="text" class="form-control" name="last_operator" placeholder="Current or last operator"/>
+        {!! Form::label('last_operator', 'Current or Last Operator') !!}
+        {!! Form::text('last_operator', $aircraft->last_operator, ['class' => 'form-control', 'placeholder="Current or Last Operator']) !!}
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-6">
-        <label>Manufacturer's Serial Number (MSN)</label>
-        <input type="text" class="form-control" name="msn" placeholder="Manufacturer's Serial Number (MSN)"/>
+        {!! Form::label('msn', 'Manufacturer\'s Serial Number (MSN)') !!}
+        {!! Form::text('msn', $aircraft->msn, ['class' => 'form-control', 'placeholder' => 'Manufacturer\'s Serial Number (MSN)']) !!}
     </div>
     <div class="col-md-6">
-        <label>Registration / Tail Number</label>
-        <input type="text" class="form-control" name="tail" placeholder="Registration / Tail Number"/>
+        {!! Form::label('tail', 'Registration / Tail Number') !!}
+        {!! Form::text('tail', $aircraft->tail, ['class' => 'form-control', 'placeholder' => 'Registration / Tail Number']) !!}
     </div>
 </div>
 <div class="row">
     <div class="col-md-6">
         {!! Form::label('manufacturer', 'Aircraft Manufacturer') !!}
-        <select name="manufacturer" class="form-control">
-            <option value="">Please select ...</option>
-            <option>Airbus</option>
-            <option>Boeing</option>
-        </select>
+        {!! Form::select('manufacturer', $mfg , $aircraft->manufacturer, ['class' => 'form-control']) !!}
     </div>
     <div class="col-md-6">
-        <label>Aircraft Model Year</label>
-        <input type="number" class="form-control" name="model_year" placeholder="Aircraft Model Year">
+        {!! Form::label('model_year', 'Aircraft Model Year') !!}
+        {!! Form::text('model_year', $aircraft->model_year, ['class' => 'form-control', 'placeholder' => 'Aircraft Model Year']) !!}
     </div>
 </div>
 <div class="row">
     <div class="col-md-6">
-        <label>Flight Hours</label>
-        <input type="number" class="form-control" name="flight_hours" placeholder="Flight Hours">
+        {!! Form::label('flight_hours', 'Flight Hours') !!}
+        {!! Form::text('flight_hours', $aircraft->flight_hours, ['class' => 'form-control', 'placeholder' => 'Flight Hours']) !!}
     </div>
     <div class="col-md-6">
-        <label>Cycles</label>
-        <input type="number" class="form-control" name="cycles" placeholder="Cycles">
+        {!! Form::label('cycles', 'Cycles') !!}
+        {!! Form::text('cycles', $aircraft->cycles, ['class' => 'form-control', 'placeholder' => 'Cycles']) !!}
     </div>
 </div>
 <div class="row">
     <div class="col-md-6">
-        <label>APU Stands Provided By:&nbsp;&nbsp;
-            <select name="apu_stands_provider" class="form-control">
-                <option value="ADC">ADC</option>
-                <option value="owner">Owner</option>
-            </select>
+        {!! Form::label('apu_stands_provider', 'APU Stands Provided By:&nbsp;&nbsp;') !!}
+        {!! Form::select('apu_stands_provider', $provider , $aircraft->apu_stands_provider, ['class' => 'form-control']) !!}
     </div>
     <div class="col-md-6">
-        <label>Reverse Thruster Stands Provided By:&nbsp;&nbsp;
-            <select name="reserse_thruster_stands_provider" class="form-control">
-                <option value="ADC">ADC</option>
-                <option value="owner">Owner</option>
-            </select>
-        </label>
+        {!! Form::label('reverse_thruster_stands_provider', 'Reverse Thruster Stands Provided By:&nbsp;&nbsp;') !!}
+        {!! Form::select('reverse_thruster_stands_provider', $provider, $aircraft->reverse_thruster_stands_provider, ['class' => 'form-control']) !!}
     </div>
 </div>

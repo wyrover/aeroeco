@@ -17,6 +17,7 @@ class CreateProjectAircraftsTable extends Migration
             $table->integer('project_id')->unsigned();
             $table->integer('type_id')->unsigned();
             $table->string('msn')->nullable();
+            $table->string('manufacturer')->nullable();
             $table->string('tail')->nullable();
             $table->boolean('has_incident')->default(false);
             $table->string('owner')->nullable();

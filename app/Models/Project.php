@@ -28,6 +28,10 @@ class Project extends Model
     {
         return $this->hasOne('App\Models\ProjectAircraft', 'project_id', 'id');
     }
+    public function apu()
+    {
+        return $this->hasOne('App\Models\ProjectApu', 'project_id', 'id');
+    }
     public function company()
     {
         return $this->belongsTo('App\Models\Company');

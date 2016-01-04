@@ -3,27 +3,39 @@
         <div class="col-md-4">
             <div class="main-box infographic-box colored aqua-bg" @click="clkBox('1', $event)">
                 <div class="headline">
-                    <span class="title">Basic</span>
+                    <span class="title">{{bundles[0].name}}</span>
                     <br>
-                    <span class="cost pull-right">$75,000</span>
+                    <span class="describe__bundle">
+                        {{bundles[0].description}}
+                    </span>
+                    <br>
+                    <span class="cost pull-right">{{bundles[0].cost|currency}}</span>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="main-box infographic-box colored rust-bg" @click="clkBox('2', $event)">
                 <div class="headline">
-                    <span class="title">Enhanced</span>
+                    <span class="title">{{bundles[1].name}}</span>
                     <br>
-                    <span class="cost pull-right">$100,000</span>
+                    <span class="describe__bundle">
+                        {{bundles[1].description}}
+                    </span>
+                    <br>
+                    <span class="cost pull-right">{{bundles[1].cost|currency}}</span>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="main-box infographic-box colored purple-bg" @click="clkBox('3', $event)">
                 <div class="headline">
-                    <span class="title">Supreme</span>
+                    <span class="title">{{bundles[2].name}}</span>
                     <br>
-                    <span class="cost pull-right">$150,000</span>
+                    <span class="describe__bundle">
+                        {{bundles[2].description}}
+                    </span>
+                    <br>
+                    <span class="cost pull-right">{{bundles[2].cost|currency}}</span>
                 </div>
             </div>
         </div>
@@ -112,12 +124,14 @@
             return {
                 atas: [],
                 parts: [],
+                bundles: [],
                 show: false
             };
         },
         computed: {},
         created: function() {
             this.fetchAtasList();
+            this.fetchBundlesList();
             this.fetchPartsList();
         },
         methods: {
@@ -128,6 +142,12 @@
                         ata.show = false;
                     });
                     this.atas = atas;
+                }.bind(this));
+            },
+            fetchBundlesList: function() {
+                var path = '/api/project/' + this.project + '/bundleslist';
+                this.$http.get(path, function(bundles) {
+                    this.bundles = bundles;
                 }.bind(this));
             },
             fetchPartsList: function() {

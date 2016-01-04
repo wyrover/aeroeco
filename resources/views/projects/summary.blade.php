@@ -8,13 +8,19 @@
     </style>
     @include('projects.partials.tabs')
     @include('errors.errors')
+    @include('layouts.flash')
     <div style="margin-top: 5px;">
         {!! Form::open([
-            'url' => '/projects/summary',
+            'url' => '/project_summary',
             'class' => 'form',
             'novalidate' => 'novalidate'
         ]) !!}
         {{--@include('projects.partials.forms.summary')--}}
+        <div class="row">
+            <div class="col-md-12" style="text-align: right;">
+                <button class="btn btn-uam">Submit Project for Approval</button>
+            </div>
+        </div>
         {!! Form::close() !!}
         <br><br>
     </div>

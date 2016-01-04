@@ -11,9 +11,10 @@
     <div style="margin-top: 5px;">
         @include('projects.partials.tabs')
         @include('errors.errors')
+        @include('layouts.flash')
         <div style="width:40%; margin: 20px auto 0 auto;">
             {!! Form::model($project, [
-                'url' => '/profile_store',
+                'url' => '/profile_update',
                 'class' => 'form',
                 'novalidate' => 'novalidate'
             ]) !!}

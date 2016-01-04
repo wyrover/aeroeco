@@ -8,12 +8,12 @@
     </style>
     @include('projects.partials.tabs')
     @include('errors.errors')
+    @include('layouts.flash')
     <div style="margin-top: 15px;">
         {!! Form::open([
-            'url' => '/aircraft_store',
+            'url' => '/aircraft_update',
             'class' => 'form',
-            'novalidate' => 'novalidate',
-            'files' => 'true'
+            'novalidate' => 'novalidate'
         ]) !!}
         @include('projects.partials.forms.aircraft')
         <div class="row pull-right" style="margin-right: 0;">
@@ -31,7 +31,7 @@
 @push('scripts')
 <script>
     $(function() {
-        $('#aircraft_type').typeahead({
+        $('#type_id').typeahead({
             ajax: '/api/aircrafts/list',
             displayField: 'model',
             triggerLength: 1,

@@ -9,13 +9,15 @@
     <div style="margin-top: 5px;">
         @include('projects.partials.tabs')
         @include('errors.errors')
+        @include('layouts.flash')
         <div style="width:40%; margin: 20px auto 0 auto;">
-            {!! Form::model($project, [
-                'url' => '/projects',
+            {!! Form::open([
+                'url' => '/upload_inventory',
                 'class' => 'form',
                 'novalidate' => 'novalidate',
                 'files' => 'true'
             ]) !!}
+            {!! Form::hidden('project_id', $project->id) !!}
             <div class="row">
                 <label>Upload Inventory Listing (if available)</label>
                 <input type="file" class="form-control"  />

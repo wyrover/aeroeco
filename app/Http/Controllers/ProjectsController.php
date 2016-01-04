@@ -12,6 +12,7 @@ use App\Models\Country;
 use App\Models\Disassembler;
 use App\Models\Project;
 use App\Models\ProjectAircraft;
+use App\Models\ProjectEngine;
 use App\Models\ProjectPart;
 use App\Models\ProjectType;
 use Carbon\Carbon;
@@ -149,57 +150,70 @@ class ProjectsController extends ApiController
                 'company_id' => $user->company_id,
                 'directory_path' => $company->company . '/' . date('Y') . '/'
             ]);
-            event(new ProjectWasCreated($project));
         }
 
         return view('projects.profile', compact('adc', 'atas', 'company', 'disassemblers', 'project', 'types', 'user'));
     }
 
-    public function store_profile(Request $request)
+    public function update_profile(Request $request)
     {
-        // insert new
-        $user = Auth::user();
-        $company = Company::find($user->company_id);
-        $ins = array_add($request, 'company_id', $user->company_id);
+        $company = Company::find(Auth::user()->company_id);
+        $ins = array_add($request, 'company_id', Auth::user()->company_id);
         $ins = array_add($ins, 'directory_path', $company->company . '/' . date("Y") . '/');
         //TODO: add projected_completion_date
 
-        //TODO: Handle Upload Inventory Optional Upload
+        $project = Project::findOrFail($request->get('project_id'));
+        $project->fill($ins->all())->save();
+        //return $project;
 
-        //dd($request);
-        $record = Project::updateOrCreate(['project_id' => $request->input('project_id')], $ins->all());
-        $request->session()->put('project', $record);
-        //dd($record);
-        return redirect()->action('ProjectsController@aircraft', ['project' => $record]);
+        $request->session()->put('project', $project);
+        //dd($project);
+        return redirect()->action('ProjectsController@aircraft', ['project' => $project]);
     }
 
     public function aircraft($id)
     {
-        $project = Project::findOrFail($id);
+        $aircraft = ProjectAircraft::where('project_id', $id)->first();
         $countries = Country::lists('country', 'id');
-        return view('projects.aircraft', compact('countries', 'project'));
+        $mfg = ['Boeing' => 'Boeing', 'Airbus' => 'Airbus'];
+        $provider = ['ADC' => 'ADC', 'Owner' => 'Owner'];
+
+        return view('projects.aircraft', compact('aircraft', 'countries', 'mfg', 'provider'));
     } // end aircraft function
 
-    public function store_aircraft(Request $request)
+    public function update_aircraft(Request $request)
     {
-        $type_id = Aircraft::where('model', $request->input('aircraft_type'))->pluck('id');
-        $ins = array_add($request, 'type_id', $type_id);
+        $id = Input::get('projectaircraft_id');
+        $craft_type_id = Aircraft::where('model', $request->input('type_id'))->pluck('id');
+        Input::merge(['type_id' => $craft_type_id]);
 
-        //TODO: Handle Uploads
+        $ace = ProjectEngine::where('project_id', $id)->count();
 
-        $record = ProjectAircraft::updateOrCreate(['project_id' => $request->input('project_id')], $ins->all());
-        return redirect()->action('ProjectsController@engines', ['project' => $request->input('project_id')]);
+        if((int)$ace == 0) {
+            $cntEngines = Aircraft::where('id', $craft_type_id)->pluck('engine_count');
+            for($e=1; $e<=$cntEngines; $e++) {
+                ProjectEngine::create([
+                    'project_id' => $id,
+                    'position' => 'P' . $e
+                ]);
+            } // end for
+        }
+
+        $record = ProjectAircraft::updateOrCreate(['project_id' => $id], Input::all());
+        return redirect()->action('ProjectsController@engines', ['project' => $id]);
     } // end store_aircraft function
 
     public function engines($id)
     {
         $project = Project::findOrFail($id);
-        return view('projects.engines', compact('project'));
+        $engines = ProjectEngine::where('project_id', $id)->get();
+        return view('projects.engines', compact('engines', 'project'));
     } // end engines function
 
     public function store_engines(Request $request)
     {
-        return $request;
+        $id = Input::get('project_id');
+        return redirect()->action('ProjectsController@inventory', ['project' => $id]);
     } // end store_engine function
 
     public function inventory($id)
@@ -207,6 +221,12 @@ class ProjectsController extends ApiController
         $project = Project::findOrFail($id);
         return view('projects.inventory', compact('project'));
     } // end inventory function
+
+    public function upload_inventory(Request $request)
+    {
+        $id = Input::get('project_id');
+        return redirect()->action('ProjectsController@scope', ['project' => $id]);
+    } // end store_engine function
 
     public function scope($id)
     {
@@ -225,20 +245,33 @@ class ProjectsController extends ApiController
         return view('projects.scope', compact('atas', 'parts', 'project'));
     } // end scope function
 
-    public function store_parts(Request $request)
+    public function update_parts(Request $request)
     {
-        return $request;
+        $id = Input::get('project_id');
+        return redirect()->action('ProjectsController@uploads', ['project' => $id]);
     } // end store_parts function
 
     public function uploads($id)
     {
-        return view('projects.uploads');
+        $project = Project::findOrFail($id);
+        return view('projects.uploads', compact('project'));
     } // end uploads function
+
+    public function update_uploads(Request $request)
+    {
+        $id = Input::get('project_id');
+        return redirect()->action('ProjectsController@summary', ['project' => $id]);
+    } // end store_parts function
 
     public function summary()
     {
         return view('projects.summary');
     } // end summary function
+
+    public function store_summary(Request $request)
+    {
+        return $request->all();
+    } // end store_summary function
 
     public function togglePartInProject($partID)
     {

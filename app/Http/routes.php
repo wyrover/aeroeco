@@ -76,21 +76,33 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('projects/{id}/parts', 'ProjectsController@contract_parts');
     Route::get('projects/{id}/delete', 'ProjectsController@delete');
     //Route::resource('projects', 'ProjectsController');
-    Route::post('profile_store', [
-        'as' => 'project_store',
-        'uses' => 'ProjectsController@store_profile'
+    Route::post('profile_update', [
+        'as' => 'project_update',
+        'uses' => 'ProjectsController@update_profile'
     ]);
-    Route::post('aircraft_store', [
-        'as' => 'aircraft_store',
-        'uses' => 'ProjectsController@store_aircraft'
+    Route::post('aircraft_update', [
+        'as' => 'aircraft_update',
+        'uses' => 'ProjectsController@update_aircraft'
     ]);
-    Route::post('engines_store', [
-        'as' => 'engines_store',
+    Route::post('engines_update', [
+        'as' => 'engines_update',
         'uses' => 'ProjectsController@store_engines'
     ]);
-    Route::post('parts_store', [
-        'as' => 'parts_store',
-        'uses' => 'ProjectsController@store_parts'
+    Route::post('upload_inventory', [
+        'as' => 'upload_inventory',
+        'uses' => 'ProjectsController@upload_inventory'
+    ]);
+    Route::post('parts_update', [
+        'as' => 'parts_update',
+        'uses' => 'ProjectsController@update_parts'
+    ]);
+    Route::post('uploads_update', [
+        'as' => 'uploads_update',
+        'uses' => 'ProjectsController@update_uploads'
+    ]);
+    Route::post('project_summary', [
+        'as' => 'project_summary',
+        'uses' => 'ProjectsController@store_summary'
     ]);
 
     // TECHS
@@ -194,6 +206,8 @@ Route::group(['prefix' => 'test/'], function() {
 Route::group(['prefix' => 'api/'], function () {
     Route::get('aircrafts/list', 'AircraftsController@typelist');
     Route::get('companies/{id}/locationslist', 'CompaniesController@listLocations');
+    Route::get('project/{id}/apulist', 'ProjectEnginesController@apuByProject');
+    Route::get('project/{id}/bundleslist', 'BundlesController@index');
     Route::get('project/{id}/enginelist', 'ProjectEnginesController@listByProject');
     Route::get('project/{id}/atalist', 'ProjectsController@ataList');
     Route::get('project/{id}/partslist', 'ProjectsController@partsList');

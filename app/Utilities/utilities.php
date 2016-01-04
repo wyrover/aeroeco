@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Aircraft;
 use App\Models\Message;
 use App\Models\Notification;
 use App\Models\ProjectPart;
@@ -29,6 +30,11 @@ function generateWorkTickets($pID)
     } // end foreach
 
     return $pID;
+}
+function getAircraft($id)
+{
+    $ac = Aircraft::where('id', $id)->first();
+    return $ac->model;
 }
 function getCompanyActiveProjects($coID)
 {
