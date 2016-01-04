@@ -19,6 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('corporation_type')->nullable();
             $table->integer('country_id')->unsigned()->default(184);
             $table->integer('location_id')->unsigned()->default(1);
+            $table->string('main_phone')->nullable();
             $table->string('domain')->nullable();
             $table->string('mail_domain')->nullable();
             $table->string('folder_name')->nullable();

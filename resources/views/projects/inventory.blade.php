@@ -1,8 +1,6 @@
-@extends('layouts/logged')
+@extends('layouts.logged')
 
-@section('title', 'AeroEco::Create Project')
-
-@section('body_class', 'project_page')
+@section('title', 'AeroEco::Inventory')
 
 @section('content')
     <style>
@@ -13,19 +11,23 @@
         @include('errors.errors')
         <div style="width:40%; margin: 20px auto 0 auto;">
             {!! Form::model($project, [
-                'url' => '/profile_store',
+                'url' => '/projects',
                 'class' => 'form',
-                'novalidate' => 'novalidate'
+                'novalidate' => 'novalidate',
+                'files' => 'true'
             ]) !!}
-            @include('projects.partials.forms.profile')
+            <div class="row">
+                <label>Upload Inventory Listing (if available)</label>
+                <input type="file" class="form-control"  />
+            </div>
+
             <div class="row pull-right">
                 {!! Form::submit('Continue', ['class' => 'btn btn-uam']) !!}
             </div>
             {!! Form::close() !!}
         </div>
-        <br><br>
     </div>
-@stop
+@endsection
 
 @section('footer')
     @include('layouts/partials/footer')

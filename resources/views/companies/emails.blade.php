@@ -8,6 +8,8 @@
     </style>
     <div style="margin-top: 5px;">
         @include('companies.partials.tabs')
+        @include('errors.errors')
+        @include('layouts.flash')
         {!! Form::open([
             'url' => '/store_emails',
             'class' => 'form',

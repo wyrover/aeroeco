@@ -9,6 +9,7 @@
             <th>Title</th>
             <th>Phone</th>
             <th>Fax</th>
+            <th style="width:40px;">&nbsp;</th>
         </tr>
         @foreach($company->contacts as $con)
             <tr>
@@ -26,6 +27,10 @@
                 </td>
                 <td>
                     {!! Form::text('fax', $con->fax, ['class' => 'form-control', 'placeholder' => 'Fax', 'data-mask' => "(999) 999-9999"]) !!}
+                </td>
+                <td>
+                    <i class="fa fa-floppy-o icon"
+                       style="color:#090;"></i>
                 </td>
             </tr>
         @endforeach

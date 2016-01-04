@@ -9,6 +9,7 @@
     <div style="margin-top: 5px;">
         @include('companies.partials.tabs')
         @include('errors.errors')
+        @include('layouts.flash')
         {!! Form::model($company, [
             'url' => '/companies/store_messages',
             'class' => 'form',

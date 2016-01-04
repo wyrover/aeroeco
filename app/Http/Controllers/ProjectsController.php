@@ -149,14 +149,13 @@ class ProjectsController extends ApiController
                 'company_id' => $user->company_id,
                 'directory_path' => $company->company . '/' . date('Y') . '/'
             ]);
+            event(new ProjectWasCreated($project));
         }
-
-        //dd($project);
 
         return view('projects.profile', compact('adc', 'atas', 'company', 'disassemblers', 'project', 'types', 'user'));
     }
 
-    public function store(Request $request)
+    public function store_profile(Request $request)
     {
         // insert new
         $user = Auth::user();
@@ -202,6 +201,12 @@ class ProjectsController extends ApiController
     {
         return $request;
     } // end store_engine function
+
+    public function inventory($id)
+    {
+        $project = Project::findOrFail($id);
+        return view('projects.inventory', compact('project'));
+    } // end inventory function
 
     public function scope($id)
     {

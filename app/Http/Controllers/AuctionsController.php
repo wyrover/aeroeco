@@ -65,6 +65,7 @@ class AuctionsController extends ApiController
     {
         // show all
         $auctions = Auction::with($this->related)->get();
+
         return view('auctions.list', compact('auctions'));
     }
 

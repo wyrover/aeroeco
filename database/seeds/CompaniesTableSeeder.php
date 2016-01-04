@@ -32,6 +32,7 @@ class CompaniesTableSeeder extends Seeder
             [
                 'company' => 'Universal Asset Management',
                 'dba' => 'UAM',
+                'main_phone' => '9016824064',
                 'domain' => 'uaminc.com',
                 'folder_name' => snake_case('Universal Asset Management'),
                 'tier' => '2',
@@ -50,6 +51,7 @@ class CompaniesTableSeeder extends Seeder
             [
                 'company' => 'Starfleet Academy',
                 'dba' => 'SFA',
+                'main_phone' => '4155551212',
                 'domain' => 'sfa.org',
                 'folder_name' => snake_case('Starfleet Academy'),
                 'tier' => '4',

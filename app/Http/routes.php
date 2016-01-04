@@ -1,5 +1,8 @@
 <?php
 
+use App\Events\CompanyWasCreated;
+use App\Models\Company;
+
 Route::group(['middleware' => 'auth'], function ()
 {
     // Restricted routes go here
@@ -65,6 +68,7 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('projects/{id}/profile', 'ProjectsController@profile');
     Route::get('projects/{id}/aircraft', 'ProjectsController@aircraft');
     Route::get('projects/{id}/engines', 'ProjectsController@engines');
+    Route::get('projects/{id}/inventory', 'ProjectsController@inventory');
     Route::get('projects/{id}/scope', 'ProjectsController@scope');
     Route::get('projects/{id}/uploads', 'ProjectsController@uploads');
     Route::get('projects/{id}/summary', 'ProjectsController@summary');
@@ -72,9 +76,9 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('projects/{id}/parts', 'ProjectsController@contract_parts');
     Route::get('projects/{id}/delete', 'ProjectsController@delete');
     //Route::resource('projects', 'ProjectsController');
-    Route::post('projects', [
+    Route::post('profile_store', [
         'as' => 'project_store',
-        'uses' => 'ProjectsController@store'
+        'uses' => 'ProjectsController@store_profile'
     ]);
     Route::post('aircraft_store', [
         'as' => 'aircraft_store',
@@ -131,6 +135,21 @@ Route::group(['prefix' => 'test/'], function() {
     });
     Route::get('project/togglepart/{partid}', 'ProjectsController@togglePartInProject');
     Route::post('apply/upload', 'ApplyController@upload');
+    Route::get('newco', function() {
+        $newed = Company::create([
+            'company' => 'Apple Computers',
+            'dba' => 'Apple',
+            'corporation_type' => 'California',
+            'country_id' => 184,
+            'location_id' => 1,
+            'main_phone' => '7129991200',
+            'domain' => 'apple.com',
+            'mail_domain' => 'apple.com',
+            'folder_name' => 'apple_computers',
+            'website' => 'http://www.apple.com'
+        ]);
+        event(new CompanyWasCreated($newed));
+    });
     Route::get('emailer', function() {
         $data = array('name' => 'Jonathan'); // Change name
 
@@ -174,6 +193,7 @@ Route::group(['prefix' => 'test/'], function() {
 // API
 Route::group(['prefix' => 'api/'], function () {
     Route::get('aircrafts/list', 'AircraftsController@typelist');
+    Route::get('companies/{id}/locationslist', 'CompaniesController@listLocations');
     Route::get('project/{id}/enginelist', 'ProjectEnginesController@listByProject');
     Route::get('project/{id}/atalist', 'ProjectsController@ataList');
     Route::get('project/{id}/partslist', 'ProjectsController@partsList');

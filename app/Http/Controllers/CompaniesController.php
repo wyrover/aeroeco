@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CompanyWasCreated;
 use App\Models\Company;
+use App\Models\Country;
+use App\Models\Location;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class CompaniesController extends ApiController
 {
@@ -51,8 +56,8 @@ class CompaniesController extends ApiController
     public function store()
     {
         // insert new
-        //TODO: Create 1-4 contacts in EVENT
         $record = Company::create(Input::all());
+        event(new CompanyWasCreated($record));
         return $this->respond($record->id);
     }
 
@@ -75,7 +80,13 @@ class CompaniesController extends ApiController
     public function listAll()
     {
         // show all
-        $companies = Company::with($this->related)->get();
+        $companies = Company::with($this->related)->orderBy('tier')->get();
+        foreach($companies as $company) {
+            $company->active_projects = getCompanyActiveProjects($company->id);
+            $company->completed_projects = getCompanyCompletedProjects($company->id);
+            $company->pending_projects = getCompanyPendingProjects($company->id);
+        }
+
         return view('companies.list', compact('companies'));
     }
 
@@ -90,6 +101,8 @@ class CompaniesController extends ApiController
     {
         if(!$id) {
             $id = Company::create()->id;
+            $newed = Company::findOrFail($id);
+            event(new CompanyWasCreated($newed));
             return redirect('companies/' . $id . '/profile');
         } else {
             $company = Company::with($this->related)
@@ -97,13 +110,20 @@ class CompaniesController extends ApiController
                 ->first();
         }
 
+        $countries = Country::lists('country', 'id');
+
         //return $company;
-        return view('companies.profile', compact('company'));
+        return view('companies.profile', compact('company', 'countries'));
     } // end profile function
 
     public function storeProfile(Request $request)
     {
-        dd($request);
+        $companyID = $request->get('company_id');
+        $company = Company::findOrFail($companyID);
+        $input = $request->all();
+        $company->fill($input)->save();
+        flash('Success', 'Profile successfully added!');
+        return redirect()->back();
     } // end store_profile function
 
     public function locations($id = null)
@@ -231,4 +251,9 @@ class CompaniesController extends ApiController
     {
         dd($requests);
     } // end store_roles function
+
+    public function listLocations($id)
+    {
+        return Location::where('company_id', $id)->get();
+    } // end listLocations function
 }

@@ -7,6 +7,7 @@ Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAt
 
 import Alert from './components/Alert.vue';
 import Engines from './components/Engines.vue';
+import Locationsco from './components/Locationsco.vue';
 import Messenger from './components/Messenger.vue';
 import Notificator from './components/Notificator.vue';
 import Parts from './components/Parts.vue';
@@ -26,6 +27,11 @@ Vue.filter('percentage', function(value, decimals) {
     value = value + '%';
     return value;
 });
+Vue.filter('phone', function (phone) {
+    if(!phone) { return; }
+    return phone.replace(/[^0-9]/g, '')
+        .replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2.$3');
+});
 
 new Vue({
     el: 'body',
@@ -38,6 +44,7 @@ new Vue({
     components: {
         Alert,
         Engines,
+        Locationsco,
         Messenger,
         Notificator,
         Parts,

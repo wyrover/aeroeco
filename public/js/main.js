@@ -10619,6 +10619,83 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":11,"vue-hot-reload-api":2}],15:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert(".fa.icon {\n  padding-top: 10px;\n  pointer: cursor;\n}\n")
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    props: ['company'],
+    data: function data() {
+        return {
+            list: []
+        };
+    },
+
+    computed: {},
+    created: function created() {
+        this.fetchLocationsList();
+    },
+    methods: {
+        fetchLocationsList: function fetchLocationsList() {
+            var path = '/api/companies/' + this.company + '/locationslist';
+            this.$http.get(path, (function (locations) {
+                _.each(locations, function (i) {
+                    i.is_saved = true;
+                });
+                this.list = locations;
+            }).bind(this));
+        },
+        add_location: function add_location() {
+            var newloc = {
+                company_id: this.company
+            };
+
+            // persist new record
+            this.$http.post('/api/locations', newloc).success(function (rsp) {
+                this.list.push(rsp);
+            }).error(function (error) {
+                console.log(error);
+            });
+        },
+        update_location: function update_location(loc) {
+            this.$http.put('/api/locations/' + loc.id, loc, function (data, status, request) {
+                console.log('Success');
+            }).error((function (data, status, request) {
+                console.log(data);
+            }).bind(this));
+        },
+        delete_location: function delete_location(loc) {
+            if (confirm("Are you sure you want to delete this location?")) {
+                this.$http.delete('/api/locations/' + loc.id, function (data, status, request) {
+                    console.log('Success');
+                }).error((function (data, status, request) {
+                    console.log(data);
+                }).bind(this));
+                this.list.$remove(loc);
+            }
+        }
+    }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"row\" style=\"margin-top: 20px;\">\n        <table class=\"table table-striped rowed table-condensed disp-sm\">\n            <tbody><tr>\n                <th>Name</th>\n                <th>Address</th>\n                <th>Address2</th>\n                <th>Phone</th>\n                <th style=\"width:80px;\">&nbsp;</th>\n            </tr>\n            <tr v-if=\"list.length\" v-for=\"loc in list\">\n                <td>\n                    <input type=\"text\" class=\"form-control\" name=\"location\" v-model=\"loc.location\" placeholder=\"Location\">\n                </td>\n                <td>\n                    <input type=\"text\" class=\"form-control\" name=\"address\" v-model=\"loc.address\" placeholder=\"Address\">\n                </td>\n                <td>\n                    <input type=\"text\" class=\"form-control\" name=\"address2\" v-model=\"loc.address2\" placeholder=\"Address2\">\n                </td>\n                <td>\n                    <input type=\"text\" class=\"form-control\" name=\"phone\" v-model=\"loc.phone|phone\" placeholder=\"Main Phone\">\n                </td>\n                <td>\n                    <i class=\"fa fa-floppy-o icon\" style=\"color:#090;\" @click=\"update_location(loc)\"></i>\n                    <i class=\"fa fa-trash icon\" style=\"color:#900;\" @click=\"delete_location(loc)\"></i>\n                </td>\n            </tr>\n            <tr v-if=\"!list.length\">\n                <td colspan=\"5\">No locations found.</td>\n            </tr>\n        </tbody></table>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-md-6\">\n            <button class=\"btn btn-uam\" @click.prevent=\"add_location()\">\n                <i class=\"fa fa-plus-circle\"></i>&nbsp;\n                Add another location\n            </button>\n        </div>\n    </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Locationsco.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache[".fa.icon {\n  padding-top: 10px;\n  pointer: cursor;\n}\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],16:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert(".list-group li.list-group-item .avatar {\n  position: absolute;\n  margin-top: 10px;\n}\n.list-group li.list-group-item .content {\n  display: block;\n  padding-left: 50px;\n  padding-top: 5px;\n}\n.list-group li.list-group-item .content .content-headline {\n  color: #333;\n  display: block;\n  font-weight: 600;\n}\n.list-group li.list-group-item .content .content-text {\n  color: #605f5f;\n  font-size: 0.9em;\n  font-weight: normal;\n}\n.btnReply {\n  cursor: pointer;\n  color: #75a651;\n}\n.btnArchive {\n  cursor: pointer;\n  color: #e84e40;\n}\n")
 'use strict';
 
@@ -10672,7 +10749,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],16:[function(require,module,exports){
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],17:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert(".list-group {\n  width: 320px;\n}\n.list-group .list-group-item {\n  position: relative;\n}\n.list-group .list-group-item .typeicon {\n  color: #e84e40;\n  margin-right: 3px;\n}\n.list-group .list-group-item .delicon {\n  color: #e84e40;\n  margin-left: 3px;\n}\n.list-group .list-group-item .btnClose {\n  position: absolute;\n  right: 0;\n  width: 20px;\n  color: #900;\n  cursor: pointer;\n}\n#notif {\n  padding: 8px 0;\n  text-align: center;\n  list-style: none;\n  background-color: #8dc63f;\n  border-radius: 0 0 4px 4px;\n}\n#notif a {\n  color: #fff;\n  text-decoration: none;\n}\n#notif a:hover {\n  padding: 11px;\n  color: #8dc63f;\n  background-color: #fff;\n}\n")
 'use strict';
 
@@ -10726,7 +10803,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],17:[function(require,module,exports){
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],18:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert(".ata__panel {\n  margin: 10px 20px;\n}\n.ata__panel .ata__cat {\n  margin: 0 0 5px -20px;\n  padding: 10px 15px;\n  background-color: #3b3b3b;\n  border-color: #ddd;\n  border-radius: 4px;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.ata__panel .ata__cat > .fa {\n  color: #fff;\n  font-weight: bold;\n  font-size: 16px;\n}\n.ata__panel .ata__cat > .title,\n.ata__panel .ata__cat .slectr,\n.ata__panel .ata__cat .counter {\n  color: #fff;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 16px;\n}\n.ata__panel .readySell {\n  border-left: 8px solid #8dc63f;\n}\n.ata__panel .holdSell {\n  border-left: 8px solid #c2c2c2;\n}\n")
 'use strict';
 
@@ -10820,7 +10897,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],18:[function(require,module,exports){
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],19:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert(".panel {\n  -webkit-box-shadow: 3px 3px 5px 0px #777;\n  -moz-box-shadow: 3px 3px 5px 0px #777;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.progress {\n  margin-bottom: 0;\n  background-color: #aaa;\n}\n.progress-bar-adc {\n  background-color: #f35958;\n  color: #fff;\n}\n")
 'use strict';
 
@@ -10865,7 +10942,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],19:[function(require,module,exports){
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],20:[function(require,module,exports){
 'use strict';
 
 var _Alert = require('./components/Alert.vue');
@@ -10875,6 +10952,10 @@ var _Alert2 = _interopRequireDefault(_Alert);
 var _Engines = require('./components/Engines.vue');
 
 var _Engines2 = _interopRequireDefault(_Engines);
+
+var _Locationsco = require('./components/Locationsco.vue');
+
+var _Locationsco2 = _interopRequireDefault(_Locationsco);
 
 var _Messenger = require('./components/Messenger.vue');
 
@@ -10915,6 +10996,12 @@ Vue.filter('percentage', function (value, decimals) {
     value = value + '%';
     return value;
 });
+Vue.filter('phone', function (phone) {
+    if (!phone) {
+        return;
+    }
+    return phone.replace(/[^0-9]/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2.$3');
+});
 
 new Vue({
     el: 'body',
@@ -10927,6 +11014,7 @@ new Vue({
     components: {
         Alert: _Alert2.default,
         Engines: _Engines2.default,
+        Locationsco: _Locationsco2.default,
         Messenger: _Messenger2.default,
         Notificator: _Notificator2.default,
         Parts: _Parts2.default,
@@ -10937,6 +11025,6 @@ new Vue({
     }
 });
 
-},{"./components/Alert.vue":13,"./components/Engines.vue":14,"./components/Messenger.vue":15,"./components/Notificator.vue":16,"./components/Parts.vue":17,"./components/widgets/Projects.vue":18,"vue":11,"vue-resource":4}]},{},[19]);
+},{"./components/Alert.vue":13,"./components/Engines.vue":14,"./components/Locationsco.vue":15,"./components/Messenger.vue":16,"./components/Notificator.vue":17,"./components/Parts.vue":18,"./components/widgets/Projects.vue":19,"vue":11,"vue-resource":4}]},{},[20]);
 
 //# sourceMappingURL=main.js.map

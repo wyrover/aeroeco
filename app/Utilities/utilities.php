@@ -30,7 +30,38 @@ function generateWorkTickets($pID)
 
     return $pID;
 }
-function logIt($msg) {
+function getCompanyActiveProjects($coID)
+{
+    $cntAP = DB::select(DB::raw("SELECT COUNT(*) AS count FROM projects WHERE company_id = {$coID} AND project_statuses_id != 1 AND project_statuses_id != 8"));
+
+    if($cntAP) {
+        return $cntAP;
+    } else {
+        return 0;
+    }
+}
+function getCompanyCompletedProjects($coID)
+{
+    $cntAP = DB::select(DB::raw("SELECT COUNT(*) AS count FROM projects WHERE company_id = {$coID} AND project_statuses_id = 8"));
+
+    if($cntAP) {
+        return $cntAP;
+    } else {
+        return 0;
+    }
+}
+function getCompanyPendingProjects($coID)
+{
+    $cntAP = DB::select(DB::raw("SELECT COUNT(*) AS count FROM projects WHERE company_id = {$coID} AND project_statuses_id = 1"));
+
+    if($cntAP) {
+        return $cntAP;
+    } else {
+        return 0;
+    }
+}
+function logIt($msg)
+{
     if( !Auth::check() ) {
         //TODO: Handle Exception
     }
@@ -66,5 +97,6 @@ function notify($userId, $typeId, $message) {
     return true;
 }
 function phone($data) {
+    if(!$data) {return; }
     return "(".substr($data, 0, 3).") ".substr($data, 3, 3)."-".substr($data,6);
 }

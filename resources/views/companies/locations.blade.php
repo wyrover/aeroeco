@@ -8,6 +8,8 @@
     </style>
     <div style="margin-top: 5px;">
         @include('companies.partials.tabs')
+        @include('errors.errors')
+        @include('layouts.flash')
         {!! Form::model($company, [
             'url' => '/store_locations',
             'class' => 'form',
@@ -15,6 +17,11 @@
             'files' => 'true'
         ]) !!}
         @include('companies.partials.forms.locations')
+        <div class="row">
+            <div class="col-md-12" style="max-height: 36px;">
+                {!! Form::submit('Update', ['class' => 'btn btn-uam pull-right']) !!}
+            </div>
+        </div>
         {!! Form::close() !!}
         <br><br>
     </div>

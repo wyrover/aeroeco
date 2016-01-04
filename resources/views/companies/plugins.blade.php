@@ -8,6 +8,8 @@
     </style>
     <div style="margin-top: 5px;">
         @include('companies.partials.tabs')
+        @include('errors.errors')
+        @include('layouts.flash')
         {!! Form::model($company->plugins, [
             'url' => '/store_plugins',
             'class' => 'form',
