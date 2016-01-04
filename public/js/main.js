@@ -10913,6 +10913,63 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],19:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert(".team__panel {\n  margin: 10px 20px;\n}\n.team__panel .team__cat {\n  margin: 0 0 5px -20px;\n  padding: 10px 15px;\n  background-color: #3b3b3b;\n  border-color: #ddd;\n  border-radius: 4px;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.team__panel .team__cat > .fa {\n  color: #fff;\n  font-weight: bold;\n  font-size: 16px;\n}\n.team__panel .team__cat > .title,\n.team__panel .team__cat .slectr,\n.team__panel .team__cat .counter {\n  color: #fff;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 16px;\n}\n.team__panel .readySell {\n  border-left: 8px solid #8dc63f;\n}\n.team__panel .holdSell {\n  border-left: 8px solid #c2c2c2;\n}\n")
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    props: [],
+    data: function data() {
+        return {
+            teams: [],
+            techs: [],
+            show: false
+        };
+    },
+
+    computed: {},
+    created: function created() {
+        this.fetchTeamsList();
+        this.fetchTechsList();
+    },
+    methods: {
+        fetchTeamsList: function fetchTeamsList() {
+            var path = '/api/teams';
+            this.$http.get(path, (function (teams) {
+                _.each(teams, function (team) {
+                    team.show = false;
+                });
+                this.teams = teams;
+            }).bind(this));
+        },
+        fetchTechsList: function fetchTechsList() {
+            var path = '/api/techs';
+            this.$http.get(path, (function (techs) {
+                this.techs = techs;
+            }).bind(this));
+        }
+    }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"team__panel\" v-for=\"cat in teams\">\n        <div class=\"team__cat\">\n            <i class=\"fa fa-caret-right\" v-show=\"!cat.show\"></i>\n            <i class=\"fa fa-caret-down\" v-show=\"cat.show\"></i>\n            <span class=\"title\" @click=\"cat.show = ! cat.show\">\n                {{cat.team_name}} ({{cat.members.length}})\n            </span>\n            <span class=\"counter pull-right\">\n                Leader: {{cat.leader.firstname}}&nbsp;{{cat.leader.lastname}}\n            </span>\n        </div>\n        <div class=\"team__table\" v-show=\"cat.show\">\n            <table class=\"table table-striped table-condensed\">\n                <tbody><tr>\n                    <th style=\"width:40%;\">Name</th>\n                    <th style=\"width:30%;\">Title</th>\n                    <th style=\"width:30%;\">Phone</th>\n                </tr>\n                <tr v-for=\"item in cat.members|orderBy 'lastname'\">\n                    <td style=\"vertical-align: middle;\">\n                        {{item.firstname|capitalize}}&nbsp;{{item.lastname|capitalize}}\n                    </td>\n                    <td style=\"vertical-align: middle;\">\n                        {{item.title|capitalize}}\n                    </td>\n                    <td>\n                        {{item.phone|phone}}\n                    </td>\n                </tr>\n            </tbody></table>\n        </div>\n    </div>\n    <pre style=\"display:none;\">{{teams|json}}</pre>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Technicians.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache[".team__panel {\n  margin: 10px 20px;\n}\n.team__panel .team__cat {\n  margin: 0 0 5px -20px;\n  padding: 10px 15px;\n  background-color: #3b3b3b;\n  border-color: #ddd;\n  border-radius: 4px;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.team__panel .team__cat > .fa {\n  color: #fff;\n  font-weight: bold;\n  font-size: 16px;\n}\n.team__panel .team__cat > .title,\n.team__panel .team__cat .slectr,\n.team__panel .team__cat .counter {\n  color: #fff;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 16px;\n}\n.team__panel .readySell {\n  border-left: 8px solid #8dc63f;\n}\n.team__panel .holdSell {\n  border-left: 8px solid #c2c2c2;\n}\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],20:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert(".panel {\n  -webkit-box-shadow: 3px 3px 5px 0px #777;\n  -moz-box-shadow: 3px 3px 5px 0px #777;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.progress {\n  margin-bottom: 0;\n  background-color: #aaa;\n}\n.progress-bar-adc {\n  background-color: #f35958;\n  color: #fff;\n}\n")
 'use strict';
 
@@ -10957,7 +11014,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],20:[function(require,module,exports){
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],21:[function(require,module,exports){
 'use strict';
 
 var _Alert = require('./components/Alert.vue');
@@ -10987,6 +11044,10 @@ var _Parts2 = _interopRequireDefault(_Parts);
 var _Projects = require('./components/widgets/Projects.vue');
 
 var _Projects2 = _interopRequireDefault(_Projects);
+
+var _Technicians = require('./components/Technicians.vue');
+
+var _Technicians2 = _interopRequireDefault(_Technicians);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11033,13 +11094,14 @@ new Vue({
         Messenger: _Messenger2.default,
         Notificator: _Notificator2.default,
         Parts: _Parts2.default,
-        Projects: _Projects2.default
+        Projects: _Projects2.default,
+        Technicians: _Technicians2.default
     },
     ready: function ready() {
         //alert('Ready to go');
     }
 });
 
-},{"./components/Alert.vue":13,"./components/Engines.vue":14,"./components/Locationsco.vue":15,"./components/Messenger.vue":16,"./components/Notificator.vue":17,"./components/Parts.vue":18,"./components/widgets/Projects.vue":19,"vue":11,"vue-resource":4}]},{},[20]);
+},{"./components/Alert.vue":13,"./components/Engines.vue":14,"./components/Locationsco.vue":15,"./components/Messenger.vue":16,"./components/Notificator.vue":17,"./components/Parts.vue":18,"./components/Technicians.vue":19,"./components/widgets/Projects.vue":20,"vue":11,"vue-resource":4}]},{},[21]);
 
 //# sourceMappingURL=main.js.map

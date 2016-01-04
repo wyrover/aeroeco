@@ -289,6 +289,36 @@ class UsersTableSeeder extends Seeder
                 'can_sell' => true,
                 'role_id' => 2,
                 'tier' => 1
+            ],
+            [
+                'firstname' => 'Bruce',
+                'lastname' => 'Wayne',
+                'email' => 'batman@aero.local',
+                'password' => Hash::make('password'),
+                'manager_id' => 24,
+                'all_companies' => true,
+                'can_sell' => true,
+                'role_id' => 7
+            ],
+            [
+                'firstname' => 'Clark',
+                'lastname' => 'Kent',
+                'email' => 'superman@aero.local',
+                'password' => Hash::make('password'),
+                'manager_id' => 24,
+                'all_companies' => true,
+                'can_sell' => true,
+                'role_id' => 7
+            ],
+            [
+                'firstname' => 'Matt',
+                'lastname' => 'Murdock',
+                'email' => 'daredevil@aero.local',
+                'password' => Hash::make('password'),
+                'manager_id' => 24,
+                'all_companies' => true,
+                'can_sell' => true,
+                'role_id' => 7
             ]
         ];
 

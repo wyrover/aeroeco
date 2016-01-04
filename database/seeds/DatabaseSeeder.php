@@ -41,6 +41,7 @@ class DatabaseSeeder extends Seeder
 		'RolesTableSeeder',
 		'StatusesTableSeeder',
 		'SystemicsTableSeeder',
+		'TeamsTableSeeder',
 		'TechsTableSeeder',
 		'UsersTableSeeder',
 	];

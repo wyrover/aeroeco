@@ -15,7 +15,13 @@ class CreateTechsTable extends Migration
         Schema::create('techs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('disassemblers_id')->default(1);
-            $table->integer('user_id');
+            $table->integer('team_id')->nullable();
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('title')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

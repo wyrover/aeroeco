@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tech;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 
-class TechsController extends ApiController
+class TeamsController extends ApiController
 {
     protected $records;
 
-    public function __construct(Tech $records)
+    public function __construct(Team $records)
     {
         $this->records = $records;
-        $this->related = ['team.leader', 'user'];
+        $this->related = ['leader', 'members'];
     }
 
     public function index()
     {
         // show all
-        $records = Tech::with($this->related)->get();
+        $records = Team::with($this->related)->get();
         return $records;
     }
 
@@ -30,20 +30,20 @@ class TechsController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('Tech was deleted');
+        return $this->respondOK('Team was deleted');
     }
 
     public function show($id)
     {
         //show single
-        $record = Tech::with($this->related)->findOrFail($id);
+        $record = Team::with($this->related)->findOrFail($id);
         return $record;
     }
 
     public function store()
     {
         // insert new
-        $record = Tech::create(Input::all());
+        $record = Team::create(Input::all());
         return $this->respond($record->id);
     }
 
@@ -53,7 +53,7 @@ class TechsController extends ApiController
         $record = $this->records->find($id);
 
         if(! $record){
-            Tech::create(Input::all());
+            Team::create(Input::all());
             return $this->respond($record);
         }
 

@@ -3,7 +3,9 @@
 @section('title', 'AeroEco')
 
 @section('content')
-    <h3>Disassemblers</h3>
+    <h3>Disassembly Teams</h3>
+    <br>
+    <technicians></technicians>
 @endsection
 
 @section('footer')

@@ -232,6 +232,7 @@ Route::group(['prefix' => 'api/'], function () {
     Route::resource('projecttypes', 'ProjectTypesController');
     Route::resource('roles', 'RolesController');
     Route::resource('systemics', 'SystemicsController');
+    Route::resource('teams', 'TeamsController');
     Route::resource('techs', 'TechsController');
     Route::resource('users', 'UsersController');
 });
