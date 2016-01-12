@@ -12,6 +12,7 @@ import Messenger from './components/Messenger.vue';
 import Notificator from './components/Notificator.vue';
 import Parts from './components/Parts.vue';
 import Projects from './components/widgets/Projects.vue';
+import Scope from './components/Scope.vue';
 import Technicians from './components/Technicians.vue';
 
 Vue.filter('percentage', function(value, decimals) {
@@ -50,6 +51,7 @@ new Vue({
         Notificator,
         Parts,
         Projects,
+        Scope,
         Technicians
     },
     ready() {

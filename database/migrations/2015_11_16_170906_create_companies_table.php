@@ -25,7 +25,7 @@ class CreateCompaniesTable extends Migration
             $table->string('folder_name')->nullable();
             $table->string('reply_to')->nullable();
             $table->string('website')->nullable();
-            $table->integer('tier')->nullable();
+            $table->integer('tier')->default(2);
             $table->boolean('can_sell')->default(true);
             $table->boolean('terms_agree')->default(true);
             $table->boolean('contact_please')->default(true);

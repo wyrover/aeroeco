@@ -10564,7 +10564,7 @@ if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Alert.vue"
+  var id = "/Users/jgravois/Documents/Code/AeroEco/aeroeco/resources/assets/js/components/Alert.vue"
   module.hot.dispose(function () {
     require("vueify-insert-css").cache["body {\n  background: #fff;\n}\n.Alert {\n  position: relative;\n  background: #ddd;\n  border: 1px solid #c7c7c7;\n  padding: 1em;\n  margin: 5px 0;\n}\n.Alert__Success {\n  background: #8cff8c;\n  border: 1px solid #00f300;\n}\n.Alert__Error {\n  background: #ffb3b3;\n  border: 1px solid #ff4d4d;\n}\n.Alert__Close {\n  position: absolute;\n  top: 1em;\n  right: 1em;\n  font-weight: bold;\n  cursor: pointer;\n}\n"] = false
     document.head.removeChild(__vueify_style__)
@@ -10618,7 +10618,7 @@ if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Engines.vue"
+  var id = "/Users/jgravois/Documents/Code/AeroEco/aeroeco/resources/assets/js/components/Engines.vue"
   if (!module.hot.data) {
     hotAPI.createRecord(id, module.exports)
   } else {
@@ -10691,7 +10691,7 @@ if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Locationsco.vue"
+  var id = "/Users/jgravois/Documents/Code/AeroEco/aeroeco/resources/assets/js/components/Locationsco.vue"
   module.hot.dispose(function () {
     require("vueify-insert-css").cache[".fa.icon {\n  padding-top: 10px;\n  pointer: cursor;\n}\n"] = false
     document.head.removeChild(__vueify_style__)
@@ -10745,7 +10745,7 @@ if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Messenger.vue"
+  var id = "/Users/jgravois/Documents/Code/AeroEco/aeroeco/resources/assets/js/components/Messenger.vue"
   module.hot.dispose(function () {
     require("vueify-insert-css").cache[".list-group li.list-group-item .avatar {\n  position: absolute;\n  margin-top: 10px;\n}\n.list-group li.list-group-item .content {\n  display: block;\n  padding-left: 50px;\n  padding-top: 5px;\n}\n.list-group li.list-group-item .content .content-headline {\n  color: #333;\n  display: block;\n  font-weight: 600;\n}\n.list-group li.list-group-item .content .content-text {\n  color: #605f5f;\n  font-size: 0.9em;\n  font-weight: normal;\n}\n.btnReply {\n  cursor: pointer;\n  color: #75a651;\n}\n.btnArchive {\n  cursor: pointer;\n  color: #e84e40;\n}\n"] = false
     document.head.removeChild(__vueify_style__)
@@ -10799,7 +10799,7 @@ if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Notificator.vue"
+  var id = "/Users/jgravois/Documents/Code/AeroEco/aeroeco/resources/assets/js/components/Notificator.vue"
   module.hot.dispose(function () {
     require("vueify-insert-css").cache[".list-group {\n  width: 320px;\n}\n.list-group .list-group-item {\n  position: relative;\n}\n.list-group .list-group-item .typeicon {\n  color: #e84e40;\n  margin-right: 3px;\n}\n.list-group .list-group-item .delicon {\n  color: #e84e40;\n  margin-left: 3px;\n}\n.list-group .list-group-item .btnClose {\n  position: absolute;\n  right: 0;\n  width: 20px;\n  color: #900;\n  cursor: pointer;\n}\n#notif {\n  padding: 8px 0;\n  text-align: center;\n  list-style: none;\n  background-color: #8dc63f;\n  border-radius: 0 0 4px 4px;\n}\n#notif a {\n  color: #fff;\n  text-decoration: none;\n}\n#notif a:hover {\n  padding: 11px;\n  color: #8dc63f;\n  background-color: #fff;\n}\n"] = false
     document.head.removeChild(__vueify_style__)
@@ -10901,7 +10901,7 @@ if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Parts.vue"
+  var id = "/Users/jgravois/Documents/Code/AeroEco/aeroeco/resources/assets/js/components/Parts.vue"
   module.hot.dispose(function () {
     require("vueify-insert-css").cache[".ata__panel {\n  margin: 10px 20px;\n}\n.ata__panel .ata__cat {\n  margin: 0 0 5px -20px;\n  padding: 10px 15px;\n  background-color: #3b3b3b;\n  border-color: #ddd;\n  border-radius: 4px;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.ata__panel .ata__cat > .fa {\n  color: #fff;\n  font-weight: bold;\n  font-size: 16px;\n}\n.ata__panel .ata__cat > .title,\n.ata__panel .ata__cat .slectr,\n.ata__panel .ata__cat .counter {\n  color: #fff;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 16px;\n}\n.ata__panel .readySell {\n  border-left: 8px solid #8dc63f;\n}\n.ata__panel .holdSell {\n  border-left: 8px solid #c2c2c2;\n}\n"] = false
     document.head.removeChild(__vueify_style__)
@@ -10913,7 +10913,101 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],19:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert(".team__panel {\n  margin: 10px 20px;\n}\n.team__panel .team__cat {\n  margin: 0 0 5px -20px;\n  padding: 10px 15px;\n  background-color: #3b3b3b;\n  border-color: #ddd;\n  border-radius: 4px;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.team__panel .team__cat > .fa {\n  color: #fff;\n  font-weight: bold;\n  font-size: 16px;\n}\n.team__panel .team__cat > .title,\n.team__panel .team__cat .slectr,\n.team__panel .team__cat .counter {\n  color: #fff;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 16px;\n}\n.team__panel .readySell {\n  border-left: 8px solid #8dc63f;\n}\n.team__panel .holdSell {\n  border-left: 8px solid #c2c2c2;\n}\n")
+var __vueify_style__ = require("vueify-insert-css").insert(".ata__panel {\n  margin: 10px 20px;\n}\n.ata__panel .ata__cat {\n  margin: 0 0 5px -20px;\n  padding: 10px 15px;\n  background-color: #3b3b3b;\n  border-color: #ddd;\n  border-radius: 4px;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.ata__panel .ata__cat > .fa {\n  color: #fff;\n  font-weight: bold;\n  font-size: 16px;\n}\n.ata__panel .ata__cat > .title,\n.ata__panel .ata__cat .slectr,\n.ata__panel .ata__cat .counter {\n  color: #fff;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 16px;\n}\n.ata__panel .readySell {\n  border-left: 8px solid #8dc63f;\n}\n.ata__panel .holdSell {\n  border-left: 8px solid #c2c2c2;\n}\n")
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    props: ['project'],
+    data: function data() {
+        return {
+            atas: [],
+            parts: [],
+            show: false
+        };
+    },
+
+    computed: {},
+    created: function created() {
+        this.fetchAtasList();
+        this.fetchPartsList();
+    },
+    methods: {
+        fetchAtasList: function fetchAtasList() {
+            var path = '/api/project/' + this.project + '/atalist';
+            this.$http.get(path, (function (atas) {
+                _.each(atas, function (ata) {
+                    ata.show = false;
+                });
+                this.atas = atas;
+            }).bind(this));
+        },
+        fetchPartsList: function fetchPartsList() {
+            var path = '/api/project/' + this.project + '/scopeslist';
+            this.$http.get(path, (function (parts) {
+                this.parts = parts;
+            }).bind(this));
+        },
+        clkBox: function clkBox(lvl, event) {
+            var path = '/api/project/' + this.project + '/package/' + lvl;
+            this.$http.post(path, function (data, status, request) {
+                console.log('Success');
+            }).error((function (data, status, request) {
+                console.log(data);
+            }).bind(this));
+            location.reload();
+        },
+        toggleVisible: function toggleVisible(cat) {
+            alert(cat.show);
+        },
+        toggleInProject: function toggleInProject(part, category) {
+            this.$http.patch('/api/project/togglepart/' + part.id, function (data, status, request) {
+                if (part.in_project === true) {
+                    category.in_project++;
+                } else {
+                    category.in_project--;
+                }
+                console.log('Success');
+            }).error((function (data, status, request) {
+                console.log(data);
+            }).bind(this));
+        },
+        toggleWithSerial: function toggleWithSerial(part) {
+            if (part.msn.length > 0) {
+                part.can_sell = true;
+                part.in_project = true;
+            } else {
+                part.can_sell = false;
+            }
+            this.$http.patch('/api/project/togglemsn', part, function (data, status, request) {
+                console.log('Success');
+            }).error((function (data, status, request) {
+                console.log(data);
+            }).bind(this));
+        }
+    }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"ata__panel\" v-for=\"cat in atas\">\n        <div class=\"ata__cat\">\n            <i class=\"fa fa-caret-right\" v-show=\"!cat.show\"></i>\n            <i class=\"fa fa-caret-down\" v-show=\"cat.show\"></i>\n            <span class=\"title\" @click=\"cat.show = ! cat.show\">\n                {{cat.ATA}}\n            </span>\n            <span class=\"counter pull-right\">\n                {{cat.in_project}} of {{cat.ata_total}}\n            </span>\n        </div>\n        <div class=\"ata__table\" v-show=\"cat.show\">\n            <table class=\"table table-striped table-condensed\">\n                <tbody><tr>\n                    <th style=\"width:5%;\">Include</th>\n                    <th style=\"width:15%;\">Part #</th>\n                    <th style=\"width:55%;\">Part</th>\n                    <th style=\"width:25%;\">Serial #</th>\n                </tr>\n                <tr v-for=\"item in parts|filterBy cat.chapter in 'ATA'\">\n                    <td class=\"text-center\" :class=\"{ readySell: !!item.can_sell, holdSell: !item.can_sell &amp;&amp; !!item.in_project }\" style=\"vertical-align: middle;\">\n                        <input type=\"checkbox\" id=\"in_project\" name=\"in_project\" v-model=\"item.in_project\" @change=\"toggleInProject(item, cat)\">\n                    </td>\n                    <td style=\"vertical-align: middle;\">\n                        {{item.part.base_part_number}}\n                    </td>\n                    <td style=\"vertical-align: middle;\">\n                        {{item.part.description|capitalize}}\n                    </td>\n                    <td>\n                        <input type=\"text\" class=\"form-control\" v-model=\"item.msn\" @change=\"toggleWithSerial(item)\">\n                    </td>\n                </tr>\n            </tbody></table>\n        </div>\n    </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/Users/jgravois/Documents/Code/AeroEco/aeroeco/resources/assets/js/components/Scope.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache[".ata__panel {\n  margin: 10px 20px;\n}\n.ata__panel .ata__cat {\n  margin: 0 0 5px -20px;\n  padding: 10px 15px;\n  background-color: #3b3b3b;\n  border-color: #ddd;\n  border-radius: 4px;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.ata__panel .ata__cat > .fa {\n  color: #fff;\n  font-weight: bold;\n  font-size: 16px;\n}\n.ata__panel .ata__cat > .title,\n.ata__panel .ata__cat .slectr,\n.ata__panel .ata__cat .counter {\n  color: #fff;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 16px;\n}\n.ata__panel .readySell {\n  border-left: 8px solid #8dc63f;\n}\n.ata__panel .holdSell {\n  border-left: 8px solid #c2c2c2;\n}\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],20:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert(".team__panel {\n  margin: 10px 20px;\n}\n.team__panel .team__cat {\n  margin: 0 0 5px -20px;\n  padding: 10px 15px;\n  background-color: #3b3b3b;\n  border-color: #ddd;\n  border-radius: 4px;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.team__panel .team__cat > .fa {\n  color: #fff;\n  font-weight: bold;\n  font-size: 16px;\n}\n.team__panel .team__cat > .title,\n.team__panel .team__cat .slectr,\n.team__panel .team__cat .counter {\n  color: #fff;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 16px;\n}\n.readySell {\n  border-left: 8px solid #8dc63f;\n}\n.holdSell {\n  border-left: 8px solid #c2c2c2;\n}\n")
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10949,18 +11043,21 @@ exports.default = {
             this.$http.get(path, (function (techs) {
                 this.techs = techs;
             }).bind(this));
+        },
+        teamChange: function teamChange(obj) {
+            alert(obj.team_id);
         }
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"team__panel\" v-for=\"cat in teams\">\n        <div class=\"team__cat\">\n            <i class=\"fa fa-caret-right\" v-show=\"!cat.show\"></i>\n            <i class=\"fa fa-caret-down\" v-show=\"cat.show\"></i>\n            <span class=\"title\" @click=\"cat.show = ! cat.show\">\n                {{cat.team_name}} ({{cat.members.length}})\n            </span>\n            <span class=\"counter pull-right\">\n                Leader: {{cat.leader.firstname}}&nbsp;{{cat.leader.lastname}}\n            </span>\n        </div>\n        <div class=\"team__table\" v-show=\"cat.show\">\n            <table class=\"table table-striped table-condensed\">\n                <tbody><tr>\n                    <th style=\"width:40%;\">Name</th>\n                    <th style=\"width:30%;\">Title</th>\n                    <th style=\"width:30%;\">Phone</th>\n                </tr>\n                <tr v-for=\"item in cat.members|orderBy 'lastname'\">\n                    <td style=\"vertical-align: middle;\">\n                        {{item.firstname|capitalize}}&nbsp;{{item.lastname|capitalize}}\n                    </td>\n                    <td style=\"vertical-align: middle;\">\n                        {{item.title|capitalize}}\n                    </td>\n                    <td>\n                        {{item.phone|phone}}\n                    </td>\n                </tr>\n            </tbody></table>\n        </div>\n    </div>\n    <pre style=\"display:none;\">{{teams|json}}</pre>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"team__panel\" v-for=\"cat in teams\">\n        <div class=\"team__cat\">\n            <i class=\"fa fa-caret-right\" v-show=\"!cat.show\"></i>\n            <i class=\"fa fa-caret-down\" v-show=\"cat.show\"></i>\n            <span class=\"title\" @click=\"cat.show = ! cat.show\">\n                {{cat.team_name}} ({{cat.members.length}})\n            </span>\n            <span class=\"counter pull-right\">\n                Leader: {{cat.leader.firstname}}&nbsp;{{cat.leader.lastname}}\n            </span>\n        </div>\n        <div class=\"team__table\" v-show=\"cat.show\">\n            <table class=\"table table-striped table-condensed\">\n                <tbody><tr>\n                    <th style=\"width:40%;\">Name</th>\n                    <th style=\"width:20%;\">Title</th>\n                    <th style=\"width:20%;\">Phone</th>\n                    <th style=\"width:20%;\">Team</th>\n                </tr>\n                <tr v-for=\"item in cat.members|orderBy 'lastname'\">\n                    <td style=\"vertical-align: middle;\">\n                        {{item.firstname|capitalize}}&nbsp;{{item.lastname|capitalize}}\n                    </td>\n                    <td style=\"vertical-align: middle;\">\n                        {{item.title|capitalize}}\n                    </td>\n                    <td>\n                        {{item.phone|phone}}\n                    </td>\n                    <td>\n                        <select class=\"form-control\" name=\"team_id\" id=\"team_id\" v-on=\"change: teamChange(item)\" v-model=\"item.team_id\">\n                            <option value=\"{{t.id}}\" v-for=\"t in teams\">{{t.team_name}}</option>\n                        </select>\n                    </td>\n                </tr>\n            </tbody></table>\n        </div>\n    </div>\n    <pre style=\"display:none;\">{{teams|json}}</pre>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/Technicians.vue"
+  var id = "/Users/jgravois/Documents/Code/AeroEco/aeroeco/resources/assets/js/components/Technicians.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache[".team__panel {\n  margin: 10px 20px;\n}\n.team__panel .team__cat {\n  margin: 0 0 5px -20px;\n  padding: 10px 15px;\n  background-color: #3b3b3b;\n  border-color: #ddd;\n  border-radius: 4px;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.team__panel .team__cat > .fa {\n  color: #fff;\n  font-weight: bold;\n  font-size: 16px;\n}\n.team__panel .team__cat > .title,\n.team__panel .team__cat .slectr,\n.team__panel .team__cat .counter {\n  color: #fff;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 16px;\n}\n.team__panel .readySell {\n  border-left: 8px solid #8dc63f;\n}\n.team__panel .holdSell {\n  border-left: 8px solid #c2c2c2;\n}\n"] = false
+    require("vueify-insert-css").cache[".team__panel {\n  margin: 10px 20px;\n}\n.team__panel .team__cat {\n  margin: 0 0 5px -20px;\n  padding: 10px 15px;\n  background-color: #3b3b3b;\n  border-color: #ddd;\n  border-radius: 4px;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.team__panel .team__cat > .fa {\n  color: #fff;\n  font-weight: bold;\n  font-size: 16px;\n}\n.team__panel .team__cat > .title,\n.team__panel .team__cat .slectr,\n.team__panel .team__cat .counter {\n  color: #fff;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 16px;\n}\n.readySell {\n  border-left: 8px solid #8dc63f;\n}\n.holdSell {\n  border-left: 8px solid #c2c2c2;\n}\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -10969,7 +11066,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],20:[function(require,module,exports){
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],21:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert(".panel {\n  -webkit-box-shadow: 3px 3px 5px 0px #777;\n  -moz-box-shadow: 3px 3px 5px 0px #777;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.progress {\n  margin-bottom: 0;\n  background-color: #aaa;\n}\n.progress-bar-adc {\n  background-color: #f35958;\n  color: #fff;\n}\n")
 'use strict';
 
@@ -11003,7 +11100,7 @@ if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/Users/jgravois/Ventures/aeroeco/resources/assets/js/components/widgets/Projects.vue"
+  var id = "/Users/jgravois/Documents/Code/AeroEco/aeroeco/resources/assets/js/components/widgets/Projects.vue"
   module.hot.dispose(function () {
     require("vueify-insert-css").cache[".panel {\n  -webkit-box-shadow: 3px 3px 5px 0px #777;\n  -moz-box-shadow: 3px 3px 5px 0px #777;\n  box-shadow: 3px 3px 5px 0px #777;\n}\n.progress {\n  margin-bottom: 0;\n  background-color: #aaa;\n}\n.progress-bar-adc {\n  background-color: #f35958;\n  color: #fff;\n}\n"] = false
     document.head.removeChild(__vueify_style__)
@@ -11014,7 +11111,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],21:[function(require,module,exports){
+},{"vue":11,"vue-hot-reload-api":2,"vueify-insert-css":12}],22:[function(require,module,exports){
 'use strict';
 
 var _Alert = require('./components/Alert.vue');
@@ -11044,6 +11141,10 @@ var _Parts2 = _interopRequireDefault(_Parts);
 var _Projects = require('./components/widgets/Projects.vue');
 
 var _Projects2 = _interopRequireDefault(_Projects);
+
+var _Scope = require('./components/Scope.vue');
+
+var _Scope2 = _interopRequireDefault(_Scope);
 
 var _Technicians = require('./components/Technicians.vue');
 
@@ -11095,6 +11196,7 @@ new Vue({
         Notificator: _Notificator2.default,
         Parts: _Parts2.default,
         Projects: _Projects2.default,
+        Scope: _Scope2.default,
         Technicians: _Technicians2.default
     },
     ready: function ready() {
@@ -11102,6 +11204,6 @@ new Vue({
     }
 });
 
-},{"./components/Alert.vue":13,"./components/Engines.vue":14,"./components/Locationsco.vue":15,"./components/Messenger.vue":16,"./components/Notificator.vue":17,"./components/Parts.vue":18,"./components/Technicians.vue":19,"./components/widgets/Projects.vue":20,"vue":11,"vue-resource":4}]},{},[21]);
+},{"./components/Alert.vue":13,"./components/Engines.vue":14,"./components/Locationsco.vue":15,"./components/Messenger.vue":16,"./components/Notificator.vue":17,"./components/Parts.vue":18,"./components/Scope.vue":19,"./components/Technicians.vue":20,"./components/widgets/Projects.vue":21,"vue":11,"vue-resource":4}]},{},[22]);
 
 //# sourceMappingURL=main.js.map

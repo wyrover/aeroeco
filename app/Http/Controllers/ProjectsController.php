@@ -263,9 +263,11 @@ class ProjectsController extends ApiController
         return redirect()->action('ProjectsController@summary', ['project' => $id]);
     } // end store_parts function
 
-    public function summary()
+    public function summary($id)
     {
-        return view('projects.summary');
+        $project = Project::with($this->related)->findOrFail($id);
+        //return $project;
+        return view('projects.summary', compact('project'));
     } // end summary function
 
     public function store_summary(Request $request)
@@ -306,6 +308,15 @@ class ProjectsController extends ApiController
     {
         return ProjectPart::with('condition', 'part')
             ->where('project_id', $id)
+            ->orderBy('ATA')
+            ->get();
+    } // end partsList function
+
+    public function scopesList($id)
+    {
+        return ProjectPart::with('condition', 'part')
+            ->where('project_id', $id)
+            ->where('in_project')
             ->orderBy('ATA')
             ->get();
     } // end partsList function

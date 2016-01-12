@@ -4,7 +4,6 @@
 
 @section('content')
     <h3>WorkScopes</h3>
-    {{$scopes}}
 @endsection
 
 @section('footer')

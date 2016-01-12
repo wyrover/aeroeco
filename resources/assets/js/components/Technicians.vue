@@ -14,8 +14,9 @@
             <table class="table table-striped table-condensed">
                 <tr>
                     <th style="width:40%;">Name</th>
-                    <th style="width:30%;">Title</th>
-                    <th style="width:30%;">Phone</th>
+                    <th style="width:20%;">Title</th>
+                    <th style="width:20%;">Phone</th>
+                    <th style="width:20%;">Team</th>
                 </tr>
                 <tr v-for="item in cat.members|orderBy 'lastname'">
                     <td style="vertical-align: middle;">
@@ -27,6 +28,11 @@
                     <td>
                         {{item.phone|phone}}
                     </td>
+                    <td>
+                        <select class="form-control" name="team_id" id="team_id" v-on="change: teamChange(item)" v-model="item.team_id">
+                            <option value="{{t.id}}" v-for="t in teams">{{t.team_name}}</option>
+                        </select>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -37,25 +43,28 @@
     .team__panel {
         margin: 10px 20px;
 
-    .team__cat {
-        margin: 0 0 5px -20px;
-        padding: 10px 15px;
-        background-color: rgb(59,59,59);
-        border-color: #ddd;
-        border-radius: 4px;
-        box-shadow: 3px 3px 5px 0px #777;
+        .team__cat {
+            margin: 0 0 5px -20px;
+            padding: 10px 15px;
+            background-color: rgb(59, 59, 59);
+            border-color: #ddd;
+            border-radius: 4px;
+            box-shadow: 3px 3px 5px 0px #777;
 
-    > .fa {
-          color: #FFFFFF;
-          font-weight: bold;
-          font-size: 16px;
-      }
-    > .title, .slectr, .counter {
-          color: #FFFFFF;
-          cursor: pointer;
-          font-weight: bold;
-          font-size: 16px;
-      }
+        > .fa {
+        color: #FFFFFF;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+        >  .title, .slectr, .counter {
+        color: #FFFFFF;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+        }
     }
 
     .readySell {
@@ -63,7 +72,6 @@
     }
     .holdSell {
         border-left: 8px solid rgb(194,194,194);
-    }
     }
 </style>
 <script type="text/babel">
@@ -96,6 +104,9 @@
                 this.$http.get(path, function(techs) {
                     this.techs = techs;
                 }.bind(this));
+            },
+            teamChange: function(obj) {
+                alert(obj.team_id);
             }
         }
     };

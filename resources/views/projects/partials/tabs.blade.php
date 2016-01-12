@@ -9,9 +9,9 @@
         <li class="{{ Ekko::isActiveMatch('engines') }}">
             <a href="/projects/{{$project->id or 1}}/engines">Engines</a>
         </li>
-        <li class="{{ Ekko::isActiveMatch('inventory') }}">
+        <!--<li class="{{ Ekko::isActiveMatch('inventory') }}">
             <a href="/projects/{{$project->id or 1}}/inventory">Inventory</a>
-        </li>
+        </li>-->
         <li class="{{ Ekko::isActiveMatch('scope') }}">
             <a href="/projects/{{$project->id or 1}}/scope">Scope</a>
         </li>

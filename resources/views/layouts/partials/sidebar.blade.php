@@ -21,6 +21,7 @@
             <ul class="nav-pills nav-stacked" style="list-style-type:none;">
                 <li><a href="/auctions"><span class="fa-stack fa-lg pull-left"><i class="fa fa-hourglass fa-stack-1x"></i></span>Auctions</a></li>
                 <li><a href="/market"><span class="fa-stack fa-lg pull-left"><i class="fa fa-credit-card fa-stack-1x"></i></span>ADC Market</a></li>
+                <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-list-alt fa-stack-1x"></i></span>WishList</a></li>
             </ul>
         </li>
     @endif
@@ -32,6 +33,8 @@
                 <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-lock fa-stack-1x "></i></span> COMPANY ADMIN</a>
                 <ul class="nav-pills nav-stacked" style="list-style-type:none;">
                     <li><a href="/companies/{{Auth::user()->company_id}}/profile"><span class="fa-stack fa-lg pull-left"><i class="fa fa-pencil-square fa-stack-1x"></i></span>Edit Profile</a></li>
+                    <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-newspaper-o fa-stack-1x"></i></span>Subscription</a></li>
+                    <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-pie-chart fa-stack-1x"></i></span>Analytics</a></li>
                 </ul>
             </li>
         @endif
@@ -42,6 +45,7 @@
                 <ul class="nav-pills nav-stacked" style="list-style-type:none;">
                     <li><a href="/techs"><span class="fa-stack fa-lg pull-left"><i class="fa fa-users fa-stack-1x"></i></span>Personnel</a></li>
                     <li><a href="/workscopes"><span class="fa-stack fa-lg pull-left"><i class="fa fa-line-chart fa-stack-1x"></i></span>WorkScopes</a></li>
+                    <li><a href="/workscopes"><span class="fa-stack fa-lg pull-left"><i class="fa fa-calendar fa-stack-1x"></i></span>Arrivals</a></li>
                 </ul>
             </li>
         @endif

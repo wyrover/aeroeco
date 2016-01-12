@@ -14,7 +14,8 @@
         "genealabs/laravel-caffeine": "~0.2",
         "intervention/image": "^2.3",
         "aloha/twilio": "^2.0",
-        "laravelista/ekko": "^1.0"
+        "laravelista/ekko": "^1.0",
+        "regulus/activity-log": "^0.5.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

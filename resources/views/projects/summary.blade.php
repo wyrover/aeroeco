@@ -15,10 +15,14 @@
             'class' => 'form',
             'novalidate' => 'novalidate'
         ]) !!}
-        {{--@include('projects.partials.forms.summary')--}}
+        @include('projects.partials.forms.summary')
         <div class="row">
             <div class="col-md-12" style="text-align: right;">
-                <button class="btn btn-uam">Submit Project for Approval</button>
+                @if($project->is_submitted)
+                    <span>Project Submitted: {{$project->project_submission_date->format('m/d/Y')}}</span>
+                @else
+                    <button class="btn btn-uam">Submit Project for Approval</button>
+                @endif
             </div>
         </div>
         {!! Form::close() !!}

@@ -131,6 +131,7 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register/{tier}', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+Route::post('register', 'AjaxController@trialRegister');
 
 // Password reset link request routes...
 Route::get('password/email', 'Auth\PasswordController@getEmail');
@@ -196,6 +197,18 @@ Route::group(['prefix' => 'test/'], function() {
         tweet('2', 'Dude, why are you sending yourself a message? Are you some kind of freak? Oh, you are just testing.');
         return 'Message Saved!';
     });
+    Route::get('systemic', function() {
+        $user = Auth::user();
+        Activity::log([
+            'contentId'   => null,
+            'contentType' => 'User',
+            'action'      => 'LogIn',
+            'description' => 'Logged In',
+            'details'     => 'Username: '.$user->fullname,
+            'updated'     => (bool) $user->id,
+        ]);
+        return 'Activity logged';
+    });
     Route::get('welcome_page', function () {
         flash()->overlay('Hello, World!', 'This is the message');
         return view('pages.welcome');
@@ -211,10 +224,14 @@ Route::group(['prefix' => 'api/'], function () {
     Route::get('project/{id}/enginelist', 'ProjectEnginesController@listByProject');
     Route::get('project/{id}/atalist', 'ProjectsController@ataList');
     Route::get('project/{id}/partslist', 'ProjectsController@partsList');
+    Route::get('project/{id}/scopeslist', 'ProjectsController@scopesList');
     Route::any('project/togglepart/{partID}', 'ProjectsController@togglePartInProject');
     Route::any('project/togglemsn', 'ProjectsController@togglemsn');
     Route::any('project/{projectID}/package/{packageID}', 'ProjectsController@applyPackage');
     Route::get('projects/user/{id}/projectslist', 'ProjectsController@listByUser');
+
+    Route::get('globals', 'AjaxController@fetchGlobals');
+
     Route::resource('addresses', 'AddressesController');
     Route::resource('aircrafts', 'AircraftsController');
     Route::resource('atas', 'AtasController');

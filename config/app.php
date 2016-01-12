@@ -57,6 +57,7 @@ return [
         Laravelista\Ekko\EkkoServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
+        Regulus\ActivityLog\ActivityLogServiceProvider::class,
     ],
     'aliases' => [
         'App'       => Illuminate\Support\Facades\App::class,
@@ -95,6 +96,7 @@ return [
         /*
          * User Added Facades...
          */
+        'Activity'  => Regulus\ActivityLog\Models\Activity::class,
         'Ekko'      => Laravelista\Ekko\Facades\Ekko::class,
         'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
         'Form'      => Collective\Html\FormFacade::class,

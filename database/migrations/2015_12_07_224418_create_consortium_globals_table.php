@@ -21,6 +21,7 @@ class CreateConsortiumGlobalsTable extends Migration
             $table->string('phone');
             $table->string('fax');
             $table->string('corporation_type');
+            $table->string('url');
         });
     }
 

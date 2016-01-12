@@ -18,7 +18,8 @@ class ConsortiumGlobalsTableSeeder extends Seeder
                 'address2' => 'Memphis, TN 38119',
                 'phone' => '9016824064',
                 'fax' => '9012021042',
-                'corporation_type' => 'Tennessee'
+                'corporation_type' => 'Tennessee',
+                'url' => 'www.eco.local'
             ]
         ];
 

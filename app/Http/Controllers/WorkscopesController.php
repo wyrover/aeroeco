@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\ProjectPart;
 use App\Models\Workscope;
 use App\Models\Workticket;
@@ -80,8 +81,9 @@ class WorkscopesController extends ApiController
 
     public function listByProject($projectID)
     {
+        $project = Project::where('id', $projectID)->first();
         $tickets = [];
-        return view('tickets.list', compact('tickets'));
+        return view('tickets.list', compact('project', 'tickets'));
     } // end listByProject function
     
 }
