@@ -22,6 +22,7 @@ class CompaniesController extends ApiController
         $this->records = $records;
         $this->related = [
             'addresses',
+            'admin',
             'contacts.type',
             'locations',
 //            'messages',

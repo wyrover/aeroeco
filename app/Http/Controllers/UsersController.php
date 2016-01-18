@@ -15,7 +15,7 @@ class UsersController extends ApiController
     public function __construct(User $records)
     {
         $this->records = $records;
-        $this->related = ['company.contacts.type', 'manager', 'notifications.type'];
+        $this->related = ['company.admin', 'company.contacts.type', 'manager', 'notifications.type'];
     }
 
     public function index()
@@ -74,4 +74,10 @@ class UsersController extends ApiController
     {
         return view('user.preferences');
     }
+
+    public function getByEmail($email)
+    {
+        $record = User::with($this->related)->where('email', $email)->first();
+        return $record;
+    } // end getByEmail function
 }

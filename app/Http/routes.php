@@ -229,6 +229,7 @@ Route::group(['prefix' => 'api/'], function () {
     Route::any('project/togglemsn', 'ProjectsController@togglemsn');
     Route::any('project/{projectID}/package/{packageID}', 'ProjectsController@applyPackage');
     Route::get('projects/user/{id}/projectslist', 'ProjectsController@listByUser');
+    Route::get('users/email/{email}', 'UsersController@getByEmail');
 
     Route::get('globals', 'AjaxController@fetchGlobals');
 

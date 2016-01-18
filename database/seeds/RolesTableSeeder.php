@@ -21,7 +21,7 @@ class RolesTableSeeder extends Seeder
                 'role' => 'SysExec'
             ],
             [
-                'role' => 'CoAdmin'
+                'role' => 'CompanyAdmin'
             ],
             [
                 'role' => 'TechAdmin'
@@ -52,6 +52,21 @@ class RolesTableSeeder extends Seeder
             ],
             [
                 'role' => 'Vendor'
+            ],
+            [
+                'role' => 'Company Captain'
+            ],
+            [
+                'role' => 'Company First Officer'
+            ],
+            [
+                'role' => 'Company Engineer'
+            ],
+            [
+                'role' => 'Company Crew'
+            ],
+            [
+                'role' => 'Company Deadheader'
             ]
         ];
 
